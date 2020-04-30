@@ -1,0 +1,141 @@
+#ifndef HEADER_FENPRINCIPALE
+#define HEADER_FENPRINCIPALE
+#include <QComboBox>
+#include <QSpinBox>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QGroupBox>
+#include <QRadioButton>
+#include <QLineEdit>
+#include <QDoubleSpinBox>
+#include <QMenu>
+#include <QMenuBar>
+#include <QAction>
+#include <QGridLayout>
+#include <time.h>
+//#include "operations_genetiques.h"
+//#include "EntreesSorties.h"
+using namespace std;
+class FenPrincipale : public QWidget
+{
+  Q_OBJECT
+public:
+    FenPrincipale();
+public slots:
+    void connectConfiguration();
+    /*void connectReConfiguration();
+    void connectSauvegarde();
+    void connectChargement();
+    void connectLancement();
+    void connectPause();
+    void connectReprendre();
+    void connectAcceuil();
+    void connectAide();
+    void connectQuitter();
+    void connectConsulter();*/
+
+private :
+  //  vector<individu> individus;
+    //QSpinBox *nombre_genes;
+     //QSpinBox *taille_population;
+     //QSpinBox *nombre_iterations;
+     //QSpinBox *nombre_individu_selectionnes;
+       //  QDoubleSpinBox* taux_croisement;
+         // QDoubleSpinBox* taux_mutation;
+
+    //QPushButton *configurer;
+    //QPushButton *sauvegarder;
+     //QPushButton *charger;
+      // QPushButton *demarrer_simulation;
+       QPushButton *pause;
+       QPushButton *reprendre;
+       // QPushButton *reconfigurer;
+         //QPushButton *acceuil;
+          //QPushButton *aide;
+          // QPushButton *quitter;
+            QPushButton *consulter;
+
+
+    QVBoxLayout *layout_nombre_genes;
+     QVBoxLayout *layout_taille_population;
+      QVBoxLayout *layout_nombre_iterations;
+      QVBoxLayout *layout_nombre_individu_selectionnes;
+      QVBoxLayout *layout_type_genes;
+        QVBoxLayout *layout_type_genes_principale;
+        QVBoxLayout *layout_choix_selection;
+        QVBoxLayout *layout_maximisation_minimisation;
+          QVBoxLayout *layout_maximisation_minimisation_principale;
+          QVBoxLayout *layout_chaine_evaluation;
+          QVBoxLayout *layout_min_intervalle;
+          QVBoxLayout *layout_max_intervalle;
+           QVBoxLayout *layout_generation_satisfaisante;
+           QVBoxLayout *layout_taux_croisement;
+            QVBoxLayout *layout_taux_mutation;
+            //QVBoxLayout *layout_nom_fichier_sauvegarde;
+             QVBoxLayout *layout_nom_fichier_latex;
+             //QVBoxLayout *layout_nom_fichier_chargement;
+
+     QHBoxLayout *layout_configurer;
+     //QHBoxLayout *layout_sauvegarder;
+     //QHBoxLayout *layout_charger;
+
+      QHBoxLayout *layout_demarrer_simulation;
+      QHBoxLayout *layout_pause;
+       QHBoxLayout *layout_reprendre;
+       QHBoxLayout *layout_reconfigurer;
+       QHBoxLayout *layout_acceuil;
+       QHBoxLayout *layout_aide;
+       QHBoxLayout *layout_quitter;
+       QHBoxLayout *layout_consulter;
+
+
+
+QGridLayout* Layout_conteneur;
+
+     QLabel *label_nombre_genes;
+QLabel *label_taille_population;
+QLabel *label_nombre_iterations;
+QLabel *label_nombre_individu_selectionnes;
+QLabel *label_choix_selection;
+QLabel *label_chaine_evaluation;
+QLabel *label_min_intervalle;
+QLabel *label_max_intervalle;
+QLabel *label_generation_satisfaisante;
+ QLabel *label_taux_croisement;
+ QLabel *label_taux_mutation;
+ // QLabel *label_nom_fichier_sauvegarde;
+    QLabel *label_nom_fichier_latex;
+     QLabel *label_nom_fichier_chargement;
+      QLabel *label_sauvegarder;
+     QLabel *label_charger;
+       QLabel *label_demarrer_simulation;
+       QLabel *label_pause;
+        QLabel *label_reprendre;
+        QLabel *label_reconfigurer;
+         QLabel *label_acceuil;
+           QLabel *label_aide;
+           QLabel *label_quitter;
+            QLabel *label_consulter;
+
+QGroupBox* type_genes;
+   QRadioButton* entier;
+   QRadioButton* flottant;
+   QRadioButton* binaire;
+
+   QGroupBox* maximisation_minimisation;
+      QRadioButton* maximisation;
+      QRadioButton* minimisation;
+
+QComboBox* choix_selection;
+
+QLineEdit* chaine_evaluation;
+QLineEdit* min_intervalle;
+QLineEdit* max_intervalle;
+QLineEdit* generation_satisfaisante;
+//QLineEdit* nom_fichier_sauvegarde;
+QLineEdit* nom_fichier_latex;
+QLineEdit* nom_fichier_chargement;
+};
+
+#endif
