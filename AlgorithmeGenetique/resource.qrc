@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+
+     	<file>algo.jpg</file>
+    </qresource>
+</RCC>

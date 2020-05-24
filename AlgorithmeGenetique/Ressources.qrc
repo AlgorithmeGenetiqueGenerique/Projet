@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/imgs">
+        <file>OP//images/save_as.png</file>
+        <file>OP/images/save.png</file>
+        <file>OP/images/print.png</file>
+        <file>OP/images/paste.png</file>
+        <file>OP/images/open.png</file>
+        <file>OP/images/new.png</file>
+        <file>OP/images/exit.png</file>
+        <file>OP/images/edit_undo.png</file>
+        <file>OP/images/edit_redo.png</file>
+        <file>OP/images/cut.png</file>
+        <file>OP/images/create.png</file>
+        <file>OP/images/copy.png</file>
+        <file>Queen/queen.png</file>
+        <file>Manuel.pdf</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>OP/images/underline.png</file>
+        <file>OP/images/italic.png</file>
+        <file>OP/images/font.png</file>
+        <file>OP/images/bold.png</file>
+    </qresource>
+</RCC>
