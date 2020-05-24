@@ -7,10 +7,13 @@ operationsGenetiques::operationsGenetiques(std::vector<individu>* individus, int
 }
 
 void operationsGenetiques::selectionParRang(){
-	int taille_population = individus->size();
-	triFusion(0, taille_population-1);
-	for (int i = nmbr_indiv_a_selec; i< taille_population ; i++)
-	individus->erase(individus->begin() + i);
+    int taille_population = individus->size();
+    triFusion(0, taille_population-1);
+
+    for (int i = taille_population-1; i>=nmbr_indiv_a_selec ; i--)
+    {
+        individus->erase(individus->begin() + i);
+    }
 }
 
 void operationsGenetiques::selectionParRoulette()
