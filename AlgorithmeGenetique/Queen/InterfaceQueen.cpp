@@ -1,9 +1,9 @@
 ﻿#include "InterfaceQueen.h"
 #include "bouton.h"
 #include "./../mainwindow1.h"
-#include <unistd.h>
+
 #include <QDebug>
-#include <unistd.h>
+
 #include <QTextEdit>
 #include <QCheckBox>
 #include <QLineEdit>
