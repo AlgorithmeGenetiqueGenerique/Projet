@@ -225,6 +225,7 @@ void ModelisationPrblm::on_pushButton_6_clicked()//----
 
 void ModelisationPrblm::onTxtEdt(int j)//Thread
 {
+    if (arret) thrd->Stop=true;
     if(arret)
         ui->pushButton_4->setEnabled(true);
 
@@ -343,18 +344,10 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
             ui->textBrowser->insertPlainText("\n");
         }
             compteur_generation++;
-            if (arret) thrd->Stop=true;
-            //op.tri_fusion_decroissant(&individus, 0, individus.size()-1);
-            if ((ee->getTypeGenes() == 1) || (ee->getTypeGenes() == 3))
-                for(int i= 0; i< individus.size(); i++)
-                {
-                    //ui->textBrowser->insertPlainText(QString::number( individus[i].getNoteEvaluation()));
-                    //ui->textBrowser->insertPlainText("\n");
-                }
 
-            //else if (ee.getTypeGenes() == 2)
-                //for(int i= 0; i< individus.size(); i++)
-                    //cout << individus[i].getNoteEvaluationFlottant()<<endl;
+
+
+
 
  //--------------------------------------------------------------------------------------------
     sb->setValue(sb->maximum());
