@@ -46,6 +46,7 @@ evaluation::evaluation(std::string chaine_evaluation){
 	 flottant = 0.0;
 	 sommet_pile = -1;
 	 caractere = chaine_evaluation[0];
+     erreur=0;
 }
 
 void evaluation::evaluer(individu* individu_x){
@@ -59,9 +60,6 @@ void evaluation::evaluer(individu* individu_x){
 		individu_x->setNoteEvaluationFlottant(depilerFlottants());
 	else if (individu_x->ADN.getTypeGenes() == 3)
 	individu_x->setNoteEvaluation(individu_x->conversionVersBinaire(depiler()));
-	std::cout<<"a = "<<individu_x->ADN.genes_int[0]<<"\n";
-	std::cout<<"b = "<<individu_x->ADN.genes_int[1]<<"\n";
-	std::cout<<"= "<<individu_x->getNoteEvaluation()<<"\n";
 	
 }
 
@@ -123,38 +121,121 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 		if (caractere == 'a')
 			entier = individu_x->ADN.genes_int.at(0);
 		else if (caractere == 'b')
-			entier = individu_x->ADN.genes_int.at(1);
+        {
+            if(individu_x->ADN.getNombreGenes()<2)
+                erreur=1;
+            else
+                entier = individu_x->ADN.genes_int.at(1);
+        }
 		else if (caractere == 'c')
-			entier = individu_x->ADN.genes_int[2];
+        {
+            if(individu_x->ADN.getNombreGenes()<3)
+                erreur=1;
+            else
+                entier = individu_x->ADN.genes_int[2];
+        }
+
 		else if (caractere == 'd')
-			entier = individu_x->ADN.genes_int[3];
+            {
+            if(individu_x->ADN.getNombreGenes()<4)
+                erreur=1;
+            else
+               entier = individu_x->ADN.genes_int[3];
+            }
+
 		else if (caractere == 'w')
-			entier = individu_x->ADN.genes_int[4];
+            {
+            if(individu_x->ADN.getNombreGenes()<5)
+                erreur=1;
+            else
+                entier = individu_x->ADN.genes_int[4];
+            }
+
 		else if (caractere == 'x')
-			entier = individu_x->ADN.genes_int[5];
+            {
+            if(individu_x->ADN.getNombreGenes()<6)
+                erreur=1;
+            else
+                entier = individu_x->ADN.genes_int[5];
+            }
+
 		else if (caractere == 'y')
-			entier = individu_x->ADN.genes_int[6];
+            {
+            if(individu_x->ADN.getNombreGenes()<7)
+                erreur=1;
+            else
+               entier = individu_x->ADN.genes_int[6];
+            }
+
 		else if (caractere == 'z')
-			entier = individu_x->ADN.genes_int[7];
+            {
+            if(individu_x->ADN.getNombreGenes()<8)
+                erreur=1;
+            else
+                entier = individu_x->ADN.genes_int[7];
+            }
+
 			break;
 			}	
 		case 2 : {
 		if (caractere == 'a')
 			flottant = individu_x->ADN.genes_double.at(0);
 		else if (caractere == 'b')
-			flottant = individu_x->ADN.genes_double.at(1);
+        {
+            if(individu_x->ADN.getNombreGenes()<2)
+                erreur=1;
+            else
+                flottant = individu_x->ADN.genes_double.at(1);
+        }
+
 		else if (caractere == 'c')
-			flottant = individu_x->ADN.genes_double[2];
+        {
+           if(individu_x->ADN.getNombreGenes()<3)
+                erreur=1;
+           else
+            flottant = individu_x->ADN.genes_double[2];
+        }
+
 		else if (caractere == 'd')
-			flottant = individu_x->ADN.genes_double[3];
+        {
+            if(individu_x->ADN.getNombreGenes()<4)
+                 erreur=1;
+            else
+                flottant = individu_x->ADN.genes_double[3];
+        }
+
 		else if (caractere == 'w')
-			flottant = individu_x->ADN.genes_double[4];
+        {
+            if(individu_x->ADN.getNombreGenes()<5)
+                 erreur=1;
+            else
+                flottant = individu_x->ADN.genes_double[4];
+        }
+
 		else if (caractere == 'x')
-			flottant = individu_x->ADN.genes_double[5];
+        {
+            if(individu_x->ADN.getNombreGenes()<6)
+                 erreur=1;
+            else
+                flottant = individu_x->ADN.genes_double[5];
+        }
+
 		else if (caractere == 'y')
-			flottant = individu_x->ADN.genes_double[6];
+        {
+            if(individu_x->ADN.getNombreGenes()<7)
+                 erreur=1;
+            else
+                flottant = individu_x->ADN.genes_double[6];
+        }
+
 		else if (caractere == 'z')
-			flottant = individu_x->ADN.genes_double[7];
+        {
+            if(individu_x->ADN.getNombreGenes()<8)
+                 erreur=1;
+            else
+             flottant = individu_x->ADN.genes_double[7];
+        }
+
 			break;
 			}
 			case 3 : {
@@ -1192,3 +1273,8 @@ int evaluation::operationsLogiques(int binaire_1, int binaire_2){
     return resultat;
 	}
 }	
+
+int evaluation::getErreur()
+{
+    return erreur;
+}

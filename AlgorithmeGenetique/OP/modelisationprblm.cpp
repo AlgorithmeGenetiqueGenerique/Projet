@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QtCore>
 #include "../mainwindow1.h"
+#include <QMessageBox>
 
 
 ModelisationPrblm::ModelisationPrblm(QWidget *parent) :
@@ -205,7 +206,17 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     op = new operationsGenetiques(&individus,ee->getMaximisationMinimisation(), ee->getNmbr_indiv_a_selec());
     sb = ui->textBrowser->verticalScrollBar();
     score_totale=0;
-    thrd->start();
+    evaluation evaluation_test = evaluation(ee->getChaineEvaluation());
+    evaluation_test.evaluer(new individu(ee->getMinIntervalle(),ee->getMaxIntervalle(), ee->getNombreGenes(),ee->getTypeGenes()));
+    if(evaluation_test.getErreur())
+    {
+        ui->stackedWidget->setCurrentIndex(0);
+        qDebug()<<"-------->"<<evaluation_test.getErreur();
+        QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nSymbole indisponible"
+                                             "pour le nombre de genes choisi");
+    }
+    else
+     thrd->start();
 
 }
 

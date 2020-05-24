@@ -19,9 +19,10 @@ class evaluation{
 	 void evaluer(individu* individu_x);
      bool testArret(int note_totale, int generation_satisfaisante, int maximisation_minimisation);
      bool testArret(double note_totale, double generation_satisfaisante, int maximisation_minimisation);
+     int getErreur();
 		 
 	private :
-	
+     int erreur;
 	 void analyseSyntaxiqueTypes(individu* individu_x);
 	 void analyseSyntaxique(individu* individu_x);
 	 void identification(individu* individu_x);
