@@ -381,11 +381,7 @@ void ModelisationPrblm::on_pushButton_8_clicked()//reprondre
 void ModelisationPrblm::on_pushButton_7_clicked()//reconfigutrer
 {
     ui->stackedWidget->setCurrentIndex(0);
-    int taille = individus.size();
-    for (int i = taille-1; i>=0 ; i--)
-    {
-        individus.erase(individus.begin() + i);
-    }
+    individus.clear();
 }
 
 
