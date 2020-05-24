@@ -247,12 +247,6 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
             }
             evaluation e = evaluation (ee->getChaineEvaluation());
             if (ee->getTypeGenes() == 1){
-                for(int i= 0; i< individus.size(); i++)
-                {
-                    //ui->textBrowser->insertPlainText(QString::number(individus[i].getNoteEvaluation()));
-                    //ui->textBrowser->insertPlainText("\n");
-                }
-
                 meilleur_premier = individus[0].getNoteEvaluation();
                 score_totale = score_totale/individus.size();
                 arret = e.testArret(score_totale,ee->getGenerationSatisfaisante(), ee->getMaximisationMinimisation());
@@ -260,13 +254,6 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
                 score_total.push_back(score_totale);
             }
             else if (ee->getTypeGenes() == 2){
-                for(int i= 0; i< individus.size(); i++)
-                {
-                    //ui->textBrowser->insertPlainText(QString::number(individus[i].getNoteEvaluationFlottant()));
-                    //ui->textBrowser->insertPlainText("\n");
-                }
-
-
                 meilleur_premier_d = individus[0].getNoteEvaluationFlottant();
                 score_totale_d = score_totale_d/individus.size();
                 arret = e.testArret(score_totale_d,ee->getGenerationSatisfaisanteFlottant(), ee->getMaximisationMinimisation());
@@ -274,11 +261,6 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
                 score_total_d.push_back(score_totale_d);
             }
             else if (ee->getTypeGenes() == 3){
-                for(int i= 0; i< individus.size(); i++)
-                {
-                    //ui->textBrowser->insertPlainText(QString::number(individus[i].getNoteEvaluation()));
-                    //ui->textBrowser->insertPlainText("\n");
-                }
 
                 meilleur_premier = individus[0].getNoteEvaluation();
                 score_totale = individus[0].conversionVersBinaire(score_totale/individus.size());
