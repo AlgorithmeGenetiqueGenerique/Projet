@@ -15,21 +15,23 @@ int main(int argc, char *argv[])
 {        QApplication app(argc, argv);
 
 
-        game = new InterfaceQueen();
-         game->AffichageEchiquier();
+        //game = new InterfaceQueen();
+        // game->AffichageEchiquier();
 
-        QString locale = QLocale::system().name();
-
-
-
-        QTranslator translator;
-
-        translator.load(QString("Accueil") + locale);
-        app.installTranslator(&translator);
+        //QString locale = QLocale::system().name();
 
 
-        MainWindow1 mainWindow1;
-        mainWindow1.show();
+
+        //QTranslator translator;
+
+        //translator.load(QString("Accueil") + locale);
+        //app.installTranslator(&translator);
+
+        ModelisationPrblm rambele;
+       // MainWindow1 mainWindow1;
+        //mainWindow1.show();
+         rambele.show();
+
 
         return app.exec();
 }

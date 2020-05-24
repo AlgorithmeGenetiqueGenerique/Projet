@@ -19,7 +19,3 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_toolButton_Sauvgarder_clicked(bool checked)
-{
-
-}

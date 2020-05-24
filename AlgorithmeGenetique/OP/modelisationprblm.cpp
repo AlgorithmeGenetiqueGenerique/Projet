@@ -168,6 +168,7 @@ ModelisationPrblm::~ModelisationPrblm()
 
 void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
 {
+    chaine_evaluation->setStyleSheet("background-color: white;");
     ui->pushButton_4->setEnabled(false);
     thrd->Stop=false;
     thrd->count=0;
@@ -207,11 +208,16 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     sb = ui->textBrowser->verticalScrollBar();
     score_totale=0;
     evaluation evaluation_test = evaluation(ee->getChaineEvaluation());
-    evaluation_test.evaluer(new individu(ee->getMinIntervalle(),ee->getMaxIntervalle(), ee->getNombreGenes(),ee->getTypeGenes()));
+    if(type==1 || type==3)
+        evaluation_test.evaluer(new individu(ee->getMinIntervalle(),ee->getMaxIntervalle(), ee->getNombreGenes(),ee->getTypeGenes()));
+    else
+        evaluation_test.evaluer(new individu(ee->getMinIntervalleFlottant(),ee->getMaxIntervalleFlottant(), ee->getNombreGenes(),ee->getTypeGenes()));
+
     if(evaluation_test.getErreur())
     {
+        chaine_evaluation->setStyleSheet("background-color: red;");
         ui->stackedWidget->setCurrentIndex(0);
-        qDebug()<<"-------->"<<evaluation_test.getErreur();
+
         QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nSymbole indisponible"
                                              "pour le nombre de genes choisi");
     }

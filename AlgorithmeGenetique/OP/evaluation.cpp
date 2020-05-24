@@ -238,23 +238,65 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 
 			break;
 			}
-			case 3 : {
+        case 3 : {
 		if (caractere == 'a')
 			entier = individu_x->ADN.genes_int.at(0);
 		else if (caractere == 'b')
-			entier = individu_x->ADN.genes_int.at(1);
+        {
+            if(individu_x->ADN.getNombreGenes()<2)
+                 erreur=1;
+            else
+                entier = individu_x->ADN.genes_int.at(1);
+        }
+
 		else if (caractere == 'c')
-			entier = individu_x->ADN.genes_int[2];
+        {
+            if(individu_x->ADN.getNombreGenes()<3)
+                 erreur=1;
+            else
+                entier = individu_x->ADN.genes_int[2];
+        }
+
 		else if (caractere == 'd')
-			entier = individu_x->ADN.genes_int[3];
+        {
+            if(individu_x->ADN.getNombreGenes()<4)
+                 erreur=1;
+            else
+                entier = individu_x->ADN.genes_int[3];
+        }
+
 		else if (caractere == 'w')
-			entier = individu_x->ADN.genes_int[4];
+        {
+            if(individu_x->ADN.getNombreGenes()<5)
+                 erreur=1;
+            else
+                entier = individu_x->ADN.genes_int[4];
+        }
+
 		else if (caractere == 'x')
-			entier = individu_x->ADN.genes_int[5];
+        {
+            if(individu_x->ADN.getNombreGenes()<6)
+                 erreur=1;
+            else
+                entier = individu_x->ADN.genes_int[5];
+        }
+
 		else if (caractere == 'y')
-			entier = individu_x->ADN.genes_int[6];
+        {
+            if(individu_x->ADN.getNombreGenes()<7)
+                 erreur=1;
+            else
+                entier = individu_x->ADN.genes_int[6];
+        }
+
 		else if (caractere == 'z')
-			entier = individu_x->ADN.genes_int[7];
+        {
+            if(individu_x->ADN.getNombreGenes()<8)
+                 erreur=1;
+            else
+                entier = individu_x->ADN.genes_int[7];
+        }
+
 			break;
 			}	
 		}
