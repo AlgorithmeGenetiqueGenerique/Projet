@@ -226,9 +226,7 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
         QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nNombre individu"
                                              "a selectioner inf a la population");
     }
-    else
-        thrd->start();
-    if(evaluation_test.getErreur())
+    else if(evaluation_test.getErreur())
     {
         chaine_evaluation->setStyleSheet("background-color: red;");
         ui->stackedWidget->setCurrentIndex(0);
