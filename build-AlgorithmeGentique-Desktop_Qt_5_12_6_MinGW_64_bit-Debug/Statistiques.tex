@@ -1,0 +1,43 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[frenchb]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\begin{document}
+\\Récapitulatif de la configuration choisie : 
+\\Taille de la population :  204
+\\Type des gène :  Double\\Nombre de gènes :  2
+\\Chaine évaluer :  a+b
+\\Intervalle :  [0.2 , 100.1 ]
+\\La génération satisfaisante :  150
+\\Nombre d'itérations maximum fixé :  50
+\\Type de séléction :  Sélétion par tournoi\\Le taux de croisement :  0.05
+\\Le taux de mutation :  0.7
+\\Nombre d'individus à séléctionné :  190
+\\Convergence : Maximisation
+\\\begin{figure}[h]
+\\\\\begin{tikzpicture}204
+\begin{axis}[xlabel=Numéro génération ,ylabel=Moyenne scores,axis x line=bottom ,axis y line=left]
+\addplot coordinates {
+(0,98.4083) (1,119.855) (2,133.547) (3,151.4) (4,158.88) };
+\end{axis}
+\end{tikzpicture}
+\caption{Graphe représentant l'évolution de la moyenne des scores des individus}
+\end{figure}
+\begin{figure}[h]
+\\\\\begin{tikzpicture}
+\begin{axis}[xlabel=Numéro génération ,ylabel=Meilleur individu,axis x line=bottom ,axis y line=left]
+\addplot coordinates {
+(0,17.5) (1,147.2) (2,70.5) (3,161.9) (4,156.5) };
+\end{axis}
+\end{tikzpicture}
+\caption{Graphe représentant l'évolution des meilleur individus}
+\end{figure}
+\end{document}

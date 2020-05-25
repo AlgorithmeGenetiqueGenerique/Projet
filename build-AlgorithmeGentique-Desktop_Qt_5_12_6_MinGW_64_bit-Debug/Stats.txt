@@ -1,0 +1,43 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[frenchb]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\begin{document}
+\\Récapitulatif de la configuration choisie : 
+\\Taille de la population :  204
+\\Type des gène :  Double\\Nombre de gènes :  2
+\\Chaine évaluer :  a+b
+\\Intervalle :  [0.2 , 100.1 ]
+\\La génération satisfaisante :  150
+\\Nombre d'itérations maximum fixé :  50
+\\Type de séléction :  Séléction par rang\\Le taux de croisement :  0.05
+\\Le taux de mutation :  0.7
+\\Nombre d'individus à séléctionné :  190
+\\Convergence : Maximisation
+\\\begin{figure}[h]
+\\\\\begin{tikzpicture}204
+\begin{axis}[xlabel=Numéro génération ,ylabel=Moyenne scores,axis x line=bottom ,axis y line=left]
+\addplot coordinates {
+(0,99.1162) (1,104.424) (2,109.779) (3,112.443) (4,112.931) (5,116.197) (6,118.784) (7,120.319) (8,122.931) (9,124.244) (10,125.502) (11,127.002) (12,126.502) (13,127.686) (14,127.674) (15,131.95) (16,132.664) (17,132.091) (18,133.967) (19,134.325) (20,133.755) (21,136.692) (22,136.379) (23,134.317) (24,139.001) (25,139.846) (26,139.068) (27,139.994) (28,142.092) (29,142.359) (30,142.124) (31,143.907) (32,144.36) (33,146.032) (34,147.289) (35,146.919) (36,146.958) (37,149.017) (38,147.758) (39,146.254) (40,150.436) (41,151.572) };
+\end{axis}
+\end{tikzpicture}
+\caption{Graphe représentant l'évolution de la moyenne des scores des individus}
+\end{figure}
+\begin{figure}[h]
+\\\\\begin{tikzpicture}
+\begin{axis}[xlabel=Numéro génération ,ylabel=Meilleur individu,axis x line=bottom ,axis y line=left]
+\addplot coordinates {
+(0,115.3) (1,187.2) (2,187.2) (3,187.2) (4,187.2) (5,187.2) (6,187.2) (7,187.2) (8,187.2) (9,187.2) (10,187.2) (11,187.2) (12,187.2) (13,187.2) (14,187.2) (15,187.2) (16,187.2) (17,189.6) (18,189.6) (19,189.6) (20,189.6) (21,189.6) (22,189.6) (23,189.6) (24,189.6) (25,189.6) (26,189.6) (27,189.6) (28,189.6) (29,189.6) (30,189.6) (31,189.6) (32,189.6) (33,189.6) (34,189.6) (35,189.6) (36,189.6) (37,189.6) (38,189.6) (39,189.6) (40,189.6) (41,189.6) };
+\end{axis}
+\end{tikzpicture}
+\caption{Graphe représentant l'évolution des meilleur individus}
+\end{figure}
+\end{document}
