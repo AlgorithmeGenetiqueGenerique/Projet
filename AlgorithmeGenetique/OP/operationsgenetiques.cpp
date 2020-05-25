@@ -418,11 +418,26 @@ void operationsGenetiques::croisement(float taux_croisement, float taux_mutation
 
 void operationsGenetiques::mutation(individu* individu_x, float taux_mutation){
 		for (int i =0; i<individu_x->ADN.getNombreGenes(); i++){
-				if (individu_x->ADN.getTypeGenes() == 1)
-				individu_x->ADN.genes_int.at(i) =  rand()%(individu_x->ADN.getMaxIntervalle() - individu_x->ADN.getMinIntervalle()) + individu_x->ADN.getMinIntervalle();
-			else if (individu_x->ADN.getTypeGenes() == 2)
-			individu_x->ADN.genes_double.at(i) =  fmod((double)rand(),(individu_x->ADN.getMaxIntervalleFlottant() - individu_x->ADN.getMinIntervalleFlottant()));
-		else if (individu_x->ADN.getTypeGenes() == 3){
+                if (individu_x->ADN.getTypeGenes() == 1){
+
+                    if (individu_x->ADN.getMinIntervalle() < 0 && individu_x->ADN.getMaxIntervalle() >0){
+                    int somme = abs(individu_x->ADN.getMinIntervalle()) + abs(individu_x->ADN.getMaxIntervalle());
+                    individu_x->ADN.genes_int.at(i) = rand()%somme - abs(individu_x->ADN.getMinIntervalle());
+                    }
+                    else {
+                        individu_x->ADN.genes_int.at(i) = rand()%(individu_x->ADN.getMaxIntervalle() - individu_x->ADN.getMinIntervalle()) + individu_x->ADN.getMinIntervalle();
+                    }
+            }
+                else if (individu_x->ADN.getTypeGenes() == 2){
+                    if (individu_x->ADN.getMinIntervalleFlottant() < 0 && individu_x->ADN.getMaxIntervalleFlottant() >0){
+                        double somme = abs(individu_x->ADN.getMinIntervalleFlottant()) + abs(individu_x->ADN.getMaxIntervalleFlottant());
+                        individu_x->ADN.genes_double.at(i) = fmod((double)rand(),somme) - abs(individu_x->ADN.getMinIntervalleFlottant());
+                    }
+                    else{
+                    individu_x->ADN.genes_double.at(i) =  fmod((double)rand(),(individu_x->ADN.getMaxIntervalleFlottant() - individu_x->ADN.getMinIntervalleFlottant())) + individu_x->ADN.getMinIntervalleFlottant();
+                }
+        }
+            else if (individu_x->ADN.getTypeGenes() == 3){
 		individu_x->ADN.genes_int.at(i) =  individu_x->conversionVersBinaire(rand()%(individu_x->convertionVersDecimale(individu_x->ADN.getMaxIntervalle()) - individu_x->convertionVersDecimale(individu_x->ADN.getMinIntervalle())) + individu_x->convertionVersDecimale(individu_x->ADN.getMinIntervalle()));
 
 		}

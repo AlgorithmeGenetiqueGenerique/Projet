@@ -3,6 +3,7 @@
 
 #include <string>
 #include <cmath>
+//#include <stdlib.h>
 #include "gene.h"
 
 class individu

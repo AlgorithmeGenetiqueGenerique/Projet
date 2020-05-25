@@ -29,13 +29,25 @@ individu::individu(double min_intervalle, double max_intervalle, int nombre_gene
 
 int individu::valeurAleatoire(int min_intervalle, int max_intervalle)
 {
-    return rand()%(max_intervalle - min_intervalle) + min_intervalle;
+    if (min_intervalle < 0 && max_intervalle >0){
+    int somme = abs(min_intervalle) + abs(max_intervalle);
+    return rand()%somme - abs(min_intervalle);
+    }
+    else {
+        return rand()%(max_intervalle - min_intervalle) + min_intervalle;
+    }
 }
 
 double individu::valeurAleatoire(double min_intervalle, double max_intervalle)
 {
+    if (min_intervalle < 0 && max_intervalle >0){
+        double somme = abs(min_intervalle) + abs(max_intervalle);
+        return fmod((double)rand(),somme) - abs(min_intervalle);
+    }
+    else{
     return fmod((double)rand(),(max_intervalle - min_intervalle)) + min_intervalle;
 }
+    }
 
 void individu::setNoteEvaluation(int note_evaluation){
 	this->note_evaluation = note_evaluation;

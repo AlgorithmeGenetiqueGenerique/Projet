@@ -221,7 +221,7 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
             if (type == 1 || type ==3){
             for(std::string::size_type i = 0; i < min_intervalle->text().toStdString().length(); ++i)
             {
-                if(((min_intervalle->text().toStdString()[i]-'0')>9)||((min_intervalle->text().toStdString()[i]-'0')<0)) n = 1;
+                if((((min_intervalle->text().toStdString()[i]-'0')>9)||((min_intervalle->text().toStdString()[i]-'0')<0))&&(min_intervalle->text().toStdString()[i] != '-')) n = 1;
             }
             if (n){
                 ui->stackedWidget->setCurrentIndex(0);
@@ -231,7 +231,7 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
             if (!n){
             for(std::string::size_type i = 0; i < max_intervalle->text().toStdString().length(); ++i)
             {
-                if(((max_intervalle->text().toStdString()[i]-'0')>9)||((max_intervalle->text().toStdString()[i]-'0')<0)) n = 1;
+                if((((max_intervalle->text().toStdString()[i]-'0')>9)||((max_intervalle->text().toStdString()[i]-'0')<0))&&(max_intervalle->text().toStdString()[i] != '-')) n = 1;
             }
             if (n){
                 ui->stackedWidget->setCurrentIndex(0);
@@ -242,7 +242,7 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
             if (!n){
                 for(std::string::size_type i = 0; i < ui->lineEdit_4->text().toStdString().length(); ++i)
                 {
-                    if(((ui->lineEdit_4->text().toStdString()[i]-'0')>9)||((ui->lineEdit_4->text().toStdString()[i]-'0')<0)) n = 1;
+                    if((((ui->lineEdit_4->text().toStdString()[i]-'0')>9)||((ui->lineEdit_4->text().toStdString()[i]-'0')<0))&&ui->lineEdit_4->text().toStdString()[i]!='-')  n = 1;
                 }
                 if (n){
                                 ui->stackedWidget->setCurrentIndex(0);
@@ -273,6 +273,12 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
        taux_croisement->setStyleSheet("background-color: red;");
        QMessageBox::warning(this, "Erreur", "Taux de croisement insuffisant");
     }
+        else if ((ee->getMinIntervalle() > ee->getMaxIntervalle()) || (ee->getMinIntervalleFlottant() >ee->getMaxIntervalleFlottant()) ) {
+           ui->stackedWidget->setCurrentIndex(0);
+           min_intervalle->setStyleSheet("background-color: red;");
+           max_intervalle->setStyleSheet("background-color: red;");
+           QMessageBox::warning(this, "Erreur", "min intervalle superieur à max intervalle ");
+        }
     else if(evaluation_test.getErreur())
     {
         ui->stackedWidget->setCurrentIndex(0);
