@@ -174,6 +174,7 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
 
     nombre_individu_selectionnes->setStyleSheet("background-color: white;");
     chaine_evaluation->setStyleSheet("background-color: white;");
+    taux_croisement->setStyleSheet("background-color: white;");
     ui->pushButton_4->setEnabled(false);
     thrd->Stop=false;
     thrd->count=0;
@@ -224,6 +225,11 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
         ui->stackedWidget->setCurrentIndex(0);
         QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nNombre individu"
                                               "a selectioner inf a la population");
+    }
+    else if (ee->getTauxCroisement()*ee->getNmbr_indiv_a_selec()<2) {
+       ui->stackedWidget->setCurrentIndex(0);
+       taux_croisement->setStyleSheet("background-color: red;");
+       QMessageBox::warning(this, "Erreur", "Taux de croisement insuffisant");
     }
     else if(evaluation_test.getErreur())
     {
