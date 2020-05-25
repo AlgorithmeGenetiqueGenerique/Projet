@@ -295,6 +295,10 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
         else if (evaluation_test.getErreur() == 6){
             QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nDivision sur zéro interdite");
         }
+        else if (evaluation_test.getErreur() == 7){
+            chaine_evaluation->setStyleSheet("background-color: red;");
+            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nSymbole non reconnu dans l'équation");
+        }
       }
     else
         thrd->start();

@@ -596,6 +596,10 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 				}
 				break;// FIN FONCTION
 			}
+        default :{
+                erreur = 7;
+                break;
+            }
 	}
 }
 
