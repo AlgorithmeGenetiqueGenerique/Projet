@@ -522,6 +522,9 @@ void ModelisationPrblm::on_pushButton_7_clicked()//reconfigutrer
     ui->stackedWidget->setCurrentIndex(0);
     individus.clear();
     score_total.clear();
+    score_total_d.clear();
+    meillleur_individu_d.clear();
+    meillleur_individu.clear();
 }
 
 
