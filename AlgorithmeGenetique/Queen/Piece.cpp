@@ -10,8 +10,7 @@ Piece::Piece(QString Jeu,QGraphicsItem *parent):QGraphicsPixmapItem(parent)
 }
 void Piece::setImagePiece()
 {
-
-        setPixmap(QPixmap(QCoreApplication::applicationDirPath() + "/Queen/queen.png"));
+        setPixmap(QPixmap(":images/queen.png"));
 }
 
 void Piece::setBoxActuel(BoxEchiquier *box)

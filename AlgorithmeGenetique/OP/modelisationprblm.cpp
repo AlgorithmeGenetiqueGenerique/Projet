@@ -7,7 +7,7 @@
 #include <QtCore>
 #include "../mainwindow1.h"
 #include <QMessageBox>
-#include <QDesktopServices>
+
 
 ModelisationPrblm::ModelisationPrblm(QWidget *parent) :
     QMainWindow(parent),
@@ -216,6 +216,8 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     op = new operationsGenetiques(&individus,ee->getMaximisationMinimisation(), ee->getNmbr_indiv_a_selec());
     sb = ui->textBrowser->verticalScrollBar();
     score_totale=0;
+    std::cout<<"max : "<<ee->getMaxIntervalle()<<"\n";
+    std::cout<<"min : "<<ee->getMinIntervalle()<<"\n";
     //---------------------------------------------------------------------
             int n =0;
             if (type == 1 || type ==3){
@@ -273,7 +275,7 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
        taux_croisement->setStyleSheet("background-color: red;");
        QMessageBox::warning(this, "Erreur", "Taux de croisement insuffisant");
     }
-        else if ((ee->getMinIntervalle() > ee->getMaxIntervalle()) || (ee->getMinIntervalleFlottant() >ee->getMaxIntervalleFlottant()) ) {
+        else if ((ee->getMinIntervalle() > ee->getMaxIntervalle()) ) {
            ui->stackedWidget->setCurrentIndex(0);
            min_intervalle->setStyleSheet("background-color: red;");
            max_intervalle->setStyleSheet("background-color: red;");
@@ -687,11 +689,7 @@ void ModelisationPrblm::on_pushButton_13_clicked()
 
 void ModelisationPrblm::on_pushButton_4_clicked()
 {
-    int reponse=QMessageBox::question(this,"Confirmer" ,"Etes-vous sûr de vouloir quitter?", QMessageBox::Yes | QMessageBox::No );
-    if (reponse == QMessageBox::Yes)
-    {
-        this->close();
-    }
+    this->close();
 }
 
 void ModelisationPrblm::on_pushButton_14_clicked()
@@ -699,9 +697,4 @@ void ModelisationPrblm::on_pushButton_14_clicked()
 
    calculat->show();
    ui->checkBox->setChecked(true);
-}
-
-void ModelisationPrblm::on_pushButton_5_clicked()
-{
- QDesktopServices::openUrl(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/Manuel.pdf"));
 }

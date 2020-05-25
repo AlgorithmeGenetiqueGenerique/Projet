@@ -15,7 +15,8 @@ int main(int argc, char *argv[])
 {        QApplication app(argc, argv);
 
 
-
+        //game = new InterfaceQueen();
+        // game->AffichageEchiquier();
 
         //QString locale = QLocale::system().name();
 

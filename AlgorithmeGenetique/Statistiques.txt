@@ -13,9 +13,9 @@
 \begin{document}
 \\Récapitulatif de la configuration choisie : 
 \\Taille de la population :  2048
-\\Type des gène :  Entier\\Nombre de gènes :  6
-\\Chaine évaluer :  a+b+c+d+w+x
-\\Intervalle :  [0 , 6 ]
+\\Type des gène :  Entier\\Nombre de gènes :  4
+\\Chaine évaluer :  a+b+c+d
+\\Intervalle :  [0 , 4 ]
 \\La génération satisfaisante :  0
 \\Nombre d'itérations maximum fixé :  1
 \\Type de séléction :  Séléction par rang\\Le taux de croisement :  0.05
@@ -26,7 +26,7 @@
 \\\\\begin{tikzpicture}2048
 \begin{axis}[xlabel=Numéro génération ,ylabel=Moyenne scores,axis x line=bottom ,axis y line=left]
 \addplot coordinates {
-(0,258) (1,67) };
+(0,233) (1,61) };
 \end{axis}
 \end{tikzpicture}
 \caption{Graphe représentant l'évolution de la moyenne des scores des individus}
@@ -35,7 +35,7 @@
 \\\\\begin{tikzpicture}
 \begin{axis}[xlabel=Numéro génération ,ylabel=Meilleur individu,axis x line=bottom ,axis y line=left]
 \addplot coordinates {
-(0,149) (1,149) };
+(0,186) (1,186) };
 \end{axis}
 \end{tikzpicture}
 \caption{Graphe représentant l'évolution des meilleur individus}

@@ -1,6 +1,6 @@
 #include "interfaceVoyageur.h"
 
-voyageurDeCommerceInterface::voyageurDeCommerceInterface(){
+voyageurDeCommerceInterface::voyageurDeCommerceInterface(QWidget *parent){
     
     //Boutons
     demarrer = new QPushButton("&Demarrer la simulation");
@@ -62,18 +62,18 @@ voyageurDeCommerceInterface::voyageurDeCommerceInterface(){
     dockLayout->addLayout(configurationLayout);
 
     //Ajoute les widgets aux layouts
-
+    boutons->addWidget(demarrer);
+    boutons->addWidget(plusCourtChemin);
+    boutons->addWidget(quitter);
     dockLayout->addWidget(valeurChoisies);
-    dockLayout->addWidget(demarrer);
-    dockLayout->addWidget(plusCourtChemin);
-    dockLayout->addWidget(quitter);
+
     setCentralWidget(centre);
 
     //Configuration graphique
     dock->setSizePolicy(QSizePolicy::Policy::Preferred,QSizePolicy::Policy::Maximum);
     
     //Signaux
-    connect(quitter, SIGNAL(clicked()), this, SLOT(fermer()));
+    connect(quitter, SIGNAL(clicked()), qApp, SLOT(quit()));
     connect(demarrer,SIGNAL(clicked()), this, SLOT(creerGraphe()));
     connect(nombre_sommets, SIGNAL(valueChanged(int)), this, SLOT(gestionConfiguration(int)));
     connect(valeurChoisies, SIGNAL(clicked()),this, SLOT(quatreSommets()));
@@ -90,15 +90,6 @@ void voyageurDeCommerceInterface::creerGraphe(){
     graphe = new GraphWidget(nombre_sommets->value(),this);
     central->insertWidget(0,graphe);
     
-}
-void voyageurDeCommerceInterface::fermer(){
-
-    int reponse=QMessageBox::question(this,"Confirmer" ,"Etes-vous sûr de vouloir quitter?", QMessageBox::Yes | QMessageBox::No );
-    if (reponse == QMessageBox::Yes)
-    {
-        close();
-    }
-
 }
 
 void voyageurDeCommerceInterface::gestionConfiguration(int valeur){
@@ -152,7 +143,7 @@ void voyageurDeCommerceInterface::lancer(){
 }
 void voyageurDeCommerceInterface::afficherAide(){
     
- QDesktopServices::openUrl(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/Manuel.pdf"));
+    QDesktopServices::openUrl(QUrl::fromLocalFile("../manuel.txt"));
 }
 
 void voyageurDeCommerceInterface::creerMenu(){

@@ -48,8 +48,6 @@ public:
     QWidget *page;
     QGridLayout *gridLayout_3;
     QPushButton *pushButton_3;
-    QVBoxLayout *verticalLayout_11;
-    QVBoxLayout *verticalLayout_8;
     QFormLayout *formLayout_8;
     QLabel *label_chaineE;
     QLineEdit *lineEdit;
@@ -66,10 +64,16 @@ public:
     QSpacerItem *verticalSpacer_2;
     QSpacerItem *verticalSpacer_3;
     QSpacerItem *verticalSpacer_4;
+    QHBoxLayout *horizontalLayout_11;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton;
+    QSpacerItem *horizontalSpacer_2;
+    QVBoxLayout *verticalLayout_8;
     QGridLayout *gridLayout_2;
     QVBoxLayout *verticalLayout;
     QFormLayout *formLayout;
     QLabel *label_nombreG;
+    QSpinBox *spinBox;
     QLabel *label_tailleP;
     QSpinBox *spinBox_2;
     QLabel *label_nombreI;
@@ -77,7 +81,6 @@ public:
     QLabel *label_nombreIS;
     QSpinBox *spinBox_4;
     QLabel *label_tauxC;
-    QDoubleSpinBox *doubleSpinBox;
     QLabel *label_tauxM;
     QDoubleSpinBox *doubleSpinBox_2;
     QLabel *label_typeS;
@@ -90,16 +93,13 @@ public:
     QRadioButton *radioButton_3;
     QRadioButton *radioButton;
     QVBoxLayout *verticalLayout_14;
+    QDoubleSpinBox *doubleSpinBox;
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout_13;
     QRadioButton *radioButton_5;
     QRadioButton *radioButton_4;
     QVBoxLayout *verticalLayout_10;
-    QSpinBox *spinBox;
-    QHBoxLayout *horizontalLayout_11;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton;
-    QSpacerItem *horizontalSpacer_2;
+    QVBoxLayout *verticalLayout_11;
     QSpacerItem *horizontalSpacer;
     QWidget *page_2;
     QGridLayout *gridLayout_5;
@@ -137,7 +137,7 @@ public:
     {
         if (ModelisationPrblm->objectName().isEmpty())
             ModelisationPrblm->setObjectName(QString::fromUtf8("ModelisationPrblm"));
-        ModelisationPrblm->resize(707, 557);
+        ModelisationPrblm->resize(707, 461);
         centralwidget = new QWidget(ModelisationPrblm);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setStyleSheet(QString::fromUtf8(""));
@@ -179,16 +179,6 @@ public:
         pushButton_3->setIconSize(QSize(16, 16));
 
         gridLayout_3->addWidget(pushButton_3, 3, 2, 1, 1);
-
-        verticalLayout_11 = new QVBoxLayout();
-        verticalLayout_11->setObjectName(QString::fromUtf8("verticalLayout_11"));
-
-        gridLayout_3->addLayout(verticalLayout_11, 2, 0, 1, 1);
-
-        verticalLayout_8 = new QVBoxLayout();
-        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
-
-        gridLayout_3->addLayout(verticalLayout_8, 2, 2, 1, 1);
 
         formLayout_8 = new QFormLayout();
         formLayout_8->setObjectName(QString::fromUtf8("formLayout_8"));
@@ -265,6 +255,30 @@ public:
 
         gridLayout_3->addLayout(formLayout_8, 1, 2, 1, 1);
 
+        horizontalLayout_11 = new QHBoxLayout();
+        horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
+        pushButton_2 = new QPushButton(page);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+
+        horizontalLayout_11->addWidget(pushButton_2);
+
+        pushButton = new QPushButton(page);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+
+        horizontalLayout_11->addWidget(pushButton);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_11->addItem(horizontalSpacer_2);
+
+
+        gridLayout_3->addLayout(horizontalLayout_11, 3, 0, 1, 2);
+
+        verticalLayout_8 = new QVBoxLayout();
+        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
+
+        gridLayout_3->addLayout(verticalLayout_8, 2, 2, 1, 1);
+
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         verticalLayout = new QVBoxLayout();
@@ -275,6 +289,13 @@ public:
         label_nombreG->setObjectName(QString::fromUtf8("label_nombreG"));
 
         formLayout->setWidget(3, QFormLayout::LabelRole, label_nombreG);
+
+        spinBox = new QSpinBox(page);
+        spinBox->setObjectName(QString::fromUtf8("spinBox"));
+        spinBox->setMinimum(1);
+        spinBox->setMaximum(8);
+
+        formLayout->setWidget(3, QFormLayout::FieldRole, spinBox);
 
         label_tailleP = new QLabel(page);
         label_tailleP->setObjectName(QString::fromUtf8("label_tailleP"));
@@ -319,13 +340,6 @@ public:
         label_tauxC->setObjectName(QString::fromUtf8("label_tauxC"));
 
         formLayout->setWidget(7, QFormLayout::LabelRole, label_tauxC);
-
-        doubleSpinBox = new QDoubleSpinBox(page);
-        doubleSpinBox->setObjectName(QString::fromUtf8("doubleSpinBox"));
-        doubleSpinBox->setMaximum(1.000000000000000);
-        doubleSpinBox->setValue(0.050000000000000);
-
-        formLayout->setWidget(7, QFormLayout::FieldRole, doubleSpinBox);
 
         label_tauxM = new QLabel(page);
         label_tauxM->setObjectName(QString::fromUtf8("label_tauxM"));
@@ -390,6 +404,13 @@ public:
 
         formLayout->setWidget(11, QFormLayout::LabelRole, groupBox_4);
 
+        doubleSpinBox = new QDoubleSpinBox(page);
+        doubleSpinBox->setObjectName(QString::fromUtf8("doubleSpinBox"));
+        doubleSpinBox->setMaximum(1.000000000000000);
+        doubleSpinBox->setValue(0.050000000000000);
+
+        formLayout->setWidget(7, QFormLayout::FieldRole, doubleSpinBox);
+
         groupBox_3 = new QGroupBox(page);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
         verticalLayout_13 = new QVBoxLayout(groupBox_3);
@@ -413,13 +434,6 @@ public:
 
         formLayout->setWidget(11, QFormLayout::FieldRole, groupBox_3);
 
-        spinBox = new QSpinBox(page);
-        spinBox->setObjectName(QString::fromUtf8("spinBox"));
-        spinBox->setMinimum(1);
-        spinBox->setMaximum(8);
-
-        formLayout->setWidget(3, QFormLayout::FieldRole, spinBox);
-
 
         verticalLayout->addLayout(formLayout);
 
@@ -429,24 +443,10 @@ public:
 
         gridLayout_3->addLayout(gridLayout_2, 1, 0, 1, 1);
 
-        horizontalLayout_11 = new QHBoxLayout();
-        horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
-        pushButton_2 = new QPushButton(page);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        verticalLayout_11 = new QVBoxLayout();
+        verticalLayout_11->setObjectName(QString::fromUtf8("verticalLayout_11"));
 
-        horizontalLayout_11->addWidget(pushButton_2);
-
-        pushButton = new QPushButton(page);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-
-        horizontalLayout_11->addWidget(pushButton);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_11->addItem(horizontalSpacer_2);
-
-
-        gridLayout_3->addLayout(horizontalLayout_11, 3, 0, 1, 2);
+        gridLayout_3->addLayout(verticalLayout_11, 2, 0, 1, 1);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -589,7 +589,7 @@ public:
         ModelisationPrblm->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ModelisationPrblm);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 707, 22));
+        menubar->setGeometry(QRect(0, 0, 707, 21));
         ModelisationPrblm->setMenuBar(menubar);
         statusbar = new QStatusBar(ModelisationPrblm);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -606,7 +606,7 @@ public:
     void retranslateUi(QMainWindow *ModelisationPrblm)
     {
         ModelisationPrblm->setWindowTitle(QApplication::translate("ModelisationPrblm", "MainWindow", nullptr));
-        pushButton_6->setText(QApplication::translate("ModelisationPrblm", "Acceuil", nullptr));
+        pushButton_6->setText(QApplication::translate("ModelisationPrblm", "Accueil", nullptr));
         pushButton_13->setText(QApplication::translate("ModelisationPrblm", "Notebad", nullptr));
         pushButton_5->setText(QApplication::translate("ModelisationPrblm", "Aide", nullptr));
         pushButton_4->setText(QApplication::translate("ModelisationPrblm", "Quitter", nullptr));
@@ -621,6 +621,8 @@ public:
         lineEdit_4->setText(QApplication::translate("ModelisationPrblm", "150", nullptr));
         checkBox->setText(QApplication::translate("ModelisationPrblm", "Clavier Visuel", nullptr));
         pushButton_14->setText(QApplication::translate("ModelisationPrblm", "Clavier Visuel", nullptr));
+        pushButton_2->setText(QApplication::translate("ModelisationPrblm", "Sauvgarder", nullptr));
+        pushButton->setText(QApplication::translate("ModelisationPrblm", "Charger", nullptr));
         label_nombreG->setText(QApplication::translate("ModelisationPrblm", "Nombre de genes", nullptr));
         label_tailleP->setText(QApplication::translate("ModelisationPrblm", "Taille de population", nullptr));
         label_nombreI->setText(QApplication::translate("ModelisationPrblm", "Nombre d'iterarions", nullptr));
@@ -628,9 +630,9 @@ public:
         label_tauxC->setText(QApplication::translate("ModelisationPrblm", "Taux de croisement", nullptr));
         label_tauxM->setText(QApplication::translate("ModelisationPrblm", "Taux de mutation", nullptr));
         label_typeS->setText(QApplication::translate("ModelisationPrblm", "Type de selection", nullptr));
-        comboBox->setItemText(0, QApplication::translate("ModelisationPrblm", "Selection 1", nullptr));
-        comboBox->setItemText(1, QApplication::translate("ModelisationPrblm", "Selection 2", nullptr));
-        comboBox->setItemText(2, QApplication::translate("ModelisationPrblm", "Selection 3", nullptr));
+        comboBox->setItemText(0, QApplication::translate("ModelisationPrblm", "Selection par rang", nullptr));
+        comboBox->setItemText(1, QApplication::translate("ModelisationPrblm", "Selection par tournoi", nullptr));
+        comboBox->setItemText(2, QApplication::translate("ModelisationPrblm", "Selection par roulette", nullptr));
 
         label_typeG->setText(QApplication::translate("ModelisationPrblm", "Type_genes", nullptr));
         label_senseE->setText(QApplication::translate("ModelisationPrblm", "Le sense de l'evaluation", nullptr));
@@ -641,8 +643,6 @@ public:
         groupBox_3->setTitle(QString());
         radioButton_5->setText(QApplication::translate("ModelisationPrblm", "RadioButton", nullptr));
         radioButton_4->setText(QApplication::translate("ModelisationPrblm", "RadioButton", nullptr));
-        pushButton_2->setText(QApplication::translate("ModelisationPrblm", "Sauvgarder", nullptr));
-        pushButton->setText(QApplication::translate("ModelisationPrblm", "Charger", nullptr));
         label_15->setText(QApplication::translate("ModelisationPrblm", "Nom fichier latex", nullptr));
         lineEdit_6->setText(QApplication::translate("ModelisationPrblm", "fichierLatx", nullptr));
         pushButton_12->setText(QApplication::translate("ModelisationPrblm", "Generer", nullptr));

@@ -22,7 +22,7 @@ void myThread::run()
 
             emit txtEdt(i);
             mutex.unlock();
-            this->msleep(80);
+            this->msleep(300);
         }
     }
 

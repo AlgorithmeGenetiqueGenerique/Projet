@@ -1253,6 +1253,16 @@ int g1,g2,g3,g4,g5,g6,g7,poid =10000000;
             if (nombre_sommets == 7)
                 afficherSolution7Sommets(g1,g2,g3,g4,g5,g6,g7);
 }
+       /*  break;
+    case Qt::Key_Left:
+
+        break;
+    case Qt::Key_Right:
+
+        break;
+    default:
+        QGraphicsView::keyPressEvent(event);
+    } */
 
 
 void GraphWidget::initialisationGraph(){
