@@ -605,13 +605,13 @@ void ModelisationPrblm::on_pushButton_11_clicked()
     {
         ui->lineEdit_2->setText(QString::number(ee->getMinIntervalleFlottant()));
         ui->lineEdit_3->setText(QString::number(ee->getMaxIntervalleFlottant()));
-        ui->lineEdit_2->setText(QString::number(ee->getGenerationSatisfaisanteFlottant()));
+        ui->lineEdit_4->setText(QString::number(ee->getGenerationSatisfaisanteFlottant()));
     }
     else
     {
         ui->lineEdit_2->setText(QString::number(ee->getMinIntervalle()));
         ui->lineEdit_3->setText(QString::number(ee->getMaxIntervalle()));
-        ui->lineEdit_2->setText(QString::number(ee->getGenerationSatisfaisante()));
+        ui->lineEdit_4->setText(QString::number(ee->getGenerationSatisfaisante()));
     }
 
     ui->stackedWidget->setCurrentIndex(0);
