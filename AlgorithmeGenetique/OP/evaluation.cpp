@@ -649,7 +649,7 @@ void evaluation::identification(individu* individu_x){
 					else
 					{
 						analyseSyntaxiqueTypes(individu_x);
-						printf("Erreur : Parenthese fermante\n");
+                        erreur = 2;
 					}
 					break;
 				  }
@@ -663,7 +663,7 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(sqrt(depilerFlottants()));
 				 }
 					else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");	
+                    erreur = 3;
 				 break;
 				 }
 	case RACINEC:{
@@ -676,33 +676,33 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(cbrt(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");	 
+                    erreur = 3;
 				 break;
 				 }
 	case LOG_2:{
 				 analyseSyntaxiqueTypes(individu_x);
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 1){
-					printf("ERREUR : Fonction non valable pour type entier\n");
+                    erreur = 4;
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(log2(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");	 
+                    erreur = 3;
 				 break;
 				 }
 	case LOG_10:{
 				 analyseSyntaxiqueTypes(individu_x);
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 1){
-					printf("ERREUR : Fonction non valable pour type entier\n");
+                    erreur = 4;
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(log10(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");	 
+                    erreur = 3;
 				 break;
 				 }
 	case LN:{
@@ -712,9 +712,9 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(log(depilerFlottants()));	
 				 } 
 				 else if (individu_x->ADN.getTypeGenes() == 1)
-					printf("ERREUR : Fonction non valable pour type entier\n");
+                    erreur = 4;
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");
+                    erreur = 3;
 				 break;
 				 }
 	case V_ABSOLUE:{
@@ -730,7 +730,7 @@ void evaluation::identification(individu* individu_x){
 					 empilerFlottants(y);
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n"); 
+                    erreur = 3;
 				 break;
 				 }
 	case EXPONENTIELLE:{
@@ -743,7 +743,7 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(exp(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");
+                    erreur = 3;
 				 break;
 				 }
 	case COSINUS:{
@@ -753,9 +753,9 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(cos(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");	 
+                    erreur = 3;
 				 else if (individu_x->ADN.getTypeGenes() == 1)
-					printf("ERREUR : Fonction non valable pour type entier\n");	 
+                    erreur = 4;
 				 break;
 				 }
 	case COSINUSH:{
@@ -765,9 +765,9 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(cosh(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");	 
+                    erreur = 3;
 				 else if (individu_x->ADN.getTypeGenes() == 1)
-					printf("ERREUR : Fonction non valable pour type entier\n");	 
+                    erreur = 4;
 				 break;
 				 }
 	case ACOSINUS:{
@@ -777,9 +777,9 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(acos(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");	 
+                    erreur = 3;
 				 else if (individu_x->ADN.getTypeGenes() == 1)
-					printf("ERREUR : Fonction non valable pour type entier\n");	
+                    erreur = 4;
 				 break;
 				 }
 	case SINUS:{
@@ -789,9 +789,9 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(sin(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");
+                    erreur = 3;
 				 else if (individu_x->ADN.getTypeGenes() == 1)
-					printf("ERREUR : Fonction non valable pour type entier\n");	 
+                    erreur = 4;
 				 break;
 				 }
 	case SINUSH:{
@@ -801,9 +801,9 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(sinh(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");
+                    erreur = 3;
 				 else if (individu_x->ADN.getTypeGenes() == 1)
-					printf("ERREUR : Fonction non valable pour type entier\n");	
+                    erreur = 4;
 				 break;
 				 }
 	case ASINUS:{
@@ -813,9 +813,9 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(asin(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");
+                    erreur = 3;
 				 else if (individu_x->ADN.getTypeGenes() == 1)
-					printf("ERREUR : Fonction non valable pour type entier\n"); 
+                    erreur = 4;
 				 break;
 				 }
 	case TANGENTE:{
@@ -825,9 +825,9 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(tan(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");
+                    erreur = 3;
 				 else if (individu_x->ADN.getTypeGenes() == 1)
-					printf("ERREUR : Fonction non valable pour type entier\n");
+                    erreur = 4;
 				 break;
 				 }
 	case TANGENTEH:{
@@ -837,9 +837,9 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(tanh(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");
+                    erreur = 3;
 				 else if (individu_x->ADN.getTypeGenes() == 1)
-					printf("ERREUR : Fonction non valable pour type entier\n"); 
+                    erreur = 4;
 				 break;
 				 }
 	case ATANGENTE:{
@@ -849,9 +849,9 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(atan(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");
+                    erreur = 3;
 				 else if (individu_x->ADN.getTypeGenes() == 1)
-					printf("ERREUR : Fonction non valable pour type entier\n");
+                    erreur = 4;
 				 break;
 				 }
 	case CEIL:{	
@@ -861,9 +861,9 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(ceil(depilerFlottants()));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");
+                    erreur = 3;
 				 else if (individu_x->ADN.getTypeGenes() == 1)
-					printf("ERREUR : Fonction non valable pour type entier\n");	 
+                    erreur = 4;
 				 break;
 				 }
 	case FLOOR:{	
@@ -873,9 +873,9 @@ void evaluation::identification(individu* individu_x){
 					empilerFlottants(floor(depilerFlottants()));
 				 }
 				 if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");
+                    erreur = 3;
 				 if (individu_x->ADN.getTypeGenes() == 1)
-					printf("ERREUR : Fonction non valable pour type entier\n");	 
+                    erreur = 4;
 				 break;
 				 }
 	case NOT:{
@@ -890,10 +890,10 @@ void evaluation::identification(individu* individu_x){
 					empiler(x);
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 1){
-					 printf("ERREUR : Fonction non valable pour type entier\n");
+                     erreur = 4;
 				 }  
 				 else if (individu_x->ADN.getTypeGenes() == 2){
-					 printf("ERREUR : Fonction non valable pour type flottant\n");
+                     erreur = 5;
 				 } 
 				 operations(individu_x);
 				 break;
@@ -990,7 +990,7 @@ void evaluation::operations(individu* individu_x){
 						flottant = 0.0;
 					}
 					x = depiler();
-					if (!x) printf("ERREUR : Division sur zéro interdite");
+                    if (!x) printf("ERREUR : Division sur zéro interdite");
 					else empiler(depiler()/x );
 				 }
 				 else {
@@ -1043,7 +1043,7 @@ void evaluation::operations(individu* individu_x){
 					 if (entier != 2)operations(individu_x);
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3){
-					printf("ERREUR : Fonction non valable pour type binaire\n");
+                    erreur = 3;
 				 }	 
 				 break;
 				 }
@@ -1071,7 +1071,7 @@ void evaluation::operations(individu* individu_x){
 					 empilerFlottants(fmod(depilerFlottants(),y));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
-					printf("ERREUR : Fonction non valable pour type binaire\n");
+                    erreur = 3;
 				 operations(individu_x);	 
 				 break;
 				 }
@@ -1086,14 +1086,14 @@ void evaluation::operations(individu* individu_x){
 					x = individu_x->convertionVersDecimale(operationsLogiques(x, y));
 					flottant = 0.0;
 					empiler(x);
+                    operations(individu_x);
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 1){
-					 printf("ERREUR : Fonction non valable pour type entier\n");
+                     erreur = 4;
 				 }  
 				 else if (individu_x->ADN.getTypeGenes() == 2){
-					 printf("ERREUR : Fonction non valable pour type flottant\n");
+                     erreur = 5;
 				 }
-				 operations(individu_x);
 				 break;
 				 }
 	case OR:{
@@ -1110,10 +1110,10 @@ void evaluation::operations(individu* individu_x){
 					empiler(x);
 				 }	
 				 else if (individu_x->ADN.getTypeGenes() == 1){
-					 printf("ERREUR : Fonction non valable pour type entier\n");
+                     erreur = 4;
 				 }  
 				 else if (individu_x->ADN.getTypeGenes() == 2){
-					 printf("ERREUR : Fonction non valable pour type flottant\n");
+                     erreur = 5;
 				 } 
 				 break;
 				 }
@@ -1131,10 +1131,10 @@ void evaluation::operations(individu* individu_x){
 					empiler(x);
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 1){
-					 printf("ERREUR : Fonction non valable pour type entier\n");
+                     erreur = 4;
 				 }  
 				 else if (individu_x->ADN.getTypeGenes() == 2){
-					 printf("ERREUR : Fonction non valable pour type flottant\n");
+                     erreur = 5;
 				 } 
 				 break;
 				 }
@@ -1152,10 +1152,10 @@ void evaluation::operations(individu* individu_x){
 					empiler(x);
 				 }	
 				 else if (individu_x->ADN.getTypeGenes() == 1){
-					 printf("ERREUR : Fonction non valable pour type entier\n");
+                     erreur = 4;
 				 }  
 				 else if (individu_x->ADN.getTypeGenes() == 2){
-					 printf("ERREUR : Fonction non valable pour type flottant\n");
+                     erreur = 5;
 				 } 
 				 break;
 				 }
@@ -1173,10 +1173,10 @@ void evaluation::operations(individu* individu_x){
 					empiler(x);
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 1){
-					 printf("ERREUR : Fonction non valable pour type entier\n");
+                     erreur = 4;
 				 }  
 				 else if (individu_x->ADN.getTypeGenes() == 2){
-					 printf("ERREUR : Fonction non valable pour type flottant\n");
+                     erreur = 5;
 				 }	 
 				 break;
 				 }

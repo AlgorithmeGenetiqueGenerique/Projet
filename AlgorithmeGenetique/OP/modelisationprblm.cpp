@@ -175,6 +175,8 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     nombre_individu_selectionnes->setStyleSheet("background-color: white;");
     chaine_evaluation->setStyleSheet("background-color: white;");
     taux_croisement->setStyleSheet("background-color: white;");
+     min_intervalle->setStyleSheet("background-color: white;");
+      max_intervalle->setStyleSheet("background-color: white;");
     ui->pushButton_4->setEnabled(false);
     thrd->Stop=false;
     thrd->count=0;
@@ -194,12 +196,11 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
         maxMin=1;
     else
         maxMin=2;
+
     thrd->iteration=nombre_iterations->value();
     compteur_generation = 0;
     chaine_evaluation_ = chaine_evaluation->text().toUtf8().constData();
     generation_satisfaisante_ = generation_satisfaisante->text().toDouble();
-    min_intervalle_ = min_intervalle->text().toDouble();
-    max_intervalle_ = max_intervalle->text().toDouble();
     generation_satisfaisante_=generation_satisfaisante->text().toDouble();
     QString chaineEval="";
     if(ui->checkBox->isChecked())
@@ -213,12 +214,37 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     op = new operationsGenetiques(&individus,ee->getMaximisationMinimisation(), ee->getNmbr_indiv_a_selec());
     sb = ui->textBrowser->verticalScrollBar();
     score_totale=0;
-    evaluation evaluation_test = evaluation(ee->getChaineEvaluation());
-    if(type==1 || type==3)
+            int n =0;
+            for(std::string::size_type i = 0; i < min_intervalle->text().toStdString().length(); ++i)
+            {
+                if(((min_intervalle->text().toStdString()[i]-'0')>9)||((min_intervalle->text().toStdString()[i]-'0')<0)) n = 1;
+            }
+            if (n){
+                ui->stackedWidget->setCurrentIndex(0);
+                min_intervalle->setStyleSheet("background-color: red;");
+                QMessageBox::warning(this, "Erreur", "Les gènes sont de type entier");
+            }
+            if (!n){
+            for(std::string::size_type i = 0; i < max_intervalle->text().toStdString().length(); ++i)
+            {
+                if(((max_intervalle->text().toStdString()[i]-'0')>9)||((max_intervalle->text().toStdString()[i]-'0')<0)) n = 1;
+            }
+            if (n){
+                ui->stackedWidget->setCurrentIndex(0);
+                max_intervalle->setStyleSheet("background-color: red;");
+                QMessageBox::warning(this, "Erreur", "Les gènes sont de type entier");
+            }
+            }
+
+    if(!n) {        evaluation evaluation_test = evaluation(ee->getChaineEvaluation());
+
+    if(type==1 || type==3){
         evaluation_test.evaluer(new individu(ee->getMinIntervalle(),ee->getMaxIntervalle(), ee->getNombreGenes(),ee->getTypeGenes()));
-    else
+
+    }else{
         evaluation_test.evaluer(new individu(ee->getMinIntervalleFlottant(),ee->getMaxIntervalleFlottant(), ee->getNombreGenes(),ee->getTypeGenes()));
-    if(ee->getTaillePopulation() < ee->getNmbr_indiv_a_selec())
+   }
+        if(ee->getTaillePopulation() < ee->getNmbr_indiv_a_selec())
     {
         nombre_individu_selectionnes->setValue((ee->getTaillePopulation()/2));
         nombre_individu_selectionnes->setStyleSheet("background-color: red;");
@@ -233,17 +259,30 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     }
     else if(evaluation_test.getErreur())
     {
-        chaine_evaluation->setStyleSheet("background-color: red;");
         ui->stackedWidget->setCurrentIndex(0);
-
-        QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nSymbole indisponible"
-                                             "pour le nombre de genes choisi");
-    }
-    else  
+        if (evaluation_test.getErreur() == 1){
+        QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nSymbole indisponiblepour le nombre de genes choisi");
+        chaine_evaluation->setStyleSheet("background-color: red;");
+        }
+        else if (evaluation_test.getErreur() == 2){
+            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nPrenthèse fermante manquante");
+         chaine_evaluation->setStyleSheet("background-color: red;");}
+            else if (evaluation_test.getErreur() == 3){
+            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type binaire");
+            chaine_evaluation->setStyleSheet("background-color: red;");}
+        else if (evaluation_test.getErreur() == 4){
+            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type entier");
+            chaine_evaluation->setStyleSheet("background-color: red;");}
+        else if (evaluation_test.getErreur() == 5){
+            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type flottant");
+            chaine_evaluation->setStyleSheet("background-color: red;");}
+        else if (evaluation_test.getErreur() == 6){
+            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nDivision sur zéro interdite");
+        }
+      }
+    else
         thrd->start();
-
-
-
+    }
 }
 
 void ModelisationPrblm::on_pushButton_2_clicked()//----
@@ -430,8 +469,6 @@ void ModelisationPrblm::on_pushButton_10_clicked()
     compteur_generation = 0;
     chaine_evaluation_ = chaine_evaluation->text().toUtf8().constData();
     generation_satisfaisante_ = generation_satisfaisante->text().toDouble();
-    min_intervalle_ = min_intervalle->text().toDouble();
-    max_intervalle_ = max_intervalle->text().toDouble();
     generation_satisfaisante_=generation_satisfaisante->text().toDouble();
     QString chaineEval="";
     if(ui->checkBox->isChecked())
