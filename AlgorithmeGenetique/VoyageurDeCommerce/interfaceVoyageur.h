@@ -38,11 +38,12 @@ class voyageurDeCommerceInterface: public QMainWindow {
         GraphWidget *graphe;
         //QHBoxLayout *accueilLayout;
     public:
-        voyageurDeCommerceInterface(QWidget *parent);
+        voyageurDeCommerceInterface();
         void creerMenu();
 
     public slots:
         void creerGraphe();
+        void fermer();
         void gestionConfiguration(int valeur);
         void quatreSommets();
         void retourAccueil();

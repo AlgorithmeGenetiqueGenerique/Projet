@@ -23,6 +23,7 @@ public slots:
     void huits_dames();
     void modeli();
     void voyageur();
+    void fermer();
 private:
     Interface *accueil;
     QMenu *fileMenu;

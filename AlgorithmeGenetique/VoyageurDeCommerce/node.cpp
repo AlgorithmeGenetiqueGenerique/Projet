@@ -29,7 +29,7 @@ QList<Edge *> Node::edges() const
 }
 
 QString Node::getIdentifiant(){
-    return getIdentifiant();
+    return identifiant;
 }
 void Node::setIdentifiant(QString identifiant){
     this->identifiant = identifiant;
@@ -81,7 +81,7 @@ void Node::calculateForces()
     newPos.setY(qMin(qMax(newPos.y(), sceneRect.top() + 10), sceneRect.bottom() - 10));
 }
 
-bool Node::advance()
+bool Node::advances()
 {
     if (newPos == pos())
         return false;

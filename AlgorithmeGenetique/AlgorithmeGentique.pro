@@ -75,6 +75,9 @@ HEADERS += \
     VoyageurDeCommerce/node.h \
     VoyageurDeCommerce/interfaceVoyageur.h
 
+RESOURCES += \
+    OP/Ressources.qrc
+
 FORMS += \
         OP/mainwindow.ui \
     OP/modelisation.ui \
@@ -87,6 +90,3 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 STATECHARTS +=
-
-RESOURCES += \
-    Queen/Ressource1.qrc

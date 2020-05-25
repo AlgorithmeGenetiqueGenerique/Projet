@@ -7,7 +7,7 @@
 #include <QtCore>
 #include "../mainwindow1.h"
 #include <QMessageBox>
-
+#include <QDesktopServices>
 
 ModelisationPrblm::ModelisationPrblm(QWidget *parent) :
     QMainWindow(parent),
@@ -687,7 +687,11 @@ void ModelisationPrblm::on_pushButton_13_clicked()
 
 void ModelisationPrblm::on_pushButton_4_clicked()
 {
-    this->close();
+    int reponse=QMessageBox::question(this,"Confirmer" ,"Etes-vous sûr de vouloir quitter?", QMessageBox::Yes | QMessageBox::No );
+    if (reponse == QMessageBox::Yes)
+    {
+        this->close();
+    }
 }
 
 void ModelisationPrblm::on_pushButton_14_clicked()
@@ -695,4 +699,9 @@ void ModelisationPrblm::on_pushButton_14_clicked()
 
    calculat->show();
    ui->checkBox->setChecked(true);
+}
+
+void ModelisationPrblm::on_pushButton_5_clicked()
+{
+ QDesktopServices::openUrl(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/Manuel.pdf"));
 }

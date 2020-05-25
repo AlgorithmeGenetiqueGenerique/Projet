@@ -102,12 +102,10 @@ void InterfaceQueen::start()
 
         srand(unsigned(time(NULL)));  vector<int> score_total;
         vector<int> meillleur_individu;
-        int f=0;
         thrd->Stop=false;
         thrd->count=0;
-        compteur_generation=0;int j=-1;
+        compteur_generation=0;
         sb = text->verticalScrollBar();
-        int a=ee.getTaillePopulation();
         thrd->iteration=2500;
         sb =text->verticalScrollBar();
         thrd->start();
@@ -222,8 +220,7 @@ for (int i = 0; i< ee.getTaillePopulation(); i++)
 
 
 void InterfaceQueen::connectAide(){
-
-    QDesktopServices::openUrl(QUrl::fromLocalFile(":images/Manuel.pdf"));
+ QDesktopServices::openUrl(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/Manuel.pdf"));
 
 }
 void InterfaceQueen::connectAcceuil(){
@@ -238,7 +235,7 @@ MainWindow1 *mainWindow = new  MainWindow1();
    individus.clear();
    dames.clear();
 
-   layout->addWidget(text);
+   layout->addWidget(text);close();
     }
 }
 void InterfaceQueen::fin()
