@@ -168,6 +168,11 @@ ModelisationPrblm::~ModelisationPrblm()
 
 void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
 {
+    qDebug()<<"=======================================================";
+    qDebug()<<taille_population->value();
+    qDebug()<<nombre_individu_selectionnes->value();
+
+    nombre_individu_selectionnes->setStyleSheet("background-color: white;");
     chaine_evaluation->setStyleSheet("background-color: white;");
     ui->pushButton_4->setEnabled(false);
     thrd->Stop=false;
@@ -213,6 +218,16 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     else
         evaluation_test.evaluer(new individu(ee->getMinIntervalleFlottant(),ee->getMaxIntervalleFlottant(), ee->getNombreGenes(),ee->getTypeGenes()));
 
+    if(ee->getTaillePopulation() < ee->getNmbr_indiv_a_selec())
+    {
+        nombre_individu_selectionnes->setValue((ee->getTaillePopulation()/2));
+        nombre_individu_selectionnes->setStyleSheet("background-color: red;");
+        ui->stackedWidget->setCurrentIndex(0);
+        QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nNombre individu"
+                                             "a selectioner inf a la population");
+    }
+    else
+        thrd->start();
     if(evaluation_test.getErreur())
     {
         chaine_evaluation->setStyleSheet("background-color: red;");
@@ -221,8 +236,10 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
         QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nSymbole indisponible"
                                              "pour le nombre de genes choisi");
     }
-    else
-     thrd->start();
+    else  
+        thrd->start();
+
+
 
 }
 
