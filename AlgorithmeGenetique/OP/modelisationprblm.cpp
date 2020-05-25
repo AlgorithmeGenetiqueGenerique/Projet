@@ -292,13 +292,6 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
         else if (evaluation_test.getErreur() == 5){
             QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type flottant");
             chaine_evaluation->setStyleSheet("background-color: red;");}
-        /*else if (evaluation_test.getErreur() == 6){
-            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nDivision sur zéro interdite");
-        }*/
-        else if (evaluation_test.getErreur() == 7){
-            chaine_evaluation->setStyleSheet("background-color: red;");
-            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nSymbole non reconnu dans l'équation");
-        }
       }
     else
         thrd->start();
@@ -352,7 +345,12 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
                 score_total.push_back(score_totale);
                 if(erreur==6)
                 {
-                    ui->textBrowser->insertPlainText("DIV 0##########♥");
+                    ui->textBrowser->insertPlainText("Une Division sur zero à u lieu");
+                    ui->textBrowser->insertPlainText("\n");
+                }
+                else if(erreur==7)
+                {
+                    ui->textBrowser->insertPlainText("Modulo zero à u lieu");
                     ui->textBrowser->insertPlainText("\n");
                 }
 
@@ -365,9 +363,15 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
                 score_total_d.push_back(score_totale_d);
                 if(erreur==6)
                 {
-                    ui->textBrowser->insertPlainText("DIV 0##########♥");
+                    ui->textBrowser->insertPlainText("Une division sur zero à u lieu");
                     ui->textBrowser->insertPlainText("\n");
                 }
+                else if(erreur==7)
+                {
+                    ui->textBrowser->insertPlainText("Modulo zero à u lieu");
+                    ui->textBrowser->insertPlainText("\n");
+                }
+
             }
             else if (ee->getTypeGenes() == 3){
 
@@ -378,12 +382,17 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
                 score_total.push_back(score_totale);
                 if(erreur==6)
                 {
-                    ui->textBrowser->insertPlainText("DIV 0##########♥");
+                    ui->textBrowser->insertPlainText("Une division sur zéro à u lieu");
                     ui->textBrowser->insertPlainText("\n");
                 }
+                else if(erreur==7)
+                {
+                    ui->textBrowser->insertPlainText("Modulo zero à u lieu");
+                    ui->textBrowser->insertPlainText("\n");
+                }
+
             }
         }
-        qDebug()<<"###############"<<erreur;
         if (arret) thrd->Stop=true;
     //-------------------------Sélection---------------
     if (ee->getChoixSelection() == 1)
@@ -427,7 +436,12 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
             ui->textBrowser->insertPlainText("\n");
             if(erreur==6)
             {
-                ui->textBrowser->insertPlainText("DIV 0##########♥");
+                ui->textBrowser->insertPlainText("Une division sur zéro à u lieu");
+                ui->textBrowser->insertPlainText("\n");
+            }
+            else if(erreur==7)
+            {
+                ui->textBrowser->insertPlainText("Modulo zéro à u lieu");
                 ui->textBrowser->insertPlainText("\n");
             }
 
@@ -441,7 +455,12 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
             ui->textBrowser->insertPlainText("\n");
             if(erreur==6)
             {
-                ui->textBrowser->insertPlainText("DIV 0##########♥");
+                ui->textBrowser->insertPlainText("Une division sur zéro à u lieu");
+                ui->textBrowser->insertPlainText("\n");
+            }
+            else if(erreur==7)
+            {
+                ui->textBrowser->insertPlainText("Modulo zéro à u lieu");
                 ui->textBrowser->insertPlainText("\n");
             }
         }
@@ -454,7 +473,12 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
             ui->textBrowser->insertPlainText("\n");
             if(erreur==6)
             {
-                ui->textBrowser->insertPlainText("DIV 0##########♥");
+                ui->textBrowser->insertPlainText("Une division sur zéro à u lieu");
+                ui->textBrowser->insertPlainText("\n");
+            }
+            else if(erreur==7)
+            {
+                ui->textBrowser->insertPlainText("Modulo zéro à u lieu");
                 ui->textBrowser->insertPlainText("\n");
             }
         }

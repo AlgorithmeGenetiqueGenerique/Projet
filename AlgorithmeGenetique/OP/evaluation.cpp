@@ -1061,7 +1061,8 @@ void evaluation::operations(individu* individu_x){
 					flottant = 0.0;
 				}
 					x = depiler();
-					empiler(depiler()%x);
+                    if (!x) erreur = 7;
+                    else empiler(depiler()%x);
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 2){
 				 analyseSyntaxiqueTypes(individu_x);
@@ -1072,7 +1073,8 @@ void evaluation::operations(individu* individu_x){
 					entier = 0;
 				}
 					 y = depilerFlottants();
-					 empilerFlottants(fmod(depilerFlottants(),y));
+                     if (!y) erreur = 7;
+                     else  empilerFlottants(fmod(depilerFlottants(),y));
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 3)
                     erreur = 3;
