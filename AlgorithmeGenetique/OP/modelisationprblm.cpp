@@ -388,6 +388,7 @@ void ModelisationPrblm::on_pushButton_7_clicked()//reconfigutrer
 {
     ui->stackedWidget->setCurrentIndex(0);
     individus.clear();
+    score_total.clear();
 }
 
 
