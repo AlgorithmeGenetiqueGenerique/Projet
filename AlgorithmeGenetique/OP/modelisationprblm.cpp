@@ -177,6 +177,8 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     taux_croisement->setStyleSheet("background-color: white;");
      min_intervalle->setStyleSheet("background-color: white;");
       max_intervalle->setStyleSheet("background-color: white;");
+      ui->lineEdit_4->setStyleSheet("background-color: white;");
+
     ui->pushButton_4->setEnabled(false);
     thrd->Stop=false;
     thrd->count=0;
@@ -214,7 +216,9 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     op = new operationsGenetiques(&individus,ee->getMaximisationMinimisation(), ee->getNmbr_indiv_a_selec());
     sb = ui->textBrowser->verticalScrollBar();
     score_totale=0;
+    //---------------------------------------------------------------------
             int n =0;
+            if (type == 1 || type ==3){
             for(std::string::size_type i = 0; i < min_intervalle->text().toStdString().length(); ++i)
             {
                 if(((min_intervalle->text().toStdString()[i]-'0')>9)||((min_intervalle->text().toStdString()[i]-'0')<0)) n = 1;
@@ -235,6 +239,18 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
                 QMessageBox::warning(this, "Erreur", "Les gènes sont de type entier");
             }
             }
+            if (!n){
+                for(std::string::size_type i = 0; i < ui->lineEdit_4->text().toStdString().length(); ++i)
+                {
+                    if(((ui->lineEdit_4->text().toStdString()[i]-'0')>9)||((ui->lineEdit_4->text().toStdString()[i]-'0')<0)) n = 1;
+                }
+                if (n){
+                                ui->stackedWidget->setCurrentIndex(0);
+                                ui->lineEdit_4->setStyleSheet("background-color: red;");
+                                QMessageBox::warning(this, "Erreur", "Les gènes sont de type entier");
+                            }
+            }
+        }
 
     if(!n) {        evaluation evaluation_test = evaluation(ee->getChaineEvaluation());
 
