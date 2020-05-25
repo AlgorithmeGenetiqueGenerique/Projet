@@ -217,14 +217,13 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
         evaluation_test.evaluer(new individu(ee->getMinIntervalle(),ee->getMaxIntervalle(), ee->getNombreGenes(),ee->getTypeGenes()));
     else
         evaluation_test.evaluer(new individu(ee->getMinIntervalleFlottant(),ee->getMaxIntervalleFlottant(), ee->getNombreGenes(),ee->getTypeGenes()));
-
     if(ee->getTaillePopulation() < ee->getNmbr_indiv_a_selec())
     {
         nombre_individu_selectionnes->setValue((ee->getTaillePopulation()/2));
         nombre_individu_selectionnes->setStyleSheet("background-color: red;");
         ui->stackedWidget->setCurrentIndex(0);
         QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nNombre individu"
-                                             "a selectioner inf a la population");
+                                              "a selectioner inf a la population");
     }
     else if(evaluation_test.getErreur())
     {
