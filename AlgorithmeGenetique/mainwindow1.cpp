@@ -19,12 +19,11 @@ MainWindow1::MainWindow1()
     accueil->setMinimumSize(800,600);
     accueil->setMaximumSize(800,600);
 
-      QPixmap bkgnd("algo.jpg");
+      QPixmap bkgnd(":/images/algo.jpg");
 
       QPalette palette;
       palette.setBrush(QPalette::Background, bkgnd);
       this->setPalette(palette);
-    /*this->setStyleSheet("{background-image: url (/home/hameni/Bureau/algo.jpg)};");*/
 
     exitAct = new QAction(tr("E&xit"), this);
     exitAct->setShortcuts(QKeySequence::Quit);
@@ -39,7 +38,8 @@ MainWindow1::MainWindow1()
 void MainWindow1::huits_dames()
 {
     hide();
-
+    game = new InterfaceQueen();
+    game->AffichageEchiquier();
     game->show();
 
 

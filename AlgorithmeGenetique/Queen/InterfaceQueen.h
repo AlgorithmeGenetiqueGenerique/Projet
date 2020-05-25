@@ -26,7 +26,7 @@
 #include "Piece.h"
 #include "bouton.h"
 #include "./../OP/mythread.h"
-#include "./../OP/entreessorties.h"
+#include "./../OP/EntreesSorties.h"
 #include<QKeyEvent>
 class InterfaceQueen:public QGraphicsView
 {

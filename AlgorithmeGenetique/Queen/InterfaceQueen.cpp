@@ -92,7 +92,7 @@ void InterfaceQueen::start()
 
         enCours=1;
         QGraphicsTextItem *Piece = new QGraphicsTextItem();
-
+        thrd->test=2;
         Piece->setPos(1200,10);
         Piece->setZValue(1);
         Piece->setDefaultTextColor(Qt::black);
@@ -102,18 +102,17 @@ void InterfaceQueen::start()
 
         srand(unsigned(time(NULL)));  vector<int> score_total;
         vector<int> meillleur_individu;
-        int f=0;
         thrd->Stop=false;
         thrd->count=0;
-        compteur_generation=0;int j=-1;
+        compteur_generation=0;
         sb = text->verticalScrollBar();
-        int a=ee.getTaillePopulation();
         thrd->iteration=2500;
         sb =text->verticalScrollBar();
         thrd->start();
         text->insertPlainText("\n");
         enCours=0;
-    
+        individus.clear();
+        dames.clear();
     
 }
 
@@ -222,8 +221,9 @@ for (int i = 0; i< ee.getTaillePopulation(); i++)
 
 
 void InterfaceQueen::connectAide(){
-
-    QDesktopServices::openUrl(QUrl::fromLocalFile(":images/Manuel.pdf"));
+    QFile HelpFile("qrc:/Manuel.pdf");;
+    HelpFile.copy(qApp->applicationDirPath().append("/Manuel.pdf"));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(qApp->applicationDirPath().append("/Manuel.pdf")));
 
 }
 void InterfaceQueen::connectAcceuil(){
@@ -237,7 +237,7 @@ MainWindow1 *mainWindow = new  MainWindow1();
    Echiquiers->reset(Scene_du_jeu);close();    thrd->Stop=false;text->deleteLater(); text = new QTextBrowser();
    individus.clear();
    dames.clear();
-
+     thrd->test=0;
    layout->addWidget(text);
     }
 }
@@ -257,6 +257,7 @@ void InterfaceQueen::AffichageEchiquier()
 
     thrd=new myThread(this);
     thrd->Stop=true;
+    thrd->test=2;
      QObject::connect(thrd,SIGNAL(txtEdt(int)),this,SLOT(onTxtEdt(int)));
     //create Button
     DessinerEchiquier();

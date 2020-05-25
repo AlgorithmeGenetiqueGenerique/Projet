@@ -12,7 +12,7 @@ public:
     bool Stop;
     int count;
     int iteration;
-
+    int test;
 public slots:
 
 

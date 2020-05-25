@@ -9,7 +9,7 @@
 #include "edge.h"
 #include <time.h>
 #include "./../OP/operationsgenetiques.h"
-#include "./../OP/entreessorties.h"
+#include "./../OP/EntreesSorties.h"
 
 using namespace std;
 class Node;

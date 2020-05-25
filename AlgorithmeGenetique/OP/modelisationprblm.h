@@ -21,7 +21,7 @@
 #include "individu.h"
 #include "evaluation.h"
 #include "gene.h"
-#include "entreessorties.h"
+#include "EntreesSorties.h"
 #include "operationsgenetiques.h"
 #include <QScrollBar>
 #include "notebad.h"
@@ -86,6 +86,8 @@ private slots:
     void on_pushButton_4_clicked();
 
     void on_pushButton_14_clicked();
+
+    void on_pushButton_5_clicked();
 
 signals:
     void ppp();

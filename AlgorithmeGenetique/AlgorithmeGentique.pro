@@ -32,7 +32,7 @@ SOURCES += \
     OP/calculator.cpp \
     OP/button.cpp \
     OP/notebad.cpp \
-    OP/entreessorties.cpp \
+    OP/EntreesSorties.cpp \
     OP/evaluation.cpp \
     OP/operationsgenetiques.cpp \
     OP/mythread.cpp \
@@ -58,7 +58,7 @@ HEADERS += \
     OP/calculator.h \
     OP/button.h \
     OP/notebad.h \
-    OP/entreessorties.h \
+    OP/EntreesSorties.h \
     OP/evaluation.h \
     OP/operationsgenetiques.h \
     OP/mythread.h \
@@ -76,7 +76,7 @@ HEADERS += \
     VoyageurDeCommerce/interfaceVoyageur.h
 
 FORMS += \
-        OP/mainwindow.ui \
+    OP/mainwindow.ui \
     OP/modelisation.ui \
     OP/modelisationprblm.ui \
     OP/notepad.ui
@@ -89,4 +89,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 STATECHARTS +=
 
 RESOURCES += \
-    Queen/Ressource1.qrc
+    Queen/Ressource1.qrc \
+    OP/Ressources.qrc \
+    resource.qrc

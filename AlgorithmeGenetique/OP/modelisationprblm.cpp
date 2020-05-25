@@ -7,7 +7,7 @@
 #include <QtCore>
 #include "../mainwindow1.h"
 #include <QMessageBox>
-
+#include <QDesktopServices>
 
 ModelisationPrblm::ModelisationPrblm(QWidget *parent) :
     QMainWindow(parent),
@@ -697,4 +697,11 @@ void ModelisationPrblm::on_pushButton_14_clicked()
 
    calculat->show();
    ui->checkBox->setChecked(true);
+}
+
+void ModelisationPrblm::on_pushButton_5_clicked()
+{
+    QFile HelpFile("qrc:/Manuel.pdf");;
+    HelpFile.copy(qApp->applicationDirPath().append("/Manuel.pdf"));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(qApp->applicationDirPath().append("/Manuel.pdf")));
 }

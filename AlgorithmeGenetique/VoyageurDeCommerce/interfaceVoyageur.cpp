@@ -62,11 +62,11 @@ voyageurDeCommerceInterface::voyageurDeCommerceInterface(QWidget *parent){
     dockLayout->addLayout(configurationLayout);
 
     //Ajoute les widgets aux layouts
-    boutons->addWidget(demarrer);
-    boutons->addWidget(plusCourtChemin);
-    boutons->addWidget(quitter);
-    dockLayout->addWidget(valeurChoisies);
 
+    dockLayout->addWidget(valeurChoisies);
+    dockLayout->addWidget(demarrer);
+    dockLayout->addWidget(plusCourtChemin);
+    dockLayout->addWidget(quitter);
     setCentralWidget(centre);
 
     //Configuration graphique
@@ -143,7 +143,9 @@ void voyageurDeCommerceInterface::lancer(){
 }
 void voyageurDeCommerceInterface::afficherAide(){
     
-    QDesktopServices::openUrl(QUrl::fromLocalFile("../manuel.txt"));
+    QFile HelpFile("qrc:/Manuel.pdf");;
+    HelpFile.copy(qApp->applicationDirPath().append("/Manuel.pdf"));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(qApp->applicationDirPath().append("/Manuel.pdf")));
 }
 
 void voyageurDeCommerceInterface::creerMenu(){

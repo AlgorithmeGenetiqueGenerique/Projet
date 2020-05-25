@@ -54,6 +54,7 @@ Calculator::Calculator(QWidget *parent)
      */
     Button *pointButton = createButton(tr("."), SLOT(pointClicked()));
 
+
     /*!
      * \brief buttons for backspace, clear and clear all
      */
@@ -91,14 +92,32 @@ Calculator::Calculator(QWidget *parent)
      * 3) tan
      */
     Button *sinButton = createButton(tr("sin"), SLOT(unaryOperatorClicked()));
+    Button *tanButton = createButton(tr("tan"), SLOT(unaryOperatorClicked()));
     Button *cosButton = createButton(tr("cos"), SLOT(unaryOperatorClicked()));
+    Button *sinhButton = createButton(tr("sinh"), SLOT(unaryOperatorClicked()));
+    Button *coshButton = createButton(tr("cosh"), SLOT(unaryOperatorClicked()));
+    Button *tanhButton = createButton(tr("tanh"), SLOT(unaryOperatorClicked()));
+    Button *arccosButton = createButton(tr("arccos"), SLOT(unaryOperatorClicked()));
+    Button *arcsinButton = createButton(tr("arcsin"), SLOT(unaryOperatorClicked()));
+    Button *arctanButton = createButton(tr("arctan"), SLOT(unaryOperatorClicked()));
+    Button *racinecubiqueButton = createButton(tr("rc"), SLOT(unaryOperatorClicked()));
+    Button *nButton = createButton(tr("OU"), SLOT(unaryOperatorClicked()));
+    Button *etButton = createButton(tr("ET"), SLOT(unaryOperatorClicked()));
+
+    Button *xorButton = createButton(tr("XOR"), SLOT(unaryOperatorClicked()));
+    Button *norButton = createButton(tr("NOR"), SLOT(unaryOperatorClicked()));
+    Button *notButton = createButton(tr("NOT"), SLOT(unaryOperatorClicked()));
+    Button *nandButton = createButton(tr("NAND"), SLOT(unaryOperatorClicked()));
+    Button *vabButton = createButton(tr("|-x|"), SLOT(unaryOperatorClicked()));
 
     /*!
      * \brief logrithmic
      * 1) log to the base 10
      * 2) log to base e
      */
-    Button *logButton = createButton(tr("log"), SLOT(unaryOperatorClicked()));
+    Button *logButton = createButton(tr("log2"), SLOT(unaryOperatorClicked()));
+    Button *logpButton = createButton(tr("log10"), SLOT(unaryOperatorClicked()));
+
     Button *lnButton = createButton(tr("ln"), SLOT(unaryOperatorClicked()));
 
     /*!
@@ -111,6 +130,8 @@ Calculator::Calculator(QWidget *parent)
      * \brief random functions
      */
     Button *exponentialButton = createButton(tr("e^x"), SLOT(unaryOperatorClicked()));
+    Button *supButton = createButton(tr("<"), SLOT(unaryOperatorClicked()));
+    Button *infButton = createButton(tr(">"), SLOT(unaryOperatorClicked()));
 
     /*!
      * \brief exit
@@ -146,7 +167,7 @@ Calculator::Calculator(QWidget *parent)
     mainLayout->addWidget(display, 0, 0, 1, 15);
     mainLayout->addWidget(backspaceButton, 1, 0, 1, 3);
     mainLayout->addWidget(clearAllButton, 1, 3, 1, 3);
-    mainLayout->addWidget(quitButton, 1, 6, 1, 1);
+    mainLayout->addWidget(quitButton, 1, 11, 1, 1);
     QObject::connect(quitButton, SIGNAL(clicked()), this, SLOT(valide()));
 
     /*!
@@ -162,6 +183,13 @@ Calculator::Calculator(QWidget *parent)
     /*!
      * Display of all the funtions on calculator gui
      */
+
+    mainLayout->addWidget(squareRootButton, 2, 0);
+    mainLayout->addWidget(powerButton, 3, 0);
+    mainLayout->addWidget(rightbracketButton, 4, 0);
+    mainLayout->addWidget(leftbracketButton, 5, 0);
+
+
     mainLayout->addWidget(digitButtons[0], 5, 1);
     mainLayout->addWidget(pointButton, 5, 2);
     mainLayout->addWidget(remainderButton, 5, 3);
@@ -178,21 +206,45 @@ Calculator::Calculator(QWidget *parent)
     mainLayout->addWidget(y_Button, 4, 5);
     mainLayout->addWidget(z_Button, 5, 5);
 
-    mainLayout->addWidget(sinButton, 2, 0);
-    mainLayout->addWidget(cosButton, 3, 0);
-    mainLayout->addWidget(logButton, 4, 0);
-    mainLayout->addWidget(lnButton, 5, 0);
-
+    mainLayout->addWidget(exponentialButton, 1, 6);
     mainLayout->addWidget(divisionButton, 2, 6);
     mainLayout->addWidget(timesButton, 3, 6);
     mainLayout->addWidget(minusButton, 4, 6);
     mainLayout->addWidget(plusButton, 5, 6);
 
-    mainLayout->addWidget(squareRootButton, 2, 7);
-    mainLayout->addWidget(powerButton, 3, 7);
-    mainLayout->addWidget(rightbracketButton, 4, 7);
-    mainLayout->addWidget(leftbracketButton, 5, 7);
-    mainLayout->addWidget(exponentialButton, 1, 7);
+    mainLayout->addWidget(tanButton, 4, 7);
+    mainLayout->addWidget(sinButton, 2, 7);
+    mainLayout->addWidget(cosButton, 3, 7);
+    mainLayout->addWidget(logButton, 5, 7);
+    mainLayout->addWidget(lnButton, 1, 7);
+
+    mainLayout->addWidget(etButton, 1, 8);
+    mainLayout->addWidget(sinhButton, 2, 8);
+    mainLayout->addWidget(coshButton, 3, 8);
+    mainLayout->addWidget(tanhButton, 4, 8);
+    mainLayout->addWidget(logpButton, 5, 8);
+
+    mainLayout->addWidget(nButton, 1, 9);
+    mainLayout->addWidget(arcsinButton, 2, 9);
+    mainLayout->addWidget(arccosButton, 3, 9);
+    mainLayout->addWidget(arctanButton, 4, 9);
+    mainLayout->addWidget(vabButton, 5, 9);
+
+
+    mainLayout->addWidget(racinecubiqueButton, 1, 10);
+    mainLayout->addWidget(norButton, 2, 10);
+    mainLayout->addWidget(xorButton, 3, 10);
+    mainLayout->addWidget(notButton, 4, 10);
+    mainLayout->addWidget(nandButton, 5, 10);
+
+
+    mainLayout->addWidget(supButton, 2,11);
+    mainLayout->addWidget(infButton, 3,11);
+
+
+
+
+
 
 
     setLayout(mainLayout);
@@ -233,7 +285,7 @@ void Calculator::unaryOperatorClicked()
 
     if (clickedOperator == tr("√x"))
     {
-        tempx = "√";
+        tempx = "fa(";
         display->setText(tempi+tempx);
         evaluate = evaluate+tempx;
     }
@@ -293,42 +345,91 @@ void Calculator::unaryOperatorClicked()
     }
     else if (clickedOperator == tr("sin"))
     {
-        tempx = "sin";
+        tempx = "fsin(";
         display->setText(tempi+tempx);
         tempy= "s";
         evaluate = evaluate+tempy;
     }
+    else if (clickedOperator == tr("sinh"))
+    {
+        tempx = "fsinh(";
+        display->setText(tempi+tempx);
+        tempy= "s";
+        evaluate = evaluate+tempy;
+    }
+    else if (clickedOperator == tr("cosh"))
+        {
+            tempx = "fcosh(";
+            display->setText(tempi+tempx);
+            tempy= "s";
+            evaluate = evaluate+tempy;
+        }
+    else if (clickedOperator == tr("arccos"))
+        {
+            tempx = "farccos(";
+            display->setText(tempi+tempx);
+            tempy= "s";
+            evaluate = evaluate+tempy;
+        }
+    else if (clickedOperator == tr("arcsin"))
+        {
+            tempx = "farcsin(";
+            display->setText(tempi+tempx);
+            tempy= "s";
+            evaluate = evaluate+tempy;
+        }
+    else if (clickedOperator == tr("arctan"))
+        {
+            tempx = "farctan(";
+            display->setText(tempi+tempx);
+            tempy= "s";
+            evaluate = evaluate+tempy;
+        }
     else if (clickedOperator == tr("cos"))
     {
-        tempx = "cos";
+        tempx = "fcos(";
         display->setText(tempi+tempx);
         tempy = "c";
         evaluate = evaluate+tempy;
     }
     else if (clickedOperator == tr("tan"))
     {
-        tempx = "tan";
+        tempx = "ftan(";
+        display->setText(tempi+tempx);
+        tempy = "t";
+        evaluate = evaluate+tempy;
+    }
+    else if (clickedOperator == tr("tanh"))
+    {
+        tempx = "ftanh(";
         display->setText(tempi+tempx);
         tempy = "t";
         evaluate = evaluate+tempy;
     }
     else if (clickedOperator == tr("e^x"))
     {
-        tempx = "e^";
+        tempx = "fe(";
         display->setText(tempi+tempx);
         tempy = "e";
         evaluate = evaluate+tempy;
     }
     else if (clickedOperator == tr("ln"))
     {
-        tempx = "ln";
+        tempx = "fln(";
         display->setText(tempi+tempx);
         tempy="l";
         evaluate = evaluate+tempy;
     }
-    else if (clickedOperator == tr("log"))
+    else if (clickedOperator == tr("log2"))
     {
-        tempx = "log";
+        tempx = "flog(";
+        display->setText(tempi+tempx);
+        tempy="1/l(10)*l";
+        evaluate = evaluate+tempy;
+    }
+    else if (clickedOperator == tr("log10"))
+    {
+        tempx = "flogx(";
         display->setText(tempi+tempx);
         tempy="1/l(10)*l";
         evaluate = evaluate+tempy;
@@ -375,6 +476,68 @@ void Calculator::unaryOperatorClicked()
         display->setText(tempi+tempx);
         evaluate = evaluate+tempx;
     }
+    else if (clickedOperator == tr("<"))
+    {
+        tempx = "<(";
+        display->setText(tempi+tempx);
+        evaluate = evaluate+tempx;
+    }
+    else if (clickedOperator == tr(">"))
+    {
+        tempx = ">(";
+        display->setText(tempi+tempx);
+        evaluate = evaluate+tempx;
+    }
+    else if (clickedOperator == tr("rc"))
+    {
+        tempx = "frc(";
+        display->setText(tempi+tempx);
+        evaluate = evaluate+tempx;
+    }
+    else if (clickedOperator == tr("XOR"))
+    {
+        tempx = "fx|";
+        display->setText(tempi+tempx);
+        evaluate = evaluate+tempx;
+    }
+    else if (clickedOperator == tr("NOT"))
+    {
+        tempx = "f~";
+        display->setText(tempi+tempx);
+        evaluate = evaluate+tempx;
+    }
+    else if (clickedOperator == tr("NAND"))
+    {
+        tempx = "f~&";
+        display->setText(tempi+tempx);
+        evaluate = evaluate+tempx;
+    }
+    else if (clickedOperator == tr("NOR"))
+    {
+        tempx = "f~|";
+        display->setText(tempi+tempx);
+        evaluate = evaluate+tempx;
+    }
+    else if (clickedOperator == tr("OU"))
+    {
+        tempx = "|";
+        display->setText(tempi+tempx);
+        evaluate = evaluate+tempx;
+    }
+    else if (clickedOperator == tr("ET"))
+    {
+        tempx = "&";
+        display->setText(tempi+tempx);
+        evaluate = evaluate+tempx;
+    }
+    else if (clickedOperator == tr("|-x|"))
+    {
+        tempx = "fav";
+        display->setText(tempi+tempx);
+        evaluate = evaluate+tempx;
+    }
+
+
     waitingForOperand = true;
 }
 
@@ -476,3 +639,4 @@ QString Calculator::getEvaluation()
 {
     return display->text();
 }
+    
