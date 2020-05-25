@@ -1,4 +1,4 @@
-#include "modelisationprblm.h"
+#include "OP/modelisationprblm.h"
 #include "ui_modelisationprblm.h"
 #include <QDebug>
 #include <QAbstractButton>
@@ -292,9 +292,9 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
         else if (evaluation_test.getErreur() == 5){
             QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type flottant");
             chaine_evaluation->setStyleSheet("background-color: red;");}
-        else if (evaluation_test.getErreur() == 6){
+        /*else if (evaluation_test.getErreur() == 6){
             QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nDivision sur zéro interdite");
-        }
+        }*/
         else if (evaluation_test.getErreur() == 7){
             chaine_evaluation->setStyleSheet("background-color: red;");
             QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nSymbole non reconnu dans l'équation");
@@ -324,7 +324,7 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
     if (arret) thrd->Stop=true;
     if(arret)
         ui->pushButton_4->setEnabled(true);
-
+        int erreur=0;
         if(!j){
             for (int i = 0; i< ee->getTaillePopulation(); i++){
 
@@ -340,6 +340,8 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
                     score_totale_d += individus[i].getNoteEvaluationFlottant();
                 else if (ee->getTypeGenes() == 3)
                     score_totale += individus[0].convertionVersDecimale(individus[i].getNoteEvaluation());
+                if(e.getErreur()>erreur)
+                 erreur=e.getErreur();
             }
             evaluation e = evaluation (ee->getChaineEvaluation());
             if (ee->getTypeGenes() == 1){
@@ -348,6 +350,12 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
                 arret = e.testArret(score_totale,ee->getGenerationSatisfaisante(), ee->getMaximisationMinimisation());
                 meillleur_individu.push_back(individus.at(0).getNoteEvaluation());
                 score_total.push_back(score_totale);
+                if(erreur==6)
+                {
+                    ui->textBrowser->insertPlainText("DIV 0##########♥");
+                    ui->textBrowser->insertPlainText("\n");
+                }
+
             }
             else if (ee->getTypeGenes() == 2){
                 meilleur_premier_d = individus[0].getNoteEvaluationFlottant();
@@ -355,6 +363,11 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
                 arret = e.testArret(score_totale_d,ee->getGenerationSatisfaisanteFlottant(), ee->getMaximisationMinimisation());
                 meillleur_individu_d.push_back(individus.at(0).getNoteEvaluationFlottant());
                 score_total_d.push_back(score_totale_d);
+                if(erreur==6)
+                {
+                    ui->textBrowser->insertPlainText("DIV 0##########♥");
+                    ui->textBrowser->insertPlainText("\n");
+                }
             }
             else if (ee->getTypeGenes() == 3){
 
@@ -363,8 +376,14 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
                 arret = e.testArret(score_totale,ee->getGenerationSatisfaisante(), ee->getMaximisationMinimisation());
                 meillleur_individu.push_back(individus.at(0).getNoteEvaluation());
                 score_total.push_back(score_totale);
+                if(erreur==6)
+                {
+                    ui->textBrowser->insertPlainText("DIV 0##########♥");
+                    ui->textBrowser->insertPlainText("\n");
+                }
             }
         }
+        qDebug()<<"###############"<<erreur;
         if (arret) thrd->Stop=true;
     //-------------------------Sélection---------------
     if (ee->getChoixSelection() == 1)
@@ -385,6 +404,8 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
         {
             evaluation e = evaluation (ee->getChaineEvaluation());
             e.evaluer(&individus[i]);
+            if(e.getErreur()>erreur)
+                erreur=e.getErreur();
             if (ee->getTypeGenes() == 1)
             {
               score_totale += individus[i].getNoteEvaluation();
@@ -404,6 +425,12 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
             meillleur_individu.push_back(individus.at(0).getNoteEvaluation());
             ui->textBrowser->insertPlainText("generation : "+QString::number(compteur_generation)+" Score :"+QString::number(score_total[compteur_generation]));
             ui->textBrowser->insertPlainText("\n");
+            if(erreur==6)
+            {
+                ui->textBrowser->insertPlainText("DIV 0##########♥");
+                ui->textBrowser->insertPlainText("\n");
+            }
+
         }
         else if (ee->getTypeGenes() == 2)
         {
@@ -412,6 +439,11 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
             meillleur_individu_d.push_back(individus.at(0).getNoteEvaluationFlottant());
             ui->textBrowser->insertPlainText("generation : "+QString::number(compteur_generation)+" Score :"+QString::number(score_total_d[compteur_generation]));
             ui->textBrowser->insertPlainText("\n");
+            if(erreur==6)
+            {
+                ui->textBrowser->insertPlainText("DIV 0##########♥");
+                ui->textBrowser->insertPlainText("\n");
+            }
         }
         else if (ee->getTypeGenes() == 3)
         {
@@ -420,8 +452,14 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
             meillleur_individu.push_back(individus.at(0).getNoteEvaluation());
             ui->textBrowser->insertPlainText("generation : "+QString::number(compteur_generation)+" Score :"+QString::number(score_total[compteur_generation]));
             ui->textBrowser->insertPlainText("\n");
+            if(erreur==6)
+            {
+                ui->textBrowser->insertPlainText("DIV 0##########♥");
+                ui->textBrowser->insertPlainText("\n");
+            }
         }
             compteur_generation++;
+
 
 
 

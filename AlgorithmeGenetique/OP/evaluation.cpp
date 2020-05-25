@@ -994,7 +994,7 @@ void evaluation::operations(individu* individu_x){
 						flottant = 0.0;
 					}
 					x = depiler();
-                    if (!x) printf("ERREUR : Division sur zéro interdite");
+                    if (!x) erreur=6;
 					else empiler(depiler()/x );
 				 }
 				 else {
@@ -1006,7 +1006,7 @@ void evaluation::operations(individu* individu_x){
 						entier = 0;
 					}
 					y = depilerFlottants();
-					if (!y) printf("ERREUR : Division sur zéro interdite");
+                    if (!y) erreur=6;
 					else empilerFlottants(depilerFlottants()/y );
 				 } 
 				 operations(individu_x);

@@ -2,6 +2,7 @@
 #include "Interface.h"
 #include "mainwindow1.h"
 #include "OP/modelisationprblm.h"
+#include "ui_modelisationprblm.h"
 #include "Queen/InterfaceQueen.h"
 #include "VoyageurDeCommerce/interfaceVoyageur.h"
 
