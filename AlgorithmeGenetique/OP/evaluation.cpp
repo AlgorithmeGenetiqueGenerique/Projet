@@ -60,6 +60,10 @@ void evaluation::evaluer(individu* individu_x){
 		individu_x->setNoteEvaluationFlottant(depilerFlottants());
 	else if (individu_x->ADN.getTypeGenes() == 3)
 	individu_x->setNoteEvaluation(individu_x->conversionVersBinaire(depiler()));
+    std::cout<<"a : "<<individu_x->ADN.genes_double.at(0)<<"\n";
+    std::cout<<"b : "<<individu_x->ADN.genes_double.at(1)<<"\n";
+    std::cout<<"= : "<<individu_x->getNoteEvaluationFlottant()<<"\n";
+     std::cout<<"----------------------\n";
 }
 
 void evaluation::analyseSyntaxiqueTypes(individu* individu_x){
@@ -309,8 +313,8 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 		switch(caractere)
 	{
 	case '+':{//ADDITION
-                if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
-                    erreur = 8;
+                if ((noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                   { erreur = 8;}
 				caractere = chaine_evaluation[indice++];			
 				noeud = ADDITION;
 				break;
@@ -375,42 +379,44 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 						}
 					   }
 				}
-				else {
+                else {
+                    if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                        erreur = 8;
 						noeud = SOUSTRACTION;
 						caractere = chaine_evaluation[indice++];
 				}
 				break;
 			 }
 	case '*':{//MULTIPLICATION
-            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+            if ((noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
                 erreur = 8;
 				caractere = chaine_evaluation[indice++];
 				noeud = MULTIPLICATION;
 				break;
 			 }
 	case '/':{//DIVISION
-            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+            if ((noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
                 erreur = 8;
 				caractere = chaine_evaluation[indice++];
 				noeud = DIVISION;
 				break;
 			 }
 	case '%':{//MODULO
-            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+            if ((noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
                 erreur = 8;
 				caractere = chaine_evaluation[indice++];
 				noeud = MODULO;
 				break;
 			 }
      case '&':{//ET LOGIQUE
-            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+            if ((noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
                 erreur = 8;
 				caractere = chaine_evaluation[indice++];
 				noeud = AND;
 				break;
 			 }
 	 case '|':{//OU LOGIQUE
-            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+            if ((noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
                 erreur = 8;
 				caractere = chaine_evaluation[indice++];
 				noeud = OR;
@@ -460,7 +466,7 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 					break;
 				}
 	case '^':{//PUISSANCE
-            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+            if ((noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
                 erreur = 8;
 				caractere = chaine_evaluation[indice++];
 				noeud = PUISSANCE;
@@ -667,7 +673,7 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 					case 'x':{//____________XOR
 						caractere = chaine_evaluation[indice++];
 						if (caractere == '|'){
-                            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                            if ((noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
                                 erreur = 8;
 							caractere = chaine_evaluation[indice++];
 							noeud = XOR;
@@ -678,14 +684,14 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 						caractere = chaine_evaluation[indice++];
 						switch(caractere){
 							case '|':{//-------------NOR
-                            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                            if ((noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
                                 erreur = 8;
 								caractere = chaine_evaluation[indice++];
 								noeud = NOR;
 								break;//-------------FIN NOR
 							}
 							case '&':{//_____________NAND
-                            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                            if ((noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
                                 erreur = 8;
 								caractere = chaine_evaluation[indice++];
 								noeud = NAND;
