@@ -1455,7 +1455,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str = "";
     str = QString::number(nombre);
     label12->setText(str);
-    label12->move(250,250);
+    label12->move(360,250);
     label12->show();
     //--------------------------------
 
@@ -1465,7 +1465,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str1 = "";
     str1 = QString::number(nombre1);
     label23->setText(str1);
-    label23->move(670,560);
+    label23->move(500,420);
     label23->show();
     //--------------------------------
 
@@ -1475,7 +1475,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str2 = "";
     str2 = QString::number(nombre2);
     label13->setText(str2);
-    label13->move(860,320);
+    label13->move(670,255);
     label13->show();
 
     //--------------------------------
@@ -1486,7 +1486,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str3 = "";
     str3 = QString::number(nombre3);
     label14->setText(str3);
-    label14->move(650,280);
+    label14->move(490,210);
     label14->show();
     //--------------------------------
 
@@ -1496,7 +1496,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str4 = "";
     str4 = QString::number(nombre4);
     label24->setText(str4);
-    label24->move(500,430);
+    label24->move(390,330);
     label24->show();
     //--------------------------------
 
@@ -1506,7 +1506,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str5 = "";
     str5 = QString::number(nombre5);
     label34->setText(str5);
-    label34->move(830,430);
+    label34->move(640,330);
     label34->show();
 }
 
@@ -1537,7 +1537,7 @@ void GraphWidget::dessinGraphe5Sommets(){
     QString str = "";
     str = QString::number(nombre);
     label12->setText(str);
-    label12->move(425,150);
+    label12->move(330,120);
     label12->show();
     //--------------------------------
     label23 = new QLabel(this);
@@ -1546,7 +1546,7 @@ void GraphWidget::dessinGraphe5Sommets(){
     QString str1 = "";
     str1 = QString::number(nombre1);
     label23->setText(str1);
-    label23->move(648,290);
+    label23->move(500,215);
     label23->show();
     //--------------------------------
     label13 = new QLabel(this);
@@ -1555,7 +1555,7 @@ void GraphWidget::dessinGraphe5Sommets(){
     QString str2 = "";
     str2 = QString::number(nombre2);
     label13->setText(str2);
-    label13->move(860,150);
+    label13->move(660,120);
     label13->show();
     //--------------------------------
     label14 = new QLabel(this);
@@ -1564,7 +1564,7 @@ void GraphWidget::dessinGraphe5Sommets(){
     QString str3 = "";
     str3 = QString::number(nombre3);
     label14->setText(str3);
-    label14->move(535,370);
+    label14->move(410,290);
     label14->show();
     //--------------------------------
     label15 = new QLabel(this);
@@ -1573,7 +1573,7 @@ void GraphWidget::dessinGraphe5Sommets(){
     QString str6 = "";
     str6 = QString::number(nombre6);
     label15->setText(str6);
-    label15->move(750,370);
+    label15->move(580,290);
     label15->show();
     //--------------------------------
     label24 = new QLabel(this);
@@ -1582,7 +1582,7 @@ void GraphWidget::dessinGraphe5Sommets(){
     QString str4 = "";
     str4 = QString::number(nombre4);
     label24->setText(str4);
-    label24->move(325,500);
+    label24->move(260,400);
     label24->show();
     //--------------------------------
     label25 = new QLabel(this);
@@ -1591,7 +1591,7 @@ void GraphWidget::dessinGraphe5Sommets(){
     QString str7 = "";
     str7 = QString::number(nombre7);
     label25->setText(str7);
-    label25->move(537,500);
+    label25->move(420,410);
     label25->show();
     //--------------------------------
     label34 = new QLabel(this);
@@ -1600,7 +1600,7 @@ void GraphWidget::dessinGraphe5Sommets(){
     QString str5 = "";
     str5 = QString::number(nombre5);
     label34->setText(str5);
-    label34->move(740,500);
+    label34->move(550,380);
     label34->show();
     //--------------------------------
     label35 = new QLabel(this);
@@ -1609,7 +1609,7 @@ void GraphWidget::dessinGraphe5Sommets(){
     QString str8 = "";
     str8 = QString::number(nombre8);
     label35->setText(str8);
-    label35->move(950,500);
+    label35->move(730,380);
     label35->show();
     //--------------------------------
     label45 = new QLabel(this);
@@ -1656,7 +1656,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str = "";
     str = QString::number(nombre);
     label12->setText(str);
-    label12->move(345,180);
+    label12->move(260,140);
     label12->show();
     //--------------------------------
     label23 = new QLabel(this);
@@ -1665,7 +1665,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str1 = "";
     str1 = QString::number(nombre1);
     label23->setText(str1);
-    label23->move(500,205);
+    label23->move(390,150);
     label23->show();
     //--------------------------------
     label13 = new QLabel(this);
@@ -1674,7 +1674,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str2 = "";
     str2 = QString::number(nombre2);
     label13->setText(str2);
-    label13->move(630,30);
+    label13->move(490,20);
     label13->show();
     //--------------------------------
     label14 = new QLabel(this);
@@ -1683,7 +1683,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str3 = "";
     str3 = QString::number(nombre3);
     label14->setText(str3);
-    label14->move(452,320);
+    label14->move(340,300);
     label14->show();
     //--------------------------------
     label15 = new QLabel(this);
@@ -1692,7 +1692,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str6 = "";
     str6 = QString::number(nombre6);
     label15->setText(str6);
-    label15->move(600,285);
+    label15->move(520,320);
     label15->show();
     //--------------------------------
     label16 = new QLabel(this);
@@ -1701,7 +1701,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str10 = "";
     str10 = QString::number(nombre10);
     label16->setText(str10);
-    label16->move(768,205);
+    label16->move(590,152);
     label16->show();
     //--------------------------------
     label24 = new QLabel(this);
@@ -1710,7 +1710,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str4 = "";
     str4 = QString::number(nombre4);
     label24->setText(str4);
-    label24->move(330,530);
+    label24->move(260,420);
     label24->show();
     //--------------------------------
     label25 = new QLabel(this);
@@ -1719,7 +1719,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str7 = "";
     str7 = QString::number(nombre7);
     label25->setText(str7);
-    label25->move(505,515);
+    label25->move(390,385);
     label25->show();
     //--------------------------------
     label26 = new QLabel(this);
@@ -1728,7 +1728,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str11 = "";
     str11 = QString::number(nombre11);
     label26->setText(str11);
-    label26->move(610,360);
+    label26->move(440,270);
     label26->show();
     //--------------------------------
     label34 = new QLabel(this);
@@ -1737,7 +1737,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str5 = "";
     str5 = QString::number(nombre5);
     label34->setText(str5);
-    label34->move(600,410);
+    label34->move(515,200);
     label34->show();
     //--------------------------------
     label35 = new QLabel(this);
@@ -1746,7 +1746,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str8 = "";
     str8 = QString::number(nombre8);
     label35->setText(str8);
-    label35->move(818,320);
+    label35->move(605,240);
     label35->show();
     //--------------------------------
     label36 = new QLabel(this);
@@ -1755,7 +1755,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str12 = "";
     str12 = QString::number(nombre12);
     label36->setText(str12);
-    label36->move(920,180);
+    label36->move(720,155);
     label36->show();
     //--------------------------------
     label45 = new QLabel(this);
@@ -1773,7 +1773,7 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str13 = "";
     str13 = QString::number(nombre13);
     label46->setText(str13);
-    label46->move(765,515);
+    label46->move(585,385);
     label46->show();
     //--------------------------------
     label56 = new QLabel(this);
@@ -1782,234 +1782,234 @@ void GraphWidget::dessinGraphe6Sommets(){
     QString str14 = "";
     str14 = QString::number(nombre14);
     label56->setText(str14);
-    label56->move(940,530);
+    label56->move(715,410);
     label56->show();
 }
 
 void GraphWidget::dessinGraphe7Sommets(){
     node1 = new Node(this, "1");
-    node2 = new Node(this, "2");
-   node3 = new Node(this, "3");
-    node4 = new Node(this, "4");
-     node5 = new Node(this, "5");
-      node6 = new Node(this, "6");
-       node7 = new Node(this, "7");
-   edge12 = new Edge(node1, node2, graph[0][1]);
-    edge23 = new Edge(node2, node3, graph[1][2]);
-    edge13 = new Edge(node1, node3, graph[0][2]);
-     edge14 = new Edge(node1, node4, graph[0][3]);
-     edge15 = new Edge(node1, node5, graph[0][4]);
-      edge16 = new Edge(node1, node6, graph[0][5]);
-       edge17 = new Edge(node1, node7, graph[0][6]);
-      edge24 = new Edge(node2, node4, graph[1][3]);
-         edge25 = new Edge(node2, node5, graph[1][4]);
-          edge26 = new Edge(node2, node6, graph[1][5]);
-           edge27 = new Edge(node2, node7, graph[1][6]);
-       edge34 = new Edge(node3, node4, graph[2][3]);
-       edge35 = new Edge(node3, node5, graph[2][4]);
-       edge36 = new Edge(node3, node6, graph[2][5]);
-       edge37 = new Edge(node3, node7, graph[2][6]);
-        edge45 = new Edge(node4, node5, graph[3][4]);
-        edge46 = new Edge(node4, node6, graph[3][5]);
-          edge47 = new Edge(node4, node7, graph[3][6]);
-        edge56 = new Edge(node5, node6, graph[4][5]);
-         edge57 = new Edge(node5, node7, graph[4][6]);
-           edge67 = new Edge(node6, node7, graph[5][6]);
-    node1->setPos(-181, -198);
-    node2->setPos(-355.5,-25.5);
-    node3->setPos(36, -198);
-    node4->setPos( -313.5,140.5);
-     node5->setPos(154,140.5);
-      node6->setPos(209,-25.5);
-      node7->setPos(-69.5,195);
-    label12 = new QLabel(this);
-    label12->setStyleSheet("QLabel {color : black; }");
-    int nombre = edge12->getPoid();
-    QString str = "";
-    str = QString::number(nombre);
-    label12->setText(str);
-    label12->move(((400+node1->pos().rx()+400+node2->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node2->pos().ry())*1.5)/2);
-    label12->show();
-    //--------------------------------
-    label23 = new QLabel(this);
-    label23->setStyleSheet("QLabel {color : black; }");
-    int nombre1 = edge23->getPoid();
-    QString str1 = "";
-    str1 = QString::number(nombre1);
-    label23->setText(str1);
-    label23->move(((400+node2->pos().rx()+400+node3->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node3->pos().ry())*1.5)/2);
-    label23->show();
-    //--------------------------------
-    label13 = new QLabel(this);
-    label13->setStyleSheet("QLabel {color : black; }");
-    int nombre2 = edge13->getPoid();
-    QString str2 = "";
-    str2 = QString::number(nombre2);
-    label13->setText(str2);
-    label13->move(((400+node1->pos().rx()+400+node3->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node3->pos().ry())*1.5)/2);
-    label13->show();
-    //--------------------------------
-    label14 = new QLabel(this);
-    label14->setStyleSheet("QLabel {color : black; }");
-    int nombre3 = edge14->getPoid();
-    QString str3 = "";
-    str3 = QString::number(nombre3);
-    label14->setText(str3);
-    label14->move(((400+node1->pos().rx()+400+node4->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node4->pos().ry())*1.5)/2);
-    label14->show();
-    //--------------------------------
-    label15 = new QLabel(this);
-    label15->setStyleSheet("QLabel {color : black; }");
-    int nombre6 = edge15->getPoid();
-    QString str6 = "";
-    str6 = QString::number(nombre6);
-    label15->setText(str6);
-    label15->move(((400+node1->pos().rx()+400+node5->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node5->pos().ry())*1.5)/2);
-    label15->show();
-    //--------------------------------
-    label16 = new QLabel(this);
-    label16->setStyleSheet("QLabel {color : black; }");
-    int nombre10 = edge16->getPoid();
-    QString str10 = "";
-    str10 = QString::number(nombre10);
-    label16->setText(str10);
-    label16->move(((400+node1->pos().rx()+400+node6->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node6->pos().ry())*1.5)/2);
-    label16->show();
-    //--------------------------------
-    label17 = new QLabel(this);
-    label17->setStyleSheet("QLabel {color : black; }");
-    int nombre15 = edge17->getPoid();
-    QString str15 = "";
-    str15 = QString::number(nombre15);
-    label17->setText(str15);
-    label17->move(((400+node1->pos().rx()+400+node7->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node7->pos().ry())*1.5)/2);
-    label17->show();
-    //--------------------------------
-    label24 = new QLabel(this);
-    label24->setStyleSheet("QLabel {color : black; }");
-    int nombre4 = edge24->getPoid();
-    QString str4 = "";
-    str4 = QString::number(nombre4);
-    label24->setText(str4);
-    label24->move(((400+node2->pos().rx()+400+node4->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node4->pos().ry())*1.5)/2);
-    label24->show();
-    //--------------------------------
-    label25 = new QLabel(this);
-    label25->setStyleSheet("QLabel {color : black; }");
-    int nombre7 = edge25->getPoid();
-    QString str7 = "";
-    str7 = QString::number(nombre7);
-    label25->setText(str7);
-    label25->move(((400+node2->pos().rx()+400+node5->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node5->pos().ry())*1.5)/2);
-    label25->show();
-    //--------------------------------
-    label26 = new QLabel(this);
-    label26->setStyleSheet("QLabel {color : black; }");
-    int nombre11 = edge26->getPoid();
-    QString str11 = "";
-    str11 = QString::number(nombre11);
-    label26->setText(str11);
-    label26->move(((400+node2->pos().rx()+400+node6->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node6->pos().ry())*1.5)/2);
-    label26->show();
-    //--------------------------------
-    label27 = new QLabel(this);
-    label27->setStyleSheet("QLabel {color : black; }");
-    int nombre18 = edge27->getPoid();
-    QString str18 = "";
-    str18 = QString::number(nombre18);
-    label27->setText(str18);
-    label27->move(((400+node2->pos().rx()+400+node7->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node7->pos().ry())*1.5)/2);
-    label27->show();
-    //--------------------------------
-    label34 = new QLabel(this);
-    label34->setStyleSheet("QLabel {color : black; }");
-    int nombre5 = edge34->getPoid();
-    QString str5 = "";
-    str5 = QString::number(nombre5);
-    label34->setText(str5);
-    label34->move(425,410);
-    label34->show();
-    //--------------------------------
-    label35 = new QLabel(this);
-    label35->setStyleSheet("QLabel {color : black; }");
-    int nombre8 = edge35->getPoid();
-    QString str8 = "";
-    str8 = QString::number(nombre8);
-    label35->setText(str8);
-    label35->move(((400+node3->pos().rx()+400+node5->pos().rx())*1.5)/2,((200+200+node3->pos().ry()+node5->pos().ry())*1.5)/2);
-    label35->show();
-    //--------------------------------
-    label36 = new QLabel(this);
-    label36->setStyleSheet("QLabel {color : black; }");
-    int nombre12 = edge36->getPoid();
-    QString str12 = "";
-    str12 = QString::number(nombre12);
-    label36->setText(str12);
-    label36->move(((400+node3->pos().rx()+400+node6->pos().rx())*1.5)/2,((200+200+node3->pos().ry()+node6->pos().ry())*1.5)/2);
-    label36->show();
-    //--------------------------------
-    label37 = new QLabel(this);
-    label37->setStyleSheet("QLabel {color : black; }");
-    int nombre19 = edge37->getPoid();
-    QString str19 = "";
-    str19 = QString::number(nombre19);
-    label37->setText(str19);
-    label37->move(((400+node3->pos().rx()+400+node7->pos().rx())*1.5)/2,((200+200+node3->pos().ry()+node7->pos().ry())*1.5)/2);
-    label37->show();
-    //--------------------------------
-    label45 = new QLabel(this);
-    label45->setStyleSheet("QLabel {color : black; }");
-    int nombre9 = edge45->getPoid();
-    QString str9 = "";
-    str9 = QString::number(nombre9);
-    label45->setText(str9);
-    label45->move(633,690);
-    label45->show();
-    //--------------------------------
-    label46 = new QLabel(this);
-    label46->setStyleSheet("QLabel {color : black; }");
-    int nombre13 = edge46->getPoid();
-    QString str13 = "";
-    str13 = QString::number(nombre13);
-    label46->setText(str13);
-    label46->move(((400+node4->pos().rx()+400+node6->pos().rx())*1.5)/2,((200+200+node4->pos().ry()+node6->pos().ry())*1.5)/2);
-    label46->show();
-    //--------------------------------
-    label47 = new QLabel(this);
-    label47->setStyleSheet("QLabel {color : black; }");
-    int nombre20 = edge47->getPoid();
-    QString str20 = "";
-    str20 = QString::number(nombre20);
-    label47->setText(str20);
-    label47->move(((400+node4->pos().rx()+400+node7->pos().rx())*1.5)/2,((200+200+node4->pos().ry()+node7->pos().ry())*1.5)/2);
-    label47->show();
-    //--------------------------------
-    label56 = new QLabel(this);
-    label56->setStyleSheet("QLabel {color : black; }");
-    int nombre14 = edge56->getPoid();
-    QString str14 = "";
-    str14 = QString::number(nombre14);
-    label56->setText(str14);
-    label56->move(((400+node5->pos().rx()+400+node6->pos().rx())*1.5)/2,((200+200+node5->pos().ry()+node6->pos().ry())*1.5)/2);
-    label56->show();
-    //--------------------------------
-    label57 = new QLabel(this);
-    label57->setStyleSheet("QLabel {color : black; }");
-    int nombre21 = edge57->getPoid();
-    QString str21 = "";
-    str21 = QString::number(nombre21);
-    label57->setText(str21);
-    label57->move(((400+node5->pos().rx()+400+node7->pos().rx())*1.5)/2,((200+200+node5->pos().ry()+node7->pos().ry())*1.5)/2);
-    label57->show();
-    //--------------------------------
-    label67 = new QLabel(this);
-    label67->setStyleSheet("QLabel {color : black; }");
-    int nombre22 = edge67->getPoid();
-    QString str22 = "";
-    str22 = QString::number(nombre22);
-    label67->setText(str22);
-    label67->move(((400+node6->pos().rx()+400+node7->pos().rx())*1.5)/2,((200+200+node6->pos().ry()+node7->pos().ry())*1.5)/2);
-    label67->show();
+     node2 = new Node(this, "2");
+    node3 = new Node(this, "3");
+     node4 = new Node(this, "4");
+      node5 = new Node(this, "5");
+       node6 = new Node(this, "6");
+        node7 = new Node(this, "7");
+    edge12 = new Edge(node1, node2, graph[0][1]);
+     edge23 = new Edge(node2, node3, graph[1][2]);
+     edge13 = new Edge(node1, node3, graph[0][2]);
+      edge14 = new Edge(node1, node4, graph[0][3]);
+      edge15 = new Edge(node1, node5, graph[0][4]);
+       edge16 = new Edge(node1, node6, graph[0][5]);
+        edge17 = new Edge(node1, node7, graph[0][6]);
+       edge24 = new Edge(node2, node4, graph[1][3]);
+          edge25 = new Edge(node2, node5, graph[1][4]);
+           edge26 = new Edge(node2, node6, graph[1][5]);
+            edge27 = new Edge(node2, node7, graph[1][6]);
+        edge34 = new Edge(node3, node4, graph[2][3]);
+        edge35 = new Edge(node3, node5, graph[2][4]);
+        edge36 = new Edge(node3, node6, graph[2][5]);
+        edge37 = new Edge(node3, node7, graph[2][6]);
+         edge45 = new Edge(node4, node5, graph[3][4]);
+         edge46 = new Edge(node4, node6, graph[3][5]);
+           edge47 = new Edge(node4, node7, graph[3][6]);
+         edge56 = new Edge(node5, node6, graph[4][5]);
+          edge57 = new Edge(node5, node7, graph[4][6]);
+            edge67 = new Edge(node6, node7, graph[5][6]);
+     node1->setPos(-181, -198);
+     node2->setPos(-355.5,-25.5);
+     node3->setPos(36, -198);
+     node4->setPos( -313.5,140.5);
+      node5->setPos(154,140.5);
+       node6->setPos(209,-25.5);
+       node7->setPos(-69.5,195);
+     label12 = new QLabel(this);
+     label12->setStyleSheet("QLabel {color : black; }");
+     int nombre = edge12->getPoid();
+     QString str = "";
+     str = QString::number(nombre);
+     label12->setText(str);
+     label12->move(180,140);
+     label12->show();
+     //--------------------------------
+     label23 = new QLabel(this);
+     label23->setStyleSheet("QLabel {color : black; }");
+     int nombre1 = edge23->getPoid();
+     QString str1 = "";
+     str1 = QString::number(nombre1);
+     label23->setText(str1);
+     label23->move(385,124);
+     label23->show();
+     //--------------------------------
+     label13 = new QLabel(this);
+     label13->setStyleSheet("QLabel {color : black; }");
+     int nombre2 = edge13->getPoid();
+     QString str2 = "";
+     str2 = QString::number(nombre2);
+     label13->setText(str2);
+     label13->move(490,10);
+     label13->show();
+     //--------------------------------
+     label14 = new QLabel(this);
+     label14->setStyleSheet("QLabel {color : black; }");
+     int nombre3 = edge14->getPoid();
+     QString str3 = "";
+     str3 = QString::number(nombre3);
+     label14->setText(str3);
+     label14->move(218,245);
+     label14->show();
+     //--------------------------------
+     label15 = new QLabel(this);
+     label15->setStyleSheet("QLabel {color : black; }");
+     int nombre6 = edge15->getPoid();
+     QString str6 = "";
+     str6 = QString::number(nombre6);
+     label15->setText(str6);
+     label15->move(535,220);
+     label15->show();
+     //--------------------------------
+     label16 = new QLabel(this);
+     label16->setStyleSheet("QLabel {color : black; }");
+     int nombre10 = edge16->getPoid();
+     QString str10 = "";
+     str10 = QString::number(nombre10);
+     label16->setText(str10);
+     label16->move(648,155);
+     label16->show();
+     //--------------------------------
+     label17 = new QLabel(this);
+     label17->setStyleSheet("QLabel {color : black; }");
+     int nombre15 = edge17->getPoid();
+     QString str15 = "";
+     str15 = QString::number(nombre15);
+     label17->setText(str15);
+     label17->move(400,350);
+     label17->show();
+     //--------------------------------
+     label24 = new QLabel(this);
+     label24->setStyleSheet("QLabel {color : black; }");
+     int nombre4 = edge24->getPoid();
+     QString str4 = "";
+     str4 = QString::number(nombre4);
+     label24->setText(str4);
+     label24->move(70,400);
+     label24->show();
+     //--------------------------------
+     label25 = new QLabel(this);
+     label25->setStyleSheet("QLabel {color : black; }");
+     int nombre7 = edge25->getPoid();
+     QString str7 = "";
+     str7 = QString::number(nombre7);
+     label25->setText(str7);
+     label25->move(595,440);
+     label25->show();
+     //--------------------------------
+     label26 = new QLabel(this);
+     label26->setStyleSheet("QLabel {color : black; }");
+     int nombre11 = edge26->getPoid();
+     QString str11 = "";
+     str11 = QString::number(nombre11);
+     label26->setText(str11);
+     label26->move(480,265);
+     label26->show();
+     //--------------------------------
+     label27 = new QLabel(this);
+     label27->setStyleSheet("QLabel {color : black; }");
+     int nombre18 = edge27->getPoid();
+     QString str18 = "";
+     str18 = QString::number(nombre18);
+     label27->setText(str18);
+     label27->move(285,437);
+     label27->show();
+     //--------------------------------
+     label34 = new QLabel(this);
+     label34->setStyleSheet("QLabel {color : black; }");
+     int nombre5 = edge34->getPoid();
+     QString str5 = "";
+     str5 = QString::number(nombre5);
+     label34->setText(str5);
+     label34->move(432,210);
+     label34->show();
+     //--------------------------------
+     label35 = new QLabel(this);
+     label35->setStyleSheet("QLabel {color : black; }");
+     int nombre8 = edge35->getPoid();
+     QString str8 = "";
+     str8 = QString::number(nombre8);
+     label35->setText(str8);
+     label35->move(710,235);
+     label35->show();
+     //--------------------------------
+     label36 = new QLabel(this);
+     label36->setStyleSheet("QLabel {color : black; }");
+     int nombre12 = edge36->getPoid();
+     QString str12 = "";
+     str12 = QString::number(nombre12);
+     label36->setText(str12);
+     label36->move(785,140);
+     label36->show();
+     //--------------------------------
+     label37 = new QLabel(this);
+     label37->setStyleSheet("QLabel {color : black; }");
+     int nombre19 = edge37->getPoid();
+     QString str19 = "";
+     str19 = QString::number(nombre19);
+     label37->setText(str19);
+     label37->move(545,350);
+     label37->show();
+     //--------------------------------
+     label45 = new QLabel(this);
+     label45->setStyleSheet("QLabel {color : black; }");
+     int nombre9 = edge45->getPoid();
+     QString str9 = "";
+     str9 = QString::number(nombre9);
+     label45->setText(str9);
+     label45->move(550,517);
+     label45->show();
+     //--------------------------------
+     label46 = new QLabel(this);
+     label46->setStyleSheet("QLabel {color : black; }");
+     int nombre13 = edge46->getPoid();
+     QString str13 = "";
+     str13 = QString::number(nombre13);
+     label46->setText(str13);
+     label46->move(600,365);
+     label46->show();
+     //--------------------------------
+     label47 = new QLabel(this);
+     label47->setStyleSheet("QLabel {color : black; }");
+     int nombre20 = edge47->getPoid();
+     QString str20 = "";
+     str20 = QString::number(nombre20);
+     label47->setText(str20);
+     label47->move(290,580);
+     label47->show();
+     //--------------------------------
+     label56 = new QLabel(this);
+     label56->setStyleSheet("QLabel {color : black; }");
+     int nombre14 = edge56->getPoid();
+     QString str14 = "";
+     str14 = QString::number(nombre14);
+     label56->setText(str14);
+     label56->move(880,400);
+     label56->show();
+     //--------------------------------
+     label57 = new QLabel(this);
+     label57->setStyleSheet("QLabel {color : black; }");
+     int nombre21 = edge57->getPoid();
+     QString str21 = "";
+     str21 = QString::number(nombre21);
+     label57->setText(str21);
+     label57->move(670,575);
+     label57->show();
+     //--------------------------------
+     label67 = new QLabel(this);
+     label67->setStyleSheet("QLabel {color : black; }");
+     int nombre22 = edge67->getPoid();
+     QString str22 = "";
+     str22 = QString::number(nombre22);
+     label67->setText(str22);
+     label67->move(675,445);
+     label67->show();
 }
 
 void GraphWidget::afficherSolution4Sommets(int g1, int g2, int g3, int g4){
