@@ -50,29 +50,29 @@ ModelisationPrblm::ModelisationPrblm(QWidget *parent) :
     reconfigurer=ui->pushButton_7;
     nom_fichier_sauvegarde=ui->lineEdit_5;
     nom_fichier_latex=ui->lineEdit_6;
-    /*nom_fichier_chargement=;
-    configurer= ;
-    consulter=;
+    nom_fichier_chargement=ui->lineEdit_5;
+    configurer=ui->pushButton_7;
+    consulter=nullptr;
     //---------------------------------------------------------
-    layout_nombre_genes= new QVBoxLayout;
-    layout_taille_population= new QVBoxLayout;
-    layout_nombre_iterations= new QVBoxLayout;
-    layout_nombre_individu_selectionnes= new QVBoxLayout;
-    layout_type_genes= new QVBoxLayout;
-    layout_type_genes_principale= new QVBoxLayout;
-    layout_choix_selection= new QVBoxLayout;
-    layout_taux_croisement= new QVBoxLayout;
-    layout_taux_mutation= new QVBoxLayout;
-    layout_maximisation_minimisation= new QVBoxLayout;
-    layout_maximisation_minimisation_principale= new QVBoxLayout;
-    layout_chaine_evaluation= new QVBoxLayout;
-    layout_min_intervalle= new QVBoxLayout;
-    layout_max_intervalle= new QVBoxLayout;
-    layout_generation_satisfaisante= new QVBoxLayout;
-    layout_nom_fichier_sauvegarde= new QVBoxLayout;
-    layout_nom_fichier_latex= new QVBoxLayout;
-    layout_nom_fichier_chargement= new QVBoxLayout;
-    //-----------------------------------------------------------------------
+    layout_nombre_genes= ui->verticalLayout;
+    layout_taille_population= ui->verticalLayout;
+    layout_nombre_iterations= ui->verticalLayout;
+    layout_nombre_individu_selectionnes= ui->verticalLayout;
+    layout_type_genes= ui->verticalLayout;
+    layout_type_genes_principale= ui->verticalLayout;
+    layout_choix_selection= ui->verticalLayout;
+    layout_taux_croisement= ui->verticalLayout;
+    layout_taux_mutation= ui->verticalLayout;
+    layout_maximisation_minimisation= ui->verticalLayout;
+    layout_maximisation_minimisation_principale=ui->verticalLayout;
+    layout_chaine_evaluation= ui->verticalLayout;
+    layout_min_intervalle= ui->verticalLayout;
+    layout_max_intervalle= ui->verticalLayout;
+    layout_generation_satisfaisante= ui->verticalLayout;
+    layout_nom_fichier_sauvegarde= ui->verticalLayout;
+    layout_nom_fichier_latex= ui->verticalLayout;
+    layout_nom_fichier_chargement= ui->verticalLayout;
+    /*//-----------------------------------------------------------------------
     layout_configurer= new QHBoxLayout;
     layout_sauvegarder= new QHBoxLayout;
     layout_charger= new QHBoxLayout;
@@ -544,9 +544,9 @@ void ModelisationPrblm::on_pushButton_10_clicked()
     else
         chaineEval=ui->lineEdit->text();
     if(type==2)
-        ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toDouble(), type, min_intervalle->text().toDouble(), max_intervalle->text().toDouble(),maxMin);
+        ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toDouble(), type, ui->doubleSpinBox_3->value(), ui->doubleSpinBox_4->value(),maxMin);
     else
-        ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toInt(), type, min_intervalle->text().toInt(), max_intervalle->text().toInt(),maxMin);
+        ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toInt(), type, ui->spinBox_5->value(),ui->spinBox_6->value(),maxMin);
     ee->sauvegarde(ui->lineEdit_5->text().toStdString());
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -581,65 +581,8 @@ void ModelisationPrblm::on_pushButton_11_clicked()
     else
         ui->radioButton_5->setChecked(true);
     ui->lineEdit->setText(QString::fromStdString(ee->getChaineEvaluation()));
-    if(ee->getTypeGenes()==2)
-    {
-        ui->lineEdit_2->setText(QString::number(ee->getMinIntervalleFlottant()));
-        ui->lineEdit_3->setText(QString::number(ee->getMaxIntervalleFlottant()));
-        ui->lineEdit_4->setText(QString::number(ee->getGenerationSatisfaisanteFlottant()));
-    }
-    else
-    {
-        ui->lineEdit_2->setText(QString::number(ee->getMinIntervalle()));
-        ui->lineEdit_3->setText(QString::number(ee->getMaxIntervalle()));
-        ui->lineEdit_4->setText(QString::number(ee->getGenerationSatisfaisante()));
-    }
-
     ui->stackedWidget->setCurrentIndex(0);
 }
-
-
-
-
-/*ui->textBrowser->insertPlainText("Chaine evaluation : "+chaine_evaluation->text());
-printf("%s",chaine_evaluation->text().toStdString().c_str());
-ui->textBrowser->insertPlainText("\n");
-ui->textBrowser->insertPlainText("Taille population : "+QString::number(taille_population->value()));
-printf("%d\n",taille_population->value());
-ui->textBrowser->insertPlainText("\n");
-ui->textBrowser->insertPlainText("Nombre iteration : "+QString::number(nombre_iterations->value()));
-printf("%d\n",nombre_iterations->value());
-ui->textBrowser->insertPlainText("\n");
-ui->textBrowser->insertPlainText("Select nomber : "+QString::number(nombre_individu_selectionnes->value()));
-printf("%d\n",nombre_individu_selectionnes->value());
-ui->textBrowser->insertPlainText("\n");
-ui->textBrowser->insertPlainText("Choix selection : "+QString::number(ui->comboBox->currentIndex()+1));
-printf("%d\n",ui->comboBox->currentIndex()+1);
-ui->textBrowser->insertPlainText("\n");
-ui->textBrowser->insertPlainText("nombre des genes : "+QString::number(nombre_genes->value()));
-printf("%d\n",nombre_genes->value());
-ui->textBrowser->insertPlainText("\n");
-ui->textBrowser->insertPlainText("Taux de croisement : "+QString::number(taux_croisement->value()));
-printf("%f\n",taux_croisement->value());
-ui->textBrowser->insertPlainText("\n");
-ui->textBrowser->insertPlainText("Taux de mutation : "+QString::number(taux_mutation->value()));
-printf("%f\n",taux_mutation->value());
-ui->textBrowser->insertPlainText("\n");
-ui->textBrowser->insertPlainText("Generation sat : "+QString::number(ui->lineEdit_4->text().toDouble()));
-printf("%f\n",ui->lineEdit_4->text().toDouble());
-ui->textBrowser->insertPlainText("\n");
-ui->textBrowser->insertPlainText("Minimisation maximisation : "+QString::number(maxMin));
-printf("%d\n",maxMin);
-ui->textBrowser->insertPlainText("\n");
-ui->textBrowser->insertPlainText("Type de genes: "+QString::number(type));
-printf("%d\n",type);
-ui->textBrowser->insertPlainText("\n");
-ui->textBrowser->insertPlainText("Intervalle Max: "+QString::number(max_intervalle->text().toDouble()));
-printf("%f\n",max_intervalle->text().toDouble());
-ui->textBrowser->insertPlainText("\n");
-ui->textBrowser->insertPlainText("Intervalle Min: "+QString::number(min_intervalle->text().toDouble()));
-printf("%f\n",min_intervalle->text().toDouble());
-ui->textBrowser->insertPlainText("\n");*/
-
 void ModelisationPrblm::on_pushButton_12_clicked()
 {
 

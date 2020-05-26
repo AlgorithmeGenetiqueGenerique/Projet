@@ -10,9 +10,9 @@ GraphWidget::GraphWidget(int nbSommets,QWidget *parent)
 {
     QGraphicsScene *scene = new QGraphicsScene(this);
     scene->setSceneRect(-200, -200, 400, 400);
-    setScene(scene);
-    scale(qreal(2), qreal(2));
-    setFixedSize(1560, 850);
+        setScene(scene);
+        scale(qreal(1.5), qreal(1.5));
+        setFixedSize(1200, 650);
     setWindowTitle(tr("voyageur de commerce"));
     nombre_sommets = nbSommets;
     initialisationGraph();
@@ -1454,8 +1454,8 @@ void GraphWidget::dessinGraphe4Sommets(){
     int nombre = edge12->getPoid();
     QString str = "";
     str = QString::number(nombre);
-    label12->setText(str);
-    label12->move(480,320);
+    label12->setText("str");
+    label12->move(((200+52+200+239.5)*1.5)/3,((400+124-60.5)*1.5)/3);
     label12->show();
     //--------------------------------
 

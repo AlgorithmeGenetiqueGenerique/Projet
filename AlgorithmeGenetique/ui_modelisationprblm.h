@@ -54,7 +54,35 @@ public:
     QPushButton *pushButton_2;
     QPushButton *pushButton;
     QSpacerItem *horizontalSpacer_2;
-    QVBoxLayout *verticalLayout_11;
+    QFormLayout *formLayout;
+    QLabel *label_nombreG;
+    QLabel *label_tailleP;
+    QSpinBox *spinBox_2;
+    QLabel *label_nombreI;
+    QSpinBox *spinBox_3;
+    QLabel *label_nombreIS;
+    QLabel *label_tauxC;
+    QDoubleSpinBox *doubleSpinBox;
+    QLabel *label_tauxM;
+    QDoubleSpinBox *doubleSpinBox_2;
+    QLabel *label_typeS;
+    QComboBox *comboBox;
+    QLabel *label_typeG;
+    QLabel *label_senseE;
+    QGroupBox *groupBox_4;
+    QVBoxLayout *verticalLayout_15;
+    QVBoxLayout *verticalLayout_14;
+    QRadioButton *radioButton_2;
+    QRadioButton *radioButton_3;
+    QRadioButton *radioButton;
+    QGroupBox *groupBox_3;
+    QVBoxLayout *verticalLayout_13;
+    QVBoxLayout *verticalLayout_10;
+    QRadioButton *radioButton_5;
+    QRadioButton *radioButton_4;
+    QSpinBox *spinBox;
+    QSpinBox *spinBox_4;
+    QVBoxLayout *verticalLayout_8;
     QFormLayout *formLayout_8;
     QLabel *label_chaineE;
     QLineEdit *lineEdit;
@@ -79,38 +107,6 @@ public:
     QLabel *label_3;
     QLabel *label_4;
     QLabel *label_5;
-    QGridLayout *gridLayout_2;
-    QVBoxLayout *verticalLayout;
-    QFormLayout *formLayout;
-    QLabel *label_nombreG;
-    QLabel *label_tailleP;
-    QSpinBox *spinBox_2;
-    QLabel *label_nombreI;
-    QSpinBox *spinBox_3;
-    QLabel *label_nombreIS;
-    QSpinBox *spinBox_4;
-    QLabel *label_tauxC;
-    QDoubleSpinBox *doubleSpinBox;
-    QLabel *label_tauxM;
-    QDoubleSpinBox *doubleSpinBox_2;
-    QLabel *label_typeS;
-    QComboBox *comboBox;
-    QLabel *label_typeG;
-    QLabel *label_senseE;
-    QGroupBox *groupBox_4;
-    QVBoxLayout *verticalLayout_15;
-    QRadioButton *radioButton_2;
-    QRadioButton *radioButton_3;
-    QRadioButton *radioButton;
-    QVBoxLayout *verticalLayout_14;
-    QGroupBox *groupBox_3;
-    QVBoxLayout *verticalLayout_13;
-    QRadioButton *radioButton_5;
-    QRadioButton *radioButton_4;
-    QVBoxLayout *verticalLayout_10;
-    QSpinBox *spinBox;
-    QSpacerItem *horizontalSpacer;
-    QVBoxLayout *verticalLayout_8;
     QPushButton *pushButton_3;
     QWidget *page_2;
     QGridLayout *gridLayout_5;
@@ -202,13 +198,161 @@ public:
         horizontalLayout_11->addItem(horizontalSpacer_2);
 
 
-        gridLayout_3->addLayout(horizontalLayout_11, 3, 0, 1, 2);
+        gridLayout_3->addLayout(horizontalLayout_11, 2, 0, 1, 2);
 
-        verticalLayout_11 = new QVBoxLayout();
-        verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
+        formLayout = new QFormLayout();
+        formLayout->setObjectName(QStringLiteral("formLayout"));
+        label_nombreG = new QLabel(page);
+        label_nombreG->setObjectName(QStringLiteral("label_nombreG"));
 
-        gridLayout_3->addLayout(verticalLayout_11, 2, 0, 1, 1);
+        formLayout->setWidget(3, QFormLayout::LabelRole, label_nombreG);
 
+        label_tailleP = new QLabel(page);
+        label_tailleP->setObjectName(QStringLiteral("label_tailleP"));
+
+        formLayout->setWidget(4, QFormLayout::LabelRole, label_tailleP);
+
+        spinBox_2 = new QSpinBox(page);
+        spinBox_2->setObjectName(QStringLiteral("spinBox_2"));
+        spinBox_2->setMinimum(10);
+        spinBox_2->setMaximum(100000);
+        spinBox_2->setValue(2048);
+
+        formLayout->setWidget(4, QFormLayout::FieldRole, spinBox_2);
+
+        label_nombreI = new QLabel(page);
+        label_nombreI->setObjectName(QStringLiteral("label_nombreI"));
+
+        formLayout->setWidget(5, QFormLayout::LabelRole, label_nombreI);
+
+        spinBox_3 = new QSpinBox(page);
+        spinBox_3->setObjectName(QStringLiteral("spinBox_3"));
+        spinBox_3->setMinimum(1);
+        spinBox_3->setMaximum(100000);
+        spinBox_3->setValue(50);
+
+        formLayout->setWidget(5, QFormLayout::FieldRole, spinBox_3);
+
+        label_nombreIS = new QLabel(page);
+        label_nombreIS->setObjectName(QStringLiteral("label_nombreIS"));
+
+        formLayout->setWidget(6, QFormLayout::LabelRole, label_nombreIS);
+
+        label_tauxC = new QLabel(page);
+        label_tauxC->setObjectName(QStringLiteral("label_tauxC"));
+
+        formLayout->setWidget(7, QFormLayout::LabelRole, label_tauxC);
+
+        doubleSpinBox = new QDoubleSpinBox(page);
+        doubleSpinBox->setObjectName(QStringLiteral("doubleSpinBox"));
+        doubleSpinBox->setMaximum(1);
+        doubleSpinBox->setValue(0.05);
+
+        formLayout->setWidget(7, QFormLayout::FieldRole, doubleSpinBox);
+
+        label_tauxM = new QLabel(page);
+        label_tauxM->setObjectName(QStringLiteral("label_tauxM"));
+
+        formLayout->setWidget(8, QFormLayout::LabelRole, label_tauxM);
+
+        doubleSpinBox_2 = new QDoubleSpinBox(page);
+        doubleSpinBox_2->setObjectName(QStringLiteral("doubleSpinBox_2"));
+        doubleSpinBox_2->setMaximum(1);
+        doubleSpinBox_2->setValue(0.1);
+
+        formLayout->setWidget(8, QFormLayout::FieldRole, doubleSpinBox_2);
+
+        label_typeS = new QLabel(page);
+        label_typeS->setObjectName(QStringLiteral("label_typeS"));
+
+        formLayout->setWidget(9, QFormLayout::LabelRole, label_typeS);
+
+        comboBox = new QComboBox(page);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+
+        formLayout->setWidget(9, QFormLayout::FieldRole, comboBox);
+
+        label_typeG = new QLabel(page);
+        label_typeG->setObjectName(QStringLiteral("label_typeG"));
+
+        formLayout->setWidget(10, QFormLayout::LabelRole, label_typeG);
+
+        label_senseE = new QLabel(page);
+        label_senseE->setObjectName(QStringLiteral("label_senseE"));
+
+        formLayout->setWidget(10, QFormLayout::FieldRole, label_senseE);
+
+        groupBox_4 = new QGroupBox(page);
+        groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
+        verticalLayout_15 = new QVBoxLayout(groupBox_4);
+        verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
+        verticalLayout_14 = new QVBoxLayout();
+        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
+        radioButton_2 = new QRadioButton(groupBox_4);
+        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
+
+        verticalLayout_14->addWidget(radioButton_2);
+
+        radioButton_3 = new QRadioButton(groupBox_4);
+        radioButton_3->setObjectName(QStringLiteral("radioButton_3"));
+
+        verticalLayout_14->addWidget(radioButton_3);
+
+        radioButton = new QRadioButton(groupBox_4);
+        radioButton->setObjectName(QStringLiteral("radioButton"));
+        radioButton->setChecked(true);
+
+        verticalLayout_14->addWidget(radioButton);
+
+
+        verticalLayout_15->addLayout(verticalLayout_14);
+
+
+        formLayout->setWidget(11, QFormLayout::LabelRole, groupBox_4);
+
+        groupBox_3 = new QGroupBox(page);
+        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
+        verticalLayout_13 = new QVBoxLayout(groupBox_3);
+        verticalLayout_13->setObjectName(QStringLiteral("verticalLayout_13"));
+        verticalLayout_10 = new QVBoxLayout();
+        verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
+        radioButton_5 = new QRadioButton(groupBox_3);
+        radioButton_5->setObjectName(QStringLiteral("radioButton_5"));
+
+        verticalLayout_10->addWidget(radioButton_5);
+
+        radioButton_4 = new QRadioButton(groupBox_3);
+        radioButton_4->setObjectName(QStringLiteral("radioButton_4"));
+        radioButton_4->setChecked(true);
+
+        verticalLayout_10->addWidget(radioButton_4);
+
+
+        verticalLayout_13->addLayout(verticalLayout_10);
+
+
+        formLayout->setWidget(11, QFormLayout::FieldRole, groupBox_3);
+
+        spinBox = new QSpinBox(page);
+        spinBox->setObjectName(QStringLiteral("spinBox"));
+        spinBox->setMinimum(1);
+        spinBox->setMaximum(8);
+
+        formLayout->setWidget(3, QFormLayout::FieldRole, spinBox);
+
+        spinBox_4 = new QSpinBox(page);
+        spinBox_4->setObjectName(QStringLiteral("spinBox_4"));
+        spinBox_4->setMinimum(2);
+        spinBox_4->setMaximum(100000);
+        spinBox_4->setValue(1500);
+
+        formLayout->setWidget(6, QFormLayout::FieldRole, spinBox_4);
+
+
+        gridLayout_3->addLayout(formLayout, 1, 1, 1, 1);
+
+        verticalLayout_8 = new QVBoxLayout();
+        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
         formLayout_8 = new QFormLayout();
         formLayout_8->setObjectName(QStringLiteral("formLayout_8"));
         label_chaineE = new QLabel(page);
@@ -322,183 +466,16 @@ public:
         formLayout_8->setWidget(15, QFormLayout::LabelRole, label_5);
 
 
-        gridLayout_3->addLayout(formLayout_8, 1, 2, 1, 1);
-
-        gridLayout_2 = new QGridLayout();
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        formLayout = new QFormLayout();
-        formLayout->setObjectName(QStringLiteral("formLayout"));
-        label_nombreG = new QLabel(page);
-        label_nombreG->setObjectName(QStringLiteral("label_nombreG"));
-
-        formLayout->setWidget(3, QFormLayout::LabelRole, label_nombreG);
-
-        label_tailleP = new QLabel(page);
-        label_tailleP->setObjectName(QStringLiteral("label_tailleP"));
-
-        formLayout->setWidget(4, QFormLayout::LabelRole, label_tailleP);
-
-        spinBox_2 = new QSpinBox(page);
-        spinBox_2->setObjectName(QStringLiteral("spinBox_2"));
-        spinBox_2->setMinimum(10);
-        spinBox_2->setMaximum(100000);
-        spinBox_2->setValue(2048);
-
-        formLayout->setWidget(4, QFormLayout::FieldRole, spinBox_2);
-
-        label_nombreI = new QLabel(page);
-        label_nombreI->setObjectName(QStringLiteral("label_nombreI"));
-
-        formLayout->setWidget(5, QFormLayout::LabelRole, label_nombreI);
-
-        spinBox_3 = new QSpinBox(page);
-        spinBox_3->setObjectName(QStringLiteral("spinBox_3"));
-        spinBox_3->setMinimum(1);
-        spinBox_3->setMaximum(100000);
-        spinBox_3->setValue(50);
-
-        formLayout->setWidget(5, QFormLayout::FieldRole, spinBox_3);
-
-        label_nombreIS = new QLabel(page);
-        label_nombreIS->setObjectName(QStringLiteral("label_nombreIS"));
-
-        formLayout->setWidget(6, QFormLayout::LabelRole, label_nombreIS);
-
-        spinBox_4 = new QSpinBox(page);
-        spinBox_4->setObjectName(QStringLiteral("spinBox_4"));
-        spinBox_4->setMinimum(2);
-        spinBox_4->setMaximum(100000);
-        spinBox_4->setValue(1500);
-
-        formLayout->setWidget(6, QFormLayout::FieldRole, spinBox_4);
-
-        label_tauxC = new QLabel(page);
-        label_tauxC->setObjectName(QStringLiteral("label_tauxC"));
-
-        formLayout->setWidget(7, QFormLayout::LabelRole, label_tauxC);
-
-        doubleSpinBox = new QDoubleSpinBox(page);
-        doubleSpinBox->setObjectName(QStringLiteral("doubleSpinBox"));
-        doubleSpinBox->setMaximum(1);
-        doubleSpinBox->setValue(0.05);
-
-        formLayout->setWidget(7, QFormLayout::FieldRole, doubleSpinBox);
-
-        label_tauxM = new QLabel(page);
-        label_tauxM->setObjectName(QStringLiteral("label_tauxM"));
-
-        formLayout->setWidget(8, QFormLayout::LabelRole, label_tauxM);
-
-        doubleSpinBox_2 = new QDoubleSpinBox(page);
-        doubleSpinBox_2->setObjectName(QStringLiteral("doubleSpinBox_2"));
-        doubleSpinBox_2->setMaximum(1);
-        doubleSpinBox_2->setValue(0.1);
-
-        formLayout->setWidget(8, QFormLayout::FieldRole, doubleSpinBox_2);
-
-        label_typeS = new QLabel(page);
-        label_typeS->setObjectName(QStringLiteral("label_typeS"));
-
-        formLayout->setWidget(9, QFormLayout::LabelRole, label_typeS);
-
-        comboBox = new QComboBox(page);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-
-        formLayout->setWidget(9, QFormLayout::FieldRole, comboBox);
-
-        label_typeG = new QLabel(page);
-        label_typeG->setObjectName(QStringLiteral("label_typeG"));
-
-        formLayout->setWidget(10, QFormLayout::LabelRole, label_typeG);
-
-        label_senseE = new QLabel(page);
-        label_senseE->setObjectName(QStringLiteral("label_senseE"));
-
-        formLayout->setWidget(10, QFormLayout::FieldRole, label_senseE);
-
-        groupBox_4 = new QGroupBox(page);
-        groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
-        verticalLayout_15 = new QVBoxLayout(groupBox_4);
-        verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
-        radioButton_2 = new QRadioButton(groupBox_4);
-        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
-
-        verticalLayout_15->addWidget(radioButton_2);
-
-        radioButton_3 = new QRadioButton(groupBox_4);
-        radioButton_3->setObjectName(QStringLiteral("radioButton_3"));
-
-        verticalLayout_15->addWidget(radioButton_3);
-
-        radioButton = new QRadioButton(groupBox_4);
-        radioButton->setObjectName(QStringLiteral("radioButton"));
-        radioButton->setChecked(true);
-
-        verticalLayout_15->addWidget(radioButton);
-
-        verticalLayout_14 = new QVBoxLayout();
-        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
-
-        verticalLayout_15->addLayout(verticalLayout_14);
+        verticalLayout_8->addLayout(formLayout_8);
 
 
-        formLayout->setWidget(11, QFormLayout::LabelRole, groupBox_4);
-
-        groupBox_3 = new QGroupBox(page);
-        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
-        verticalLayout_13 = new QVBoxLayout(groupBox_3);
-        verticalLayout_13->setObjectName(QStringLiteral("verticalLayout_13"));
-        radioButton_5 = new QRadioButton(groupBox_3);
-        radioButton_5->setObjectName(QStringLiteral("radioButton_5"));
-
-        verticalLayout_13->addWidget(radioButton_5);
-
-        radioButton_4 = new QRadioButton(groupBox_3);
-        radioButton_4->setObjectName(QStringLiteral("radioButton_4"));
-        radioButton_4->setChecked(true);
-
-        verticalLayout_13->addWidget(radioButton_4);
-
-        verticalLayout_10 = new QVBoxLayout();
-        verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
-
-        verticalLayout_13->addLayout(verticalLayout_10);
-
-
-        formLayout->setWidget(11, QFormLayout::FieldRole, groupBox_3);
-
-        spinBox = new QSpinBox(page);
-        spinBox->setObjectName(QStringLiteral("spinBox"));
-        spinBox->setMinimum(1);
-        spinBox->setMaximum(8);
-
-        formLayout->setWidget(3, QFormLayout::FieldRole, spinBox);
-
-
-        verticalLayout->addLayout(formLayout);
-
-
-        gridLayout_2->addLayout(verticalLayout, 0, 0, 1, 1);
-
-
-        gridLayout_3->addLayout(gridLayout_2, 1, 0, 1, 1);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_3->addItem(horizontalSpacer, 1, 1, 1, 1);
-
-        verticalLayout_8 = new QVBoxLayout();
-        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-
-        gridLayout_3->addLayout(verticalLayout_8, 2, 2, 1, 1);
+        gridLayout_3->addLayout(verticalLayout_8, 1, 3, 1, 1);
 
         pushButton_3 = new QPushButton(page);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         pushButton_3->setIconSize(QSize(16, 16));
 
-        gridLayout_3->addWidget(pushButton_3, 3, 2, 1, 1);
+        gridLayout_3->addWidget(pushButton_3, 2, 3, 1, 1);
 
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
@@ -660,20 +637,6 @@ public:
         pushButton_4->setText(QApplication::translate("ModelisationPrblm", "Quitter", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("ModelisationPrblm", "Sauvgarder", Q_NULLPTR));
         pushButton->setText(QApplication::translate("ModelisationPrblm", "Charger", Q_NULLPTR));
-        label_chaineE->setText(QApplication::translate("ModelisationPrblm", "Chaine_evaluation", Q_NULLPTR));
-        lineEdit->setText(QApplication::translate("ModelisationPrblm", "a+b", Q_NULLPTR));
-        label_intervalleMI->setText(QApplication::translate("ModelisationPrblm", "Intervalle minimun", Q_NULLPTR));
-        lineEdit_2->setText(QApplication::translate("ModelisationPrblm", "0", Q_NULLPTR));
-        label_intervalleMA->setText(QApplication::translate("ModelisationPrblm", "Intervalle maximum", Q_NULLPTR));
-        lineEdit_3->setText(QApplication::translate("ModelisationPrblm", "100", Q_NULLPTR));
-        label_generationS->setText(QApplication::translate("ModelisationPrblm", "Generation satisfaisante", Q_NULLPTR));
-        lineEdit_4->setText(QApplication::translate("ModelisationPrblm", "150", Q_NULLPTR));
-        checkBox->setText(QApplication::translate("ModelisationPrblm", "Clavier Visuel", Q_NULLPTR));
-        pushButton_14->setText(QApplication::translate("ModelisationPrblm", "Clavier Visuel", Q_NULLPTR));
-        label_2->setText(QApplication::translate("ModelisationPrblm", "Intervalle minimum e", Q_NULLPTR));
-        label_3->setText(QApplication::translate("ModelisationPrblm", "Intervalle maximum e", Q_NULLPTR));
-        label_4->setText(QApplication::translate("ModelisationPrblm", "Intervalle minimum f", Q_NULLPTR));
-        label_5->setText(QApplication::translate("ModelisationPrblm", "Intervalle maximum f", Q_NULLPTR));
         label_nombreG->setText(QApplication::translate("ModelisationPrblm", "Nombre de genes", Q_NULLPTR));
         label_tailleP->setText(QApplication::translate("ModelisationPrblm", "Taille de population", Q_NULLPTR));
         label_nombreI->setText(QApplication::translate("ModelisationPrblm", "Nombre d'iterarions", Q_NULLPTR));
@@ -696,6 +659,20 @@ public:
         groupBox_3->setTitle(QString());
         radioButton_5->setText(QApplication::translate("ModelisationPrblm", "RadioButton", Q_NULLPTR));
         radioButton_4->setText(QApplication::translate("ModelisationPrblm", "RadioButton", Q_NULLPTR));
+        label_chaineE->setText(QApplication::translate("ModelisationPrblm", "Chaine_evaluation", Q_NULLPTR));
+        lineEdit->setText(QApplication::translate("ModelisationPrblm", "a+b", Q_NULLPTR));
+        label_intervalleMI->setText(QApplication::translate("ModelisationPrblm", "Intervalle minimun", Q_NULLPTR));
+        lineEdit_2->setText(QApplication::translate("ModelisationPrblm", "0", Q_NULLPTR));
+        label_intervalleMA->setText(QApplication::translate("ModelisationPrblm", "Intervalle maximum", Q_NULLPTR));
+        lineEdit_3->setText(QApplication::translate("ModelisationPrblm", "100", Q_NULLPTR));
+        label_generationS->setText(QApplication::translate("ModelisationPrblm", "Generation satisfaisante", Q_NULLPTR));
+        lineEdit_4->setText(QApplication::translate("ModelisationPrblm", "150", Q_NULLPTR));
+        checkBox->setText(QApplication::translate("ModelisationPrblm", "Clavier Visuel", Q_NULLPTR));
+        pushButton_14->setText(QApplication::translate("ModelisationPrblm", "Clavier Visuel", Q_NULLPTR));
+        label_2->setText(QApplication::translate("ModelisationPrblm", "Intervalle minimum e", Q_NULLPTR));
+        label_3->setText(QApplication::translate("ModelisationPrblm", "Intervalle maximum e", Q_NULLPTR));
+        label_4->setText(QApplication::translate("ModelisationPrblm", "Intervalle minimum f", Q_NULLPTR));
+        label_5->setText(QApplication::translate("ModelisationPrblm", "Intervalle maximum f", Q_NULLPTR));
         pushButton_3->setText(QApplication::translate("ModelisationPrblm", "Lancer la simulation", Q_NULLPTR));
         label_15->setText(QApplication::translate("ModelisationPrblm", "Nom fichier latex", Q_NULLPTR));
         lineEdit_6->setText(QApplication::translate("ModelisationPrblm", "fichierLatx", Q_NULLPTR));

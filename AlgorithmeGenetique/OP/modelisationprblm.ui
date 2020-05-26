@@ -57,7 +57,7 @@
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
-        <item row="3" column="0" colspan="2">
+        <item row="2" column="0" colspan="2">
          <layout class="QHBoxLayout" name="horizontalLayout_11">
           <item>
            <widget class="QPushButton" name="pushButton_2">
@@ -88,433 +88,412 @@
           </item>
          </layout>
         </item>
-        <item row="2" column="0">
-         <layout class="QVBoxLayout" name="verticalLayout_11"/>
-        </item>
-        <item row="1" column="2">
-         <layout class="QFormLayout" name="formLayout_8">
-          <item row="4" column="0">
-           <widget class="QLabel" name="label_chaineE">
+        <item row="1" column="1">
+         <layout class="QFormLayout" name="formLayout">
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_nombreG">
             <property name="text">
-             <string>Chaine_evaluation</string>
+             <string>Nombre de genes</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_tailleP">
+            <property name="text">
+             <string>Taille de population</string>
             </property>
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QLineEdit" name="lineEdit">
-            <property name="text">
-             <string>a+b</string>
+           <widget class="QSpinBox" name="spinBox_2">
+            <property name="minimum">
+             <number>10</number>
+            </property>
+            <property name="maximum">
+             <number>100000</number>
+            </property>
+            <property name="value">
+             <number>2048</number>
             </property>
            </widget>
           </item>
           <item row="5" column="0">
-           <widget class="QLabel" name="label_intervalleMI">
+           <widget class="QLabel" name="label_nombreI">
             <property name="text">
-             <string>Intervalle minimun</string>
+             <string>Nombre d'iterarions</string>
             </property>
            </widget>
           </item>
           <item row="5" column="1">
-           <widget class="QLineEdit" name="lineEdit_2">
-            <property name="text">
-             <string>0</string>
+           <widget class="QSpinBox" name="spinBox_3">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>100000</number>
+            </property>
+            <property name="value">
+             <number>50</number>
             </property>
            </widget>
           </item>
           <item row="6" column="0">
-           <widget class="QLabel" name="label_intervalleMA">
+           <widget class="QLabel" name="label_nombreIS">
             <property name="text">
-             <string>Intervalle maximum</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="QLineEdit" name="lineEdit_3">
-            <property name="text">
-             <string>100</string>
+             <string>Nombre individu a selectiones</string>
             </property>
            </widget>
           </item>
           <item row="7" column="0">
-           <widget class="QLabel" name="label_generationS">
+           <widget class="QLabel" name="label_tauxC">
             <property name="text">
-             <string>Generation satisfaisante</string>
+             <string>Taux de croisement</string>
             </property>
            </widget>
           </item>
           <item row="7" column="1">
-           <widget class="QLineEdit" name="lineEdit_4">
-            <property name="text">
-             <string>150</string>
+           <widget class="QDoubleSpinBox" name="doubleSpinBox">
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.050000000000000</double>
             </property>
            </widget>
           </item>
           <item row="8" column="0">
-           <widget class="QCheckBox" name="checkBox">
+           <widget class="QLabel" name="label_tauxM">
             <property name="text">
-             <string>Clavier Visuel</string>
+             <string>Taux de mutation</string>
             </property>
            </widget>
           </item>
           <item row="8" column="1">
-           <widget class="QPushButton" name="pushButton_14">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.100000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QLabel" name="label_typeS">
             <property name="text">
-             <string>Clavier Visuel</string>
+             <string>Type de selection</string>
             </property>
            </widget>
           </item>
           <item row="9" column="1">
-           <spacer name="verticalSpacer_5">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="12" column="1">
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="13" column="1">
-           <spacer name="verticalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="16" column="1">
-           <spacer name="verticalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="17" column="1">
-           <spacer name="verticalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="10" column="1">
-           <widget class="QSpinBox" name="spinBox_5"/>
-          </item>
-          <item row="11" column="1">
-           <widget class="QSpinBox" name="spinBox_6"/>
-          </item>
-          <item row="14" column="1">
-           <widget class="QDoubleSpinBox" name="doubleSpinBox_3"/>
-          </item>
-          <item row="15" column="1">
-           <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+           <widget class="QComboBox" name="comboBox">
+            <item>
+             <property name="text">
+              <string>Selection par rang</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Selection par tournoi</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Selection par roulette</string>
+             </property>
+            </item>
+           </widget>
           </item>
           <item row="10" column="0">
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="label_typeG">
             <property name="text">
-             <string>Intervalle minimum e</string>
+             <string>Type_genes</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="1">
+           <widget class="QLabel" name="label_senseE">
+            <property name="text">
+             <string>Le sense de l'evaluation</string>
             </property>
            </widget>
           </item>
           <item row="11" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Intervalle maximum e</string>
+           <widget class="QGroupBox" name="groupBox_4">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_15">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_14">
+               <item>
+                <widget class="QRadioButton" name="radioButton_2">
+                 <property name="text">
+                  <string>RadioButton</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButton_3">
+                 <property name="text">
+                  <string>RadioButton</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButton">
+                 <property name="text">
+                  <string>RadioButton</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="11" column="1">
+           <widget class="QGroupBox" name="groupBox_3">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_13">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_10">
+               <item>
+                <widget class="QRadioButton" name="radioButton_5">
+                 <property name="text">
+                  <string>RadioButton</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButton_4">
+                 <property name="text">
+                  <string>RadioButton</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QSpinBox" name="spinBox">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>8</number>
             </property>
            </widget>
           </item>
-          <item row="14" column="0">
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Intervalle minimum f</string>
+          <item row="6" column="1">
+           <widget class="QSpinBox" name="spinBox_4">
+            <property name="minimum">
+             <number>2</number>
             </property>
-           </widget>
-          </item>
-          <item row="15" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="text">
-             <string>Intervalle maximum f</string>
+            <property name="maximum">
+             <number>100000</number>
+            </property>
+            <property name="value">
+             <number>1500</number>
             </property>
            </widget>
           </item>
          </layout>
         </item>
-        <item row="1" column="0">
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
-             <layout class="QFormLayout" name="formLayout">
-              <item row="3" column="0">
-               <widget class="QLabel" name="label_nombreG">
-                <property name="text">
-                 <string>Nombre de genes</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0">
-               <widget class="QLabel" name="label_tailleP">
-                <property name="text">
-                 <string>Taille de population</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="1">
-               <widget class="QSpinBox" name="spinBox_2">
-                <property name="minimum">
-                 <number>10</number>
-                </property>
-                <property name="maximum">
-                 <number>100000</number>
-                </property>
-                <property name="value">
-                 <number>2048</number>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QLabel" name="label_nombreI">
-                <property name="text">
-                 <string>Nombre d'iterarions</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1">
-               <widget class="QSpinBox" name="spinBox_3">
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>100000</number>
-                </property>
-                <property name="value">
-                 <number>50</number>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="QLabel" name="label_nombreIS">
-                <property name="text">
-                 <string>Nombre individu a selectiones</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="QSpinBox" name="spinBox_4">
-                <property name="minimum">
-                 <number>2</number>
-                </property>
-                <property name="maximum">
-                 <number>100000</number>
-                </property>
-                <property name="value">
-                 <number>1500</number>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="0">
-               <widget class="QLabel" name="label_tauxC">
-                <property name="text">
-                 <string>Taux de croisement</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="1">
-               <widget class="QDoubleSpinBox" name="doubleSpinBox">
-                <property name="maximum">
-                 <double>1.000000000000000</double>
-                </property>
-                <property name="value">
-                 <double>0.050000000000000</double>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="0">
-               <widget class="QLabel" name="label_tauxM">
-                <property name="text">
-                 <string>Taux de mutation</string>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="1">
-               <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
-                <property name="maximum">
-                 <double>1.000000000000000</double>
-                </property>
-                <property name="value">
-                 <double>0.100000000000000</double>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="0">
-               <widget class="QLabel" name="label_typeS">
-                <property name="text">
-                 <string>Type de selection</string>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="1">
-               <widget class="QComboBox" name="comboBox">
-                <item>
-                 <property name="text">
-                  <string>Selection 1</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Selection 2</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Selection 3</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="10" column="0">
-               <widget class="QLabel" name="label_typeG">
-                <property name="text">
-                 <string>Type_genes</string>
-                </property>
-               </widget>
-              </item>
-              <item row="10" column="1">
-               <widget class="QLabel" name="label_senseE">
-                <property name="text">
-                 <string>Le sense de l'evaluation</string>
-                </property>
-               </widget>
-              </item>
-              <item row="11" column="0">
-               <widget class="QGroupBox" name="groupBox_4">
-                <property name="title">
-                 <string/>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_15">
-                 <item>
-                  <widget class="QRadioButton" name="radioButton_2">
-                   <property name="text">
-                    <string>RadioButton</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="radioButton_3">
-                   <property name="text">
-                    <string>RadioButton</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="radioButton">
-                   <property name="text">
-                    <string>RadioButton</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <layout class="QVBoxLayout" name="verticalLayout_14"/>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item row="11" column="1">
-               <widget class="QGroupBox" name="groupBox_3">
-                <property name="title">
-                 <string/>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_13">
-                 <item>
-                  <widget class="QRadioButton" name="radioButton_5">
-                   <property name="text">
-                    <string>RadioButton</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="radioButton_4">
-                   <property name="text">
-                    <string>RadioButton</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <layout class="QVBoxLayout" name="verticalLayout_10"/>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item row="3" column="1">
-               <widget class="QSpinBox" name="spinBox">
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>8</number>
-                </property>
-               </widget>
-              </item>
-             </layout>
+        <item row="1" column="3">
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <layout class="QFormLayout" name="formLayout_8">
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_chaineE">
+              <property name="text">
+               <string>Chaine_evaluation</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLineEdit" name="lineEdit">
+              <property name="text">
+               <string>a+b</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="label_intervalleMI">
+              <property name="text">
+               <string>Intervalle minimun</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLineEdit" name="lineEdit_2">
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="label_intervalleMA">
+              <property name="text">
+               <string>Intervalle maximum</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QLineEdit" name="lineEdit_3">
+              <property name="text">
+               <string>100</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="label_generationS">
+              <property name="text">
+               <string>Generation satisfaisante</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <widget class="QLineEdit" name="lineEdit_4">
+              <property name="text">
+               <string>150</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <widget class="QCheckBox" name="checkBox">
+              <property name="text">
+               <string>Clavier Visuel</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="1">
+             <widget class="QPushButton" name="pushButton_14">
+              <property name="text">
+               <string>Clavier Visuel</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="1">
+             <spacer name="verticalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="12" column="1">
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="13" column="1">
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="16" column="1">
+             <spacer name="verticalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="17" column="1">
+             <spacer name="verticalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="10" column="1">
+             <widget class="QSpinBox" name="spinBox_5"/>
+            </item>
+            <item row="11" column="1">
+             <widget class="QSpinBox" name="spinBox_6"/>
+            </item>
+            <item row="14" column="1">
+             <widget class="QDoubleSpinBox" name="doubleSpinBox_3"/>
+            </item>
+            <item row="15" column="1">
+             <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+            </item>
+            <item row="10" column="0">
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>Intervalle minimum e</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="0">
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Intervalle maximum e</string>
+              </property>
+             </widget>
+            </item>
+            <item row="14" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Intervalle minimum f</string>
+              </property>
+             </widget>
+            </item>
+            <item row="15" column="0">
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>Intervalle maximum f</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
          </layout>
         </item>
-        <item row="1" column="1">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="2" column="2">
-         <layout class="QVBoxLayout" name="verticalLayout_8"/>
-        </item>
-        <item row="3" column="2">
+        <item row="2" column="3">
          <widget class="QPushButton" name="pushButton_3">
           <property name="text">
            <string>Lancer la simulation</string>
