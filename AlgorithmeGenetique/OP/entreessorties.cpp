@@ -77,9 +77,7 @@ void EntreesSorties::sauvegarde(std::string nom_fichier){
 	std::ofstream monFlux(nom_fichier.c_str());
 	if (monFlux) {
         monFlux <<taille_population<< std::endl;
-        monFlux <<type_genes<< std::endl;
-        monFlux <<nombre_genes<< std::endl;
-        monFlux <<chaine_evaluation<< std::endl;
+                   monFlux <<type_genes<< std::endl;
         monFlux <<nombre_genes<< std::endl;
         monFlux <<chaine_evaluation<< std::endl;
         if (type_genes == 1 || type_genes == 3){
