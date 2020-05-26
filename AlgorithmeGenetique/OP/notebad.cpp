@@ -139,7 +139,7 @@ void notepad::on_actionPrint_triggered()
 
 void notepad::on_actionExit_triggered()
 {
-    QApplication::quit();
+    this->close();
 }
 
 
