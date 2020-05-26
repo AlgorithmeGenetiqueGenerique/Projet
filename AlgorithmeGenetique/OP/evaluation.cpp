@@ -78,7 +78,7 @@ void evaluation::analyseSyntaxiqueTypes(individu* individu_x){
 		caractere = chaine_evaluation[indice++];
 	}
 	
-	}//---------------------------------------------
+    }
 	else if (individu_x->ADN.getTypeGenes() == 2){
 		flottant = 0.0;
 			while( ('0' <= caractere)&&('9' >= caractere) || ('.' == caractere))
@@ -596,7 +596,7 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 				break;// FIN FONCTION
 			}
         default :{
-                erreur = 7;
+                erreur = 8;
                 break;
             }
 	}
@@ -613,6 +613,7 @@ void evaluation::identification(individu* individu_x){
 					else if (individu_x->ADN.getTypeGenes() == 3)
 					empiler(individu_x->convertionVersDecimale(entier));
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					break;
 				  }
 	case ENTIER :{
@@ -621,19 +622,23 @@ void evaluation::identification(individu* individu_x){
 					else if (individu_x->ADN.getTypeGenes() == 3)
 					empiler(individu_x->convertionVersDecimale(entier));
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					break;
 				  }
 	case DOUBLE :{
 					empilerFlottants(flottant);
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					break;
 				  }
 	case PARENTHESE_O:{
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					identification(individu_x);
 					operations(individu_x);	
 					if( noeud == PARENTHESE_F ){
 						analyseSyntaxiqueTypes(individu_x);
+                        if (erreur == 8) break;
 						if (noeud == PUISSANCE) {
 							if (individu_x->ADN.getTypeGenes() == 1 || individu_x->ADN.getTypeGenes() == 3){
 							double inter = flottant;;
@@ -652,12 +657,14 @@ void evaluation::identification(individu* individu_x){
 					else
 					{
 						analyseSyntaxiqueTypes(individu_x);
+                        if (erreur == 8) break;
                         erreur = 2;
 					}
 					break;
 				  }
 	case RACINE:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 1){
 					empiler(sqrt(depiler()));
@@ -671,6 +678,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case RACINEC:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 1){
 					empiler(cbrt(depiler()));
@@ -684,6 +692,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case LOG_2:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 1){
                     erreur = 4;
@@ -697,6 +706,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case LOG_10:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 1){
                     erreur = 4;
@@ -710,6 +720,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case LN:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(log(depilerFlottants()));	
@@ -723,6 +734,7 @@ void evaluation::identification(individu* individu_x){
 	case V_ABSOLUE:{
 			double y = 0.0;
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 1){
 					empiler(abs(depiler()));
@@ -738,6 +750,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case EXPONENTIELLE:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 1){
 					empiler((int)exp(depiler()));
@@ -751,6 +764,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case COSINUS:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(cos(depilerFlottants()));
@@ -763,6 +777,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case COSINUSH:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(cosh(depilerFlottants()));
@@ -775,6 +790,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case ACOSINUS:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(acos(depilerFlottants()));
@@ -787,6 +803,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case SINUS:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(sin(depilerFlottants()));
@@ -799,6 +816,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case SINUSH:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(sinh(depilerFlottants()));
@@ -811,6 +829,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case ASINUS:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(asin(depilerFlottants()));
@@ -823,6 +842,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case TANGENTE:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(tan(depilerFlottants()));
@@ -835,6 +855,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case TANGENTEH:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(tanh(depilerFlottants()));
@@ -847,6 +868,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case ATANGENTE:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(atan(depilerFlottants()));
@@ -859,6 +881,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case CEIL:{	
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(ceil(depilerFlottants()));
@@ -871,6 +894,7 @@ void evaluation::identification(individu* individu_x){
 				 }
 	case FLOOR:{	
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
 					empilerFlottants(floor(depilerFlottants()));
@@ -885,6 +909,7 @@ void evaluation::identification(individu* individu_x){
 				 if (individu_x->ADN.getTypeGenes() == 3){
 					int x;
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					identification(individu_x);
 					x = individu_x->conversionVersBinaire(depiler());
 					flottant = 5.5;
@@ -901,7 +926,7 @@ void evaluation::identification(individu* individu_x){
 				 operations(individu_x);
 				 break;
 				 }
-	default:{
+    default:{
 				break;
 			}
 	}
@@ -916,6 +941,7 @@ void evaluation::operations(individu* individu_x){
 	case SOUSTRACTION :{			 
 				 if ((individu_x->ADN.getTypeGenes() == 1) || (individu_x->ADN.getTypeGenes() == 3)){
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					if (caractere == '^') flottant = 1.1;
 					identification(individu_x);
 					if (flottant != 1.1){
@@ -931,6 +957,7 @@ void evaluation::operations(individu* individu_x){
 				 else if (individu_x->ADN.getTypeGenes() == 2){
 					double x,y;
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					if (caractere == '^') entier = 1;
 						identification(individu_x);
 					if (entier != 1){
@@ -946,22 +973,25 @@ void evaluation::operations(individu* individu_x){
 				 break;
 				 }
 	case ADDITION :{	
-				int x,y;
-				analyseSyntaxiqueTypes(individu_x);
-				identification(individu_x);
-				operations(individu_x);
+                int x,y;
+                analyseSyntaxiqueTypes(individu_x);
+                if (erreur == 8) break;
+                identification(individu_x);
+                operations(individu_x);
+
 				if (individu_x->ADN.getTypeGenes() == 1)
 				empiler((depiler()+depiler()));
 				else if (individu_x->ADN.getTypeGenes() == 2)
 				empilerFlottants((depilerFlottants()+depilerFlottants()));
 				else if (individu_x->ADN.getTypeGenes() == 3)
 					empiler((depiler())+(depiler()));
-					
-				break;
+
+                break;
 				}
 	case MULTIPLICATION:{	
 				if ((individu_x->ADN.getTypeGenes() == 1) || (individu_x->ADN.getTypeGenes() == 3)){
 				analyseSyntaxiqueTypes(individu_x);
+                if (erreur == 8) break;
 				identification(individu_x);
 				if (noeud == PUISSANCE) {
 					flottant = 2.2;
@@ -972,6 +1002,7 @@ void evaluation::operations(individu* individu_x){
 				}
 				else if (individu_x->ADN.getTypeGenes() == 2){
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					identification(individu_x);
 					if (noeud == PUISSANCE) {
 						entier = 2;
@@ -986,6 +1017,7 @@ void evaluation::operations(individu* individu_x){
 	case DIVISION:{
 				 if ((individu_x->ADN.getTypeGenes() == 1)|| (individu_x->ADN.getTypeGenes() == 3)){
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					identification(individu_x);
 					if (noeud == PUISSANCE) {
 						flottant = 2.2;
@@ -998,6 +1030,7 @@ void evaluation::operations(individu* individu_x){
 				 }
 				 else {
 					 analyseSyntaxiqueTypes(individu_x);
+                     if (erreur == 8) break;
 					identification(individu_x);
 					if (noeud == PUISSANCE) {
 						entier = 2;
@@ -1013,6 +1046,7 @@ void evaluation::operations(individu* individu_x){
 				 }
 	case PUISSANCE:{
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 1){
 					x = depiler();
@@ -1053,6 +1087,7 @@ void evaluation::operations(individu* individu_x){
 	case MODULO:{
 				 if (individu_x->ADN.getTypeGenes() == 1){
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					identification(individu_x);
 					if (noeud == PUISSANCE) {
 					flottant = 2.2;
@@ -1065,6 +1100,7 @@ void evaluation::operations(individu* individu_x){
 				 }
 				 else if (individu_x->ADN.getTypeGenes() == 2){
 				 analyseSyntaxiqueTypes(individu_x);
+                 if (erreur == 8) break;
 				 identification(individu_x);
 				 if (noeud == PUISSANCE) {
 					entier = 2;
@@ -1084,6 +1120,7 @@ void evaluation::operations(individu* individu_x){
 				 if (individu_x->ADN.getTypeGenes() == 3){
 					int x, y;
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					identification(individu_x);
 					x = individu_x->conversionVersBinaire(depiler());
 					y = individu_x->conversionVersBinaire(depiler());
@@ -1105,6 +1142,7 @@ void evaluation::operations(individu* individu_x){
 				 if (individu_x->ADN.getTypeGenes() == 3){
 					int x, y;
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					identification(individu_x);
 					operations(individu_x);
 					x = individu_x->conversionVersBinaire(depiler());
@@ -1126,6 +1164,7 @@ void evaluation::operations(individu* individu_x){
 				 if (individu_x->ADN.getTypeGenes() == 3){
 					int x, y;
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					identification(individu_x);
 					operations(individu_x);
 					x = individu_x->conversionVersBinaire(depiler());
@@ -1147,6 +1186,7 @@ void evaluation::operations(individu* individu_x){
 				 if (individu_x->ADN.getTypeGenes() == 3){
 					int x, y;
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					identification(individu_x);
 					operations(individu_x);
 					x = individu_x->conversionVersBinaire(depiler());
@@ -1168,6 +1208,7 @@ void evaluation::operations(individu* individu_x){
 				 if (individu_x->ADN.getTypeGenes() == 3){
 					int x, y;
 					analyseSyntaxiqueTypes(individu_x);
+                    if (erreur == 8) break;
 					identification(individu_x);
 					operations(individu_x);
 					x = individu_x->conversionVersBinaire(depiler());
@@ -1185,7 +1226,9 @@ void evaluation::operations(individu* individu_x){
 				 }	 
 				 break;
 				 }
-	default: break;
+    default: {
+        break;
+        }
 	}
 }
 

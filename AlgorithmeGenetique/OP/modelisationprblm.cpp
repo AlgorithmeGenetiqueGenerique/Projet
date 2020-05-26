@@ -36,8 +36,8 @@ ModelisationPrblm::ModelisationPrblm(QWidget *parent) :
     taux_mutation=ui->doubleSpinBox_2;
     choix_selection=ui->comboBox;
     chaine_evaluation=ui->lineEdit;
-    min_intervalle=ui->lineEdit_2;
-    max_intervalle=ui->lineEdit_3;
+   // min_intervalle=ui->lineEdit_2;
+   // max_intervalle=ui->lineEdit_3;
     generation_satisfaisante=ui->lineEdit_4;
     sauvegarder=ui->pushButton_2;
     charger=ui->pushButton;
@@ -103,8 +103,8 @@ ModelisationPrblm::ModelisationPrblm(QWidget *parent) :
     label_taux_croisement=ui->label_tauxC;
     label_taux_mutation=ui->label_tauxM ;
     label_chaine_evaluation=ui->label_chaineE;
-    label_min_intervalle=ui->label_intervalleMI;
-    label_max_intervalle=ui->label_intervalleMA;
+    //label_min_intervalle=ui->label_intervalleMI;
+    //label_max_intervalle=ui->label_intervalleMA;
     label_generation_satisfaisante=ui->label_generationS;
     /*label_nom_fichier_sauvegarde=;
     label_nom_fichier_latex=;
@@ -220,7 +220,7 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     sb = ui->textBrowser->verticalScrollBar();
     score_totale=0;
     //---------------------------------------------------------------------
-qDebug()<<"#############################################\n";
+
     evaluation evaluation_test = evaluation(ee->getChaineEvaluation());
 
     if(type==1 || type==3){
@@ -270,7 +270,11 @@ qDebug()<<"#############################################\n";
             else if (evaluation_test.getErreur() == 5){
                 QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type flottant");
                 chaine_evaluation->setStyleSheet("background-color: red;");}
+            else if (evaluation_test.getErreur() == 8){
+                QMessageBox::warning(this, "Erreur", " de lancer la simulation:\nErreur dans l'équation saisie");
+                chaine_evaluation->setStyleSheet("background-color: red;");
           }
+        }
         else
             thrd->start();
         }
@@ -321,6 +325,10 @@ qDebug()<<"#############################################\n";
             else if (evaluation_test.getErreur() == 5){
                 QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type flottant");
                 chaine_evaluation->setStyleSheet("background-color: red;");}
+            else if (evaluation_test.getErreur() == 8){
+                QMessageBox::warning(this, "Erreur", " de lancer la simulation:\nErreur dans l'éuation saisie");
+                chaine_evaluation->setStyleSheet("background-color: red;");
+          }
           }
         else
             thrd->start();
@@ -546,9 +554,12 @@ void ModelisationPrblm::on_pushButton_7_clicked()//reconfigutrer
     ui->stackedWidget->setCurrentIndex(0);
     individus.clear();
     score_total.clear();
+    score_totale = 0;
     score_total_d.clear();
+    score_totale_d = 0;
     meillleur_individu_d.clear();
     meillleur_individu.clear();
+    arret = false;
 }
 
 

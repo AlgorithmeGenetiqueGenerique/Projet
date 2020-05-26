@@ -60,7 +60,6 @@ public:
     QLabel *label_nombreIS;
     QLabel *label_tauxC;
     QDoubleSpinBox *doubleSpinBox;
-    QLabel *label_tauxM;
     QDoubleSpinBox *doubleSpinBox_2;
     QLabel *label_typeS;
     QComboBox *comboBox;
@@ -79,31 +78,28 @@ public:
     QRadioButton *radioButton_4;
     QSpinBox *spinBox;
     QSpinBox *spinBox_4;
+    QLabel *label_tauxM;
     QVBoxLayout *verticalLayout_8;
     QFormLayout *formLayout_8;
     QLabel *label_chaineE;
     QLineEdit *lineEdit;
-    QLabel *label_intervalleMI;
-    QLineEdit *lineEdit_2;
-    QLabel *label_intervalleMA;
-    QLineEdit *lineEdit_3;
-    QLabel *label_generationS;
-    QLineEdit *lineEdit_4;
     QCheckBox *checkBox;
     QPushButton *pushButton_14;
+    QLabel *label_generationS;
     QSpacerItem *verticalSpacer_5;
+    QLabel *label_2;
+    QSpinBox *spinBox_5;
+    QLabel *label_3;
+    QSpinBox *spinBox_6;
     QSpacerItem *verticalSpacer;
     QSpacerItem *verticalSpacer_2;
+    QLabel *label_4;
+    QDoubleSpinBox *doubleSpinBox_3;
+    QLabel *label_5;
+    QDoubleSpinBox *doubleSpinBox_4;
     QSpacerItem *verticalSpacer_3;
     QSpacerItem *verticalSpacer_4;
-    QSpinBox *spinBox_5;
-    QSpinBox *spinBox_6;
-    QDoubleSpinBox *doubleSpinBox_3;
-    QDoubleSpinBox *doubleSpinBox_4;
-    QLabel *label_2;
-    QLabel *label_3;
-    QLabel *label_4;
-    QLabel *label_5;
+    QLineEdit *lineEdit_4;
     QPushButton *pushButton_3;
     QWidget *page_2;
     QGridLayout *gridLayout_5;
@@ -247,11 +243,6 @@ public:
 
         formLayout->setWidget(7, QFormLayout::FieldRole, doubleSpinBox);
 
-        label_tauxM = new QLabel(page);
-        label_tauxM->setObjectName(QString::fromUtf8("label_tauxM"));
-
-        formLayout->setWidget(8, QFormLayout::LabelRole, label_tauxM);
-
         doubleSpinBox_2 = new QDoubleSpinBox(page);
         doubleSpinBox_2->setObjectName(QString::fromUtf8("doubleSpinBox_2"));
         doubleSpinBox_2->setMaximum(1.000000000000000);
@@ -337,6 +328,8 @@ public:
         spinBox->setObjectName(QString::fromUtf8("spinBox"));
         spinBox->setMinimum(1);
         spinBox->setMaximum(8);
+        spinBox->setSingleStep(1);
+        spinBox->setValue(2);
 
         formLayout->setWidget(3, QFormLayout::FieldRole, spinBox);
 
@@ -347,6 +340,11 @@ public:
         spinBox_4->setValue(1500);
 
         formLayout->setWidget(6, QFormLayout::FieldRole, spinBox_4);
+
+        label_tauxM = new QLabel(page);
+        label_tauxM->setObjectName(QString::fromUtf8("label_tauxM"));
+
+        formLayout->setWidget(8, QFormLayout::LabelRole, label_tauxM);
 
 
         gridLayout_3->addLayout(formLayout, 1, 1, 1, 1);
@@ -365,72 +363,41 @@ public:
 
         formLayout_8->setWidget(4, QFormLayout::FieldRole, lineEdit);
 
-        label_intervalleMI = new QLabel(page);
-        label_intervalleMI->setObjectName(QString::fromUtf8("label_intervalleMI"));
+        checkBox = new QCheckBox(page);
+        checkBox->setObjectName(QString::fromUtf8("checkBox"));
 
-        formLayout_8->setWidget(5, QFormLayout::LabelRole, label_intervalleMI);
+        formLayout_8->setWidget(6, QFormLayout::LabelRole, checkBox);
 
-        lineEdit_2 = new QLineEdit(page);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        pushButton_14 = new QPushButton(page);
+        pushButton_14->setObjectName(QString::fromUtf8("pushButton_14"));
 
-        formLayout_8->setWidget(5, QFormLayout::FieldRole, lineEdit_2);
-
-        label_intervalleMA = new QLabel(page);
-        label_intervalleMA->setObjectName(QString::fromUtf8("label_intervalleMA"));
-
-        formLayout_8->setWidget(6, QFormLayout::LabelRole, label_intervalleMA);
-
-        lineEdit_3 = new QLineEdit(page);
-        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
-
-        formLayout_8->setWidget(6, QFormLayout::FieldRole, lineEdit_3);
+        formLayout_8->setWidget(6, QFormLayout::FieldRole, pushButton_14);
 
         label_generationS = new QLabel(page);
         label_generationS->setObjectName(QString::fromUtf8("label_generationS"));
 
         formLayout_8->setWidget(7, QFormLayout::LabelRole, label_generationS);
 
-        lineEdit_4 = new QLineEdit(page);
-        lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
-
-        formLayout_8->setWidget(7, QFormLayout::FieldRole, lineEdit_4);
-
-        checkBox = new QCheckBox(page);
-        checkBox->setObjectName(QString::fromUtf8("checkBox"));
-
-        formLayout_8->setWidget(8, QFormLayout::LabelRole, checkBox);
-
-        pushButton_14 = new QPushButton(page);
-        pushButton_14->setObjectName(QString::fromUtf8("pushButton_14"));
-
-        formLayout_8->setWidget(8, QFormLayout::FieldRole, pushButton_14);
-
         verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        formLayout_8->setItem(9, QFormLayout::FieldRole, verticalSpacer_5);
+        formLayout_8->setItem(8, QFormLayout::FieldRole, verticalSpacer_5);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        label_2 = new QLabel(page);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
 
-        formLayout_8->setItem(12, QFormLayout::FieldRole, verticalSpacer);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        formLayout_8->setItem(13, QFormLayout::FieldRole, verticalSpacer_2);
-
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        formLayout_8->setItem(16, QFormLayout::FieldRole, verticalSpacer_3);
-
-        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        formLayout_8->setItem(17, QFormLayout::FieldRole, verticalSpacer_4);
+        formLayout_8->setWidget(9, QFormLayout::LabelRole, label_2);
 
         spinBox_5 = new QSpinBox(page);
         spinBox_5->setObjectName(QString::fromUtf8("spinBox_5"));
         spinBox_5->setMinimum(-1000000);
         spinBox_5->setMaximum(1000000);
 
-        formLayout_8->setWidget(10, QFormLayout::FieldRole, spinBox_5);
+        formLayout_8->setWidget(9, QFormLayout::FieldRole, spinBox_5);
+
+        label_3 = new QLabel(page);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        formLayout_8->setWidget(10, QFormLayout::LabelRole, label_3);
 
         spinBox_6 = new QSpinBox(page);
         spinBox_6->setObjectName(QString::fromUtf8("spinBox_6"));
@@ -438,7 +405,20 @@ public:
         spinBox_6->setMaximum(1000000);
         spinBox_6->setValue(100);
 
-        formLayout_8->setWidget(11, QFormLayout::FieldRole, spinBox_6);
+        formLayout_8->setWidget(10, QFormLayout::FieldRole, spinBox_6);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        formLayout_8->setItem(11, QFormLayout::FieldRole, verticalSpacer);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        formLayout_8->setItem(12, QFormLayout::FieldRole, verticalSpacer_2);
+
+        label_4 = new QLabel(page);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        formLayout_8->setWidget(13, QFormLayout::LabelRole, label_4);
 
         doubleSpinBox_3 = new QDoubleSpinBox(page);
         doubleSpinBox_3->setObjectName(QString::fromUtf8("doubleSpinBox_3"));
@@ -446,7 +426,12 @@ public:
         doubleSpinBox_3->setMaximum(1000000.000000000000000);
         doubleSpinBox_3->setValue(0.000000000000000);
 
-        formLayout_8->setWidget(14, QFormLayout::FieldRole, doubleSpinBox_3);
+        formLayout_8->setWidget(13, QFormLayout::FieldRole, doubleSpinBox_3);
+
+        label_5 = new QLabel(page);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+
+        formLayout_8->setWidget(14, QFormLayout::LabelRole, label_5);
 
         doubleSpinBox_4 = new QDoubleSpinBox(page);
         doubleSpinBox_4->setObjectName(QString::fromUtf8("doubleSpinBox_4"));
@@ -454,27 +439,20 @@ public:
         doubleSpinBox_4->setMaximum(1000000.000000000000000);
         doubleSpinBox_4->setValue(100.000000000000000);
 
-        formLayout_8->setWidget(15, QFormLayout::FieldRole, doubleSpinBox_4);
+        formLayout_8->setWidget(14, QFormLayout::FieldRole, doubleSpinBox_4);
 
-        label_2 = new QLabel(page);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        formLayout_8->setWidget(10, QFormLayout::LabelRole, label_2);
+        formLayout_8->setItem(15, QFormLayout::FieldRole, verticalSpacer_3);
 
-        label_3 = new QLabel(page);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        formLayout_8->setWidget(11, QFormLayout::LabelRole, label_3);
+        formLayout_8->setItem(16, QFormLayout::FieldRole, verticalSpacer_4);
 
-        label_4 = new QLabel(page);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
+        lineEdit_4 = new QLineEdit(page);
+        lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
 
-        formLayout_8->setWidget(14, QFormLayout::LabelRole, label_4);
-
-        label_5 = new QLabel(page);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-
-        formLayout_8->setWidget(15, QFormLayout::LabelRole, label_5);
+        formLayout_8->setWidget(7, QFormLayout::FieldRole, lineEdit_4);
 
 
         verticalLayout_8->addLayout(formLayout_8);
@@ -648,18 +626,17 @@ public:
         pushButton_4->setText(QApplication::translate("ModelisationPrblm", "Quitter", nullptr));
         pushButton_2->setText(QApplication::translate("ModelisationPrblm", "Sauvgarder", nullptr));
         pushButton->setText(QApplication::translate("ModelisationPrblm", "Charger", nullptr));
-        label_nombreG->setText(QApplication::translate("ModelisationPrblm", "Nombre de genes", nullptr));
-        label_tailleP->setText(QApplication::translate("ModelisationPrblm", "Taille de population", nullptr));
-        label_nombreI->setText(QApplication::translate("ModelisationPrblm", "Nombre d'iterarions", nullptr));
-        label_nombreIS->setText(QApplication::translate("ModelisationPrblm", "Nombre individu a selectiones", nullptr));
+        label_nombreG->setText(QApplication::translate("ModelisationPrblm", "Nombre de g\303\250nes", nullptr));
+        label_tailleP->setText(QApplication::translate("ModelisationPrblm", "Taille de la population", nullptr));
+        label_nombreI->setText(QApplication::translate("ModelisationPrblm", "Nombre d'it\303\251rations", nullptr));
+        label_nombreIS->setText(QApplication::translate("ModelisationPrblm", "Nombre d'individu \303\240 s\303\251lection\303\251s", nullptr));
         label_tauxC->setText(QApplication::translate("ModelisationPrblm", "Taux de croisement", nullptr));
-        label_tauxM->setText(QApplication::translate("ModelisationPrblm", "Taux de mutation", nullptr));
-        label_typeS->setText(QApplication::translate("ModelisationPrblm", "Type de selection", nullptr));
+        label_typeS->setText(QApplication::translate("ModelisationPrblm", "Type de s\303\251lection", nullptr));
         comboBox->setItemText(0, QApplication::translate("ModelisationPrblm", "Selection par rang", nullptr));
         comboBox->setItemText(1, QApplication::translate("ModelisationPrblm", "Selection par tournoi", nullptr));
         comboBox->setItemText(2, QApplication::translate("ModelisationPrblm", "Selection par roulette", nullptr));
 
-        label_typeG->setText(QApplication::translate("ModelisationPrblm", "Type_genes", nullptr));
+        label_typeG->setText(QApplication::translate("ModelisationPrblm", "Type de g\303\250nes", nullptr));
         label_senseE->setText(QApplication::translate("ModelisationPrblm", "Le sense de l'evaluation", nullptr));
         groupBox_4->setTitle(QString());
         radioButton_2->setText(QApplication::translate("ModelisationPrblm", "RadioButton", nullptr));
@@ -668,20 +645,17 @@ public:
         groupBox_3->setTitle(QString());
         radioButton_5->setText(QApplication::translate("ModelisationPrblm", "RadioButton", nullptr));
         radioButton_4->setText(QApplication::translate("ModelisationPrblm", "RadioButton", nullptr));
-        label_chaineE->setText(QApplication::translate("ModelisationPrblm", "Chaine_evaluation", nullptr));
+        label_tauxM->setText(QApplication::translate("ModelisationPrblm", "Taux de mutation", nullptr));
+        label_chaineE->setText(QApplication::translate("ModelisationPrblm", "Chaine d'\303\251valuation", nullptr));
         lineEdit->setText(QApplication::translate("ModelisationPrblm", "a+b", nullptr));
-        label_intervalleMI->setText(QApplication::translate("ModelisationPrblm", "Intervalle minimun", nullptr));
-        lineEdit_2->setText(QApplication::translate("ModelisationPrblm", "0", nullptr));
-        label_intervalleMA->setText(QApplication::translate("ModelisationPrblm", "Intervalle maximum", nullptr));
-        lineEdit_3->setText(QApplication::translate("ModelisationPrblm", "100", nullptr));
-        label_generationS->setText(QApplication::translate("ModelisationPrblm", "Generation satisfaisante", nullptr));
-        lineEdit_4->setText(QApplication::translate("ModelisationPrblm", "150", nullptr));
         checkBox->setText(QApplication::translate("ModelisationPrblm", "Clavier Visuel", nullptr));
         pushButton_14->setText(QApplication::translate("ModelisationPrblm", "Clavier Visuel", nullptr));
-        label_2->setText(QApplication::translate("ModelisationPrblm", "Intervalle minimum e", nullptr));
-        label_3->setText(QApplication::translate("ModelisationPrblm", "Intervalle maximum e", nullptr));
-        label_4->setText(QApplication::translate("ModelisationPrblm", "Intervalle minimum f", nullptr));
-        label_5->setText(QApplication::translate("ModelisationPrblm", "Intervalle maximum f", nullptr));
+        label_generationS->setText(QApplication::translate("ModelisationPrblm", "G\303\251n\303\251ration satisfaisante", nullptr));
+        label_2->setText(QApplication::translate("ModelisationPrblm", "Intervalle minimum ", nullptr));
+        label_3->setText(QApplication::translate("ModelisationPrblm", "Intervalle maximum", nullptr));
+        label_4->setText(QApplication::translate("ModelisationPrblm", "Intervalle minimum F", nullptr));
+        label_5->setText(QApplication::translate("ModelisationPrblm", "Intervalle maximum F", nullptr));
+        lineEdit_4->setText(QApplication::translate("ModelisationPrblm", "150", nullptr));
         pushButton_3->setText(QApplication::translate("ModelisationPrblm", "Lancer la simulation", nullptr));
         label_15->setText(QApplication::translate("ModelisationPrblm", "Nom fichier latex", nullptr));
         lineEdit_6->setText(QApplication::translate("ModelisationPrblm", "fichierLatx", nullptr));

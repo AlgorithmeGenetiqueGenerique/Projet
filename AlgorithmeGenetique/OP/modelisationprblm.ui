@@ -93,14 +93,14 @@
           <item row="3" column="0">
            <widget class="QLabel" name="label_nombreG">
             <property name="text">
-             <string>Nombre de genes</string>
+             <string>Nombre de gènes</string>
             </property>
            </widget>
           </item>
           <item row="4" column="0">
            <widget class="QLabel" name="label_tailleP">
             <property name="text">
-             <string>Taille de population</string>
+             <string>Taille de la population</string>
             </property>
            </widget>
           </item>
@@ -120,7 +120,7 @@
           <item row="5" column="0">
            <widget class="QLabel" name="label_nombreI">
             <property name="text">
-             <string>Nombre d'iterarions</string>
+             <string>Nombre d'itérations</string>
             </property>
            </widget>
           </item>
@@ -140,7 +140,7 @@
           <item row="6" column="0">
            <widget class="QLabel" name="label_nombreIS">
             <property name="text">
-             <string>Nombre individu a selectiones</string>
+             <string>Nombre d'individu à sélectionés</string>
             </property>
            </widget>
           </item>
@@ -161,13 +161,6 @@
             </property>
            </widget>
           </item>
-          <item row="8" column="0">
-           <widget class="QLabel" name="label_tauxM">
-            <property name="text">
-             <string>Taux de mutation</string>
-            </property>
-           </widget>
-          </item>
           <item row="8" column="1">
            <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
             <property name="maximum">
@@ -181,7 +174,7 @@
           <item row="9" column="0">
            <widget class="QLabel" name="label_typeS">
             <property name="text">
-             <string>Type de selection</string>
+             <string>Type de sélection</string>
             </property>
            </widget>
           </item>
@@ -207,7 +200,7 @@
           <item row="10" column="0">
            <widget class="QLabel" name="label_typeG">
             <property name="text">
-             <string>Type_genes</string>
+             <string>Type de gènes</string>
             </property>
            </widget>
           </item>
@@ -293,6 +286,12 @@
             <property name="maximum">
              <number>8</number>
             </property>
+            <property name="singleStep">
+             <number>1</number>
+            </property>
+            <property name="value">
+             <number>2</number>
+            </property>
            </widget>
           </item>
           <item row="6" column="1">
@@ -308,6 +307,13 @@
             </property>
            </widget>
           </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_tauxM">
+            <property name="text">
+             <string>Taux de mutation</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
         <item row="1" column="3">
@@ -317,7 +323,7 @@
             <item row="4" column="0">
              <widget class="QLabel" name="label_chaineE">
               <property name="text">
-               <string>Chaine_evaluation</string>
+               <string>Chaine d'évaluation</string>
               </property>
              </widget>
             </item>
@@ -328,63 +334,28 @@
               </property>
              </widget>
             </item>
-            <item row="5" column="0">
-             <widget class="QLabel" name="label_intervalleMI">
-              <property name="text">
-               <string>Intervalle minimun</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="1">
-             <widget class="QLineEdit" name="lineEdit_2">
-              <property name="text">
-               <string>0</string>
-              </property>
-             </widget>
-            </item>
             <item row="6" column="0">
-             <widget class="QLabel" name="label_intervalleMA">
-              <property name="text">
-               <string>Intervalle maximum</string>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="1">
-             <widget class="QLineEdit" name="lineEdit_3">
-              <property name="text">
-               <string>100</string>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="0">
-             <widget class="QLabel" name="label_generationS">
-              <property name="text">
-               <string>Generation satisfaisante</string>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="1">
-             <widget class="QLineEdit" name="lineEdit_4">
-              <property name="text">
-               <string>150</string>
-              </property>
-             </widget>
-            </item>
-            <item row="8" column="0">
              <widget class="QCheckBox" name="checkBox">
               <property name="text">
                <string>Clavier Visuel</string>
               </property>
              </widget>
             </item>
-            <item row="8" column="1">
+            <item row="6" column="1">
              <widget class="QPushButton" name="pushButton_14">
               <property name="text">
                <string>Clavier Visuel</string>
               </property>
              </widget>
             </item>
-            <item row="9" column="1">
+            <item row="7" column="0">
+             <widget class="QLabel" name="label_generationS">
+              <property name="text">
+               <string>Génération satisfaisante</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="1">
              <spacer name="verticalSpacer_5">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -397,59 +368,14 @@
               </property>
              </spacer>
             </item>
-            <item row="12" column="1">
-             <spacer name="verticalSpacer">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
+            <item row="9" column="0">
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>Intervalle minimum </string>
               </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
+             </widget>
             </item>
-            <item row="13" column="1">
-             <spacer name="verticalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="16" column="1">
-             <spacer name="verticalSpacer_3">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="17" column="1">
-             <spacer name="verticalSpacer_4">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="10" column="1">
+            <item row="9" column="1">
              <widget class="QSpinBox" name="spinBox_5">
               <property name="minimum">
                <number>-1000000</number>
@@ -459,7 +385,14 @@
               </property>
              </widget>
             </item>
-            <item row="11" column="1">
+            <item row="10" column="0">
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Intervalle maximum</string>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="1">
              <widget class="QSpinBox" name="spinBox_6">
               <property name="minimum">
                <number>-1000000</number>
@@ -472,7 +405,40 @@
               </property>
              </widget>
             </item>
-            <item row="14" column="1">
+            <item row="11" column="1">
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="12" column="1">
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="13" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Intervalle minimum F</string>
+              </property>
+             </widget>
+            </item>
+            <item row="13" column="1">
              <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
               <property name="minimum">
                <double>-1000000.000000000000000</double>
@@ -485,7 +451,14 @@
               </property>
              </widget>
             </item>
-            <item row="15" column="1">
+            <item row="14" column="0">
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>Intervalle maximum F</string>
+              </property>
+             </widget>
+            </item>
+            <item row="14" column="1">
              <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
               <property name="minimum">
                <double>-1000000.000000000000000</double>
@@ -498,31 +471,36 @@
               </property>
              </widget>
             </item>
-            <item row="10" column="0">
-             <widget class="QLabel" name="label_2">
-              <property name="text">
-               <string>Intervalle minimum e</string>
+            <item row="15" column="1">
+             <spacer name="verticalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
               </property>
-             </widget>
-            </item>
-            <item row="11" column="0">
-             <widget class="QLabel" name="label_3">
-              <property name="text">
-               <string>Intervalle maximum e</string>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
               </property>
-             </widget>
+             </spacer>
             </item>
-            <item row="14" column="0">
-             <widget class="QLabel" name="label_4">
-              <property name="text">
-               <string>Intervalle minimum f</string>
+            <item row="16" column="1">
+             <spacer name="verticalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
               </property>
-             </widget>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
             </item>
-            <item row="15" column="0">
-             <widget class="QLabel" name="label_5">
+            <item row="7" column="1">
+             <widget class="QLineEdit" name="lineEdit_4">
               <property name="text">
-               <string>Intervalle maximum f</string>
+               <string>150</string>
               </property>
              </widget>
             </item>
