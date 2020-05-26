@@ -620,9 +620,9 @@ void ModelisationPrblm::on_pushButton_10_clicked()
     else
         chaineEval=ui->lineEdit->text();
     if(type==2)
-        ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toDouble(), type, ui->doubleSpinBox_3->value(), ui->doubleSpinBox_4->value(),maxMin);
+        ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), 1+ui->comboBox->currentIndex(),nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toDouble(), type, ui->doubleSpinBox_3->value(), ui->doubleSpinBox_4->value(),maxMin);
     else if (type == 1 || type ==3)
-        ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toInt(), type, ui->spinBox_5->value(),ui->spinBox_6->value(),maxMin);
+        ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), 1+ui->comboBox->currentIndex(),nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toInt(), type, ui->spinBox_5->value(),ui->spinBox_6->value(),maxMin);
     ee->sauvegarde(ui->lineEdit_5->text().toStdString());
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -644,7 +644,7 @@ void ModelisationPrblm::on_pushButton_11_clicked()
     ui->spinBox_4->setValue(ee->getNmbr_indiv_a_selec());
     ui->doubleSpinBox_2->setValue(ee->getTauxCroisement());
     ui->doubleSpinBox_2->setValue(ee->getTauxMutation());
-    ui->comboBox->setCurrentIndex(ee->getChoixSelection());
+    ui->comboBox->setCurrentIndex(ee->getChoixSelection()-1);
     if(ee->getTypeGenes()==1)
         ui->radioButton->setChecked(true);
     else if(ee->getTypeGenes()==2)

@@ -44,7 +44,7 @@ void myThread::run()
 
             emit txtEdt(i);
             mutex.unlock();
-            this->msleep(300);
+            this->msleep(600);
         }
     }
     }
