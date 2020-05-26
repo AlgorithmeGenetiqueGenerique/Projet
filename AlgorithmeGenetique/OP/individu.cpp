@@ -92,23 +92,20 @@ int individu::convertionVersDecimale(int binaire)
     return decimale; 
 } 
 
-int individu::conversionVersBinaire(int N) 
-{ 
-  
-    // To store the binary number 
-    unsigned long long int B_Number = 0;
-    int cnt = 0; 
-    while (N != 0) { 
-        int rem = N % 2;
-        unsigned long long int  c = pow(10, cnt);
-        B_Number += rem * c;
-        N /= 2;
-  
-        // Count used to store exponent value 
-        cnt++; 
-    } 
-  
-    return B_Number;
+int individu::conversionVersBinaire(int decimale)
+{
+    int reste = 0;
+    ull_ unite = 0;
+    ull_ binaire = 0;
+    int compteur = 0;
+    while (decimale) {
+        reste = decimale % 2;
+        unite = pow(10, compteur);
+        binaire += reste * unite;
+        decimale /= 2;
+        compteur++;
+    }
+    return binaire;
 }
 
 int individu::getDebutItervalle(){
