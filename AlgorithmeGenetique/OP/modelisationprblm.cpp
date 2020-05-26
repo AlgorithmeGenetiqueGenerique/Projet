@@ -54,24 +54,24 @@ ModelisationPrblm::ModelisationPrblm(QWidget *parent) :
     configurer=ui->pushButton_7;
     consulter=nullptr;
     //---------------------------------------------------------
-    layout_nombre_genes= ui->verticalLayout;
-    layout_taille_population= ui->verticalLayout;
-    layout_nombre_iterations= ui->verticalLayout;
-    layout_nombre_individu_selectionnes= ui->verticalLayout;
-    layout_type_genes= ui->verticalLayout;
-    layout_type_genes_principale= ui->verticalLayout;
-    layout_choix_selection= ui->verticalLayout;
-    layout_taux_croisement= ui->verticalLayout;
-    layout_taux_mutation= ui->verticalLayout;
-    layout_maximisation_minimisation= ui->verticalLayout;
-    layout_maximisation_minimisation_principale=ui->verticalLayout;
-    layout_chaine_evaluation= ui->verticalLayout;
-    layout_min_intervalle= ui->verticalLayout;
-    layout_max_intervalle= ui->verticalLayout;
-    layout_generation_satisfaisante= ui->verticalLayout;
-    layout_nom_fichier_sauvegarde= ui->verticalLayout;
-    layout_nom_fichier_latex= ui->verticalLayout;
-    layout_nom_fichier_chargement= ui->verticalLayout;
+   // layout_nombre_genes= ui->verticalLayout;
+    //layout_taille_population= ui->verticalLayout;
+    //layout_nombre_iterations= ui->verticalLayout;
+    //layout_nombre_individu_selectionnes= ui->verticalLayout;
+    //layout_type_genes= ui->verticalLayout;
+    //layout_type_genes_principale= ui->verticalLayout;
+    //layout_choix_selection= ui->verticalLayout;
+    //layout_taux_croisement= ui->verticalLayout;
+    //layout_taux_mutation= ui->verticalLayout;
+    //layout_maximisation_minimisation= ui->verticalLayout;
+    //layout_maximisation_minimisation_principale=ui->verticalLayout;
+    //layout_chaine_evaluation= ui->verticalLayout;
+    //layout_min_intervalle= ui->verticalLayout;
+    //layout_max_intervalle= ui->verticalLayout;
+    //layout_generation_satisfaisante= ui->verticalLayout;
+    //layout_nom_fichier_sauvegarde= ui->verticalLayout;
+    //layout_nom_fichier_latex= ui->verticalLayout;
+    //layout_nom_fichier_chargement= ui->verticalLayout;
     /*//-----------------------------------------------------------------------
     layout_configurer= new QHBoxLayout;
     layout_sauvegarder= new QHBoxLayout;
@@ -619,9 +619,7 @@ void ModelisationPrblm::on_pushButton_14_clicked()
 
 void ModelisationPrblm::on_pushButton_5_clicked()
 {
-    QFile HelpFile("qrc:/Manuel.pdf");;
-    HelpFile.copy(qApp->applicationDirPath().append("/Manuel.pdf"));
-    QDesktopServices::openUrl(QUrl::fromLocalFile(qApp->applicationDirPath().append("/Manuel.pdf")));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(qApp->applicationDirPath().append("./../../Manuel.pdf")));
 }
 
 void ModelisationPrblm::on_radioButton_clicked()//entier
