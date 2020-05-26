@@ -1454,8 +1454,8 @@ void GraphWidget::dessinGraphe4Sommets(){
     int nombre = edge12->getPoid();
     QString str = "";
     str = QString::number(nombre);
-    label12->setText("str");
-    label12->move(((200+52+200+239.5)*1.5)/3,((400+124-60.5)*1.5)/3);
+    label12->setText(str);
+    label12->move(((400+node1->pos().rx()+400+node2->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node2->pos().ry())*1.5)/2);
     label12->show();
     //--------------------------------
 
@@ -1465,7 +1465,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str1 = "";
     str1 = QString::number(nombre1);
     label23->setText(str1);
-    label23->move(670,560);
+    label23->move(((400+node2->pos().rx()+400+node3->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node3->pos().ry())*1.5)/2);
     label23->show();
     //--------------------------------
 
@@ -1475,7 +1475,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str2 = "";
     str2 = QString::number(nombre2);
     label13->setText(str2);
-    label13->move(860,320);
+    label13->move(((400+node1->pos().rx()+400+node3->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node3->pos().ry())*1.5)/2);
     label13->show();
 
     //--------------------------------
@@ -1486,7 +1486,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str3 = "";
     str3 = QString::number(nombre3);
     label14->setText(str3);
-    label14->move(650,280);
+    label14->move(((400+node1->pos().rx()+400+node4->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node4->pos().ry())*1.5)/2);
     label14->show();
     //--------------------------------
 
@@ -1496,7 +1496,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str4 = "";
     str4 = QString::number(nombre4);
     label24->setText(str4);
-    label24->move(500,430);
+    label24->move(((400+node2->pos().rx()+400+node4->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node4->pos().ry())*1.5)/2);
     label24->show();
     //--------------------------------
 
@@ -1506,7 +1506,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str5 = "";
     str5 = QString::number(nombre5);
     label34->setText(str5);
-    label34->move(830,430);
+    label34->move(((400+node3->pos().rx()+400+node4->pos().rx())*1.5)/2,((200+200+node3->pos().ry()+node4->pos().ry())*1.5)/2);
     label34->show();
 }
 
@@ -1530,7 +1530,7 @@ void GraphWidget::dessinGraphe5Sommets(){
     node2->setPos(-267, -58.5);
     node3->setPos(137.5,-58.5);
     node4->setPos(-155.5,143);
-     node5->setPos(17.5,143);
+    node5->setPos(17.5,143);
     label12 = new QLabel(this);
     label12->setStyleSheet("QLabel {color : black; }");
     int nombre = edge12->getPoid();
@@ -1828,7 +1828,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str = "";
     str = QString::number(nombre);
     label12->setText(str);
-    label12->move(230,180);
+    label12->move(((400+node1->pos().rx()+400+node2->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node2->pos().ry())*1.5)/2);
     label12->show();
     //--------------------------------
     label23 = new QLabel(this);
@@ -1837,7 +1837,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str1 = "";
     str1 = QString::number(nombre1);
     label23->setText(str1);
-    label23->move(500,160);
+    label23->move(((400+node2->pos().rx()+400+node3->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node3->pos().ry())*1.5)/2);
     label23->show();
     //--------------------------------
     label13 = new QLabel(this);
@@ -1846,7 +1846,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str2 = "";
     str2 = QString::number(nombre2);
     label13->setText(str2);
-    label13->move(630,10);
+    label13->move(((400+node1->pos().rx()+400+node3->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node3->pos().ry())*1.5)/2);
     label13->show();
     //--------------------------------
     label14 = new QLabel(this);
@@ -1855,7 +1855,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str3 = "";
     str3 = QString::number(nombre3);
     label14->setText(str3);
-    label14->move(280,320);
+    label14->move(((400+node1->pos().rx()+400+node4->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node4->pos().ry())*1.5)/2);
     label14->show();
     //--------------------------------
     label15 = new QLabel(this);
@@ -1864,7 +1864,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str6 = "";
     str6 = QString::number(nombre6);
     label15->setText(str6);
-    label15->move(685,285);
+    label15->move(((400+node1->pos().rx()+400+node5->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node5->pos().ry())*1.5)/2);
     label15->show();
     //--------------------------------
     label16 = new QLabel(this);
@@ -1873,7 +1873,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str10 = "";
     str10 = QString::number(nombre10);
     label16->setText(str10);
-    label16->move(768,168);
+    label16->move(((400+node1->pos().rx()+400+node6->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node6->pos().ry())*1.5)/2);
     label16->show();
     //--------------------------------
     label17 = new QLabel(this);
@@ -1882,7 +1882,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str15 = "";
     str15 = QString::number(nombre15);
     label17->setText(str15);
-    label17->move(475,290);
+    label17->move(((400+node1->pos().rx()+400+node7->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node7->pos().ry())*1.5)/2);
     label17->show();
     //--------------------------------
     label24 = new QLabel(this);
@@ -1891,7 +1891,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str4 = "";
     str4 = QString::number(nombre4);
     label24->setText(str4);
-    label24->move(90,530);
+    label24->move(((400+node2->pos().rx()+400+node4->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node4->pos().ry())*1.5)/2);
     label24->show();
     //--------------------------------
     label25 = new QLabel(this);
@@ -1900,7 +1900,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str7 = "";
     str7 = QString::number(nombre7);
     label25->setText(str7);
-    label25->move(505,500);
+    label25->move(((400+node2->pos().rx()+400+node5->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node5->pos().ry())*1.5)/2);
     label25->show();
     //--------------------------------
     label26 = new QLabel(this);
@@ -1909,7 +1909,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str11 = "";
     str11 = QString::number(nombre11);
     label26->setText(str11);
-    label26->move(630,355);
+    label26->move(((400+node2->pos().rx()+400+node6->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node6->pos().ry())*1.5)/2);
     label26->show();
     //--------------------------------
     label27 = new QLabel(this);
@@ -1918,7 +1918,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str18 = "";
     str18 = QString::number(nombre18);
     label27->setText(str18);
-    label27->move(355,580);
+    label27->move(((400+node2->pos().rx()+400+node7->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node7->pos().ry())*1.5)/2);
     label27->show();
     //--------------------------------
     label34 = new QLabel(this);
@@ -1936,7 +1936,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str8 = "";
     str8 = QString::number(nombre8);
     label35->setText(str8);
-    label35->move(960,320);
+    label35->move(((400+node3->pos().rx()+400+node5->pos().rx())*1.5)/2,((200+200+node3->pos().ry()+node5->pos().ry())*1.5)/2);
     label35->show();
     //--------------------------------
     label36 = new QLabel(this);
@@ -1945,7 +1945,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str12 = "";
     str12 = QString::number(nombre12);
     label36->setText(str12);
-    label36->move(1020,180);
+    label36->move(((400+node3->pos().rx()+400+node6->pos().rx())*1.5)/2,((200+200+node3->pos().ry()+node6->pos().ry())*1.5)/2);
     label36->show();
     //--------------------------------
     label37 = new QLabel(this);
@@ -1954,7 +1954,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str19 = "";
     str19 = QString::number(nombre19);
     label37->setText(str19);
-    label37->move(722,430);
+    label37->move(((400+node3->pos().rx()+400+node7->pos().rx())*1.5)/2,((200+200+node3->pos().ry()+node7->pos().ry())*1.5)/2);
     label37->show();
     //--------------------------------
     label45 = new QLabel(this);
@@ -1972,7 +1972,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str13 = "";
     str13 = QString::number(nombre13);
     label46->setText(str13);
-    label46->move(780,485);
+    label46->move(((400+node4->pos().rx()+400+node6->pos().rx())*1.5)/2,((200+200+node4->pos().ry()+node6->pos().ry())*1.5)/2);
     label46->show();
     //--------------------------------
     label47 = new QLabel(this);
@@ -1981,7 +1981,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str20 = "";
     str20 = QString::number(nombre20);
     label47->setText(str20);
-    label47->move(390,742);
+    label47->move(((400+node4->pos().rx()+400+node7->pos().rx())*1.5)/2,((200+200+node4->pos().ry()+node7->pos().ry())*1.5)/2);
     label47->show();
     //--------------------------------
     label56 = new QLabel(this);
@@ -1990,7 +1990,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str14 = "";
     str14 = QString::number(nombre14);
     label56->setText(str14);
-    label56->move(1150,530);
+    label56->move(((400+node5->pos().rx()+400+node6->pos().rx())*1.5)/2,((200+200+node5->pos().ry()+node6->pos().ry())*1.5)/2);
     label56->show();
     //--------------------------------
     label57 = new QLabel(this);
@@ -1999,7 +1999,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str21 = "";
     str21 = QString::number(nombre21);
     label57->setText(str21);
-    label57->move(850,745);
+    label57->move(((400+node5->pos().rx()+400+node7->pos().rx())*1.5)/2,((200+200+node5->pos().ry()+node7->pos().ry())*1.5)/2);
     label57->show();
     //--------------------------------
     label67 = new QLabel(this);
@@ -2008,7 +2008,7 @@ void GraphWidget::dessinGraphe7Sommets(){
     QString str22 = "";
     str22 = QString::number(nombre22);
     label67->setText(str22);
-    label67->move(905,580);
+    label67->move(((400+node6->pos().rx()+400+node7->pos().rx())*1.5)/2,((200+200+node6->pos().ry()+node7->pos().ry())*1.5)/2);
     label67->show();
 }
 
