@@ -438,8 +438,13 @@ void operationsGenetiques::mutation(individu* individu_x, float taux_mutation){
                 }
         }
             else if (individu_x->ADN.getTypeGenes() == 3){
-		individu_x->ADN.genes_int.at(i) =  individu_x->conversionVersBinaire(rand()%(individu_x->convertionVersDecimale(individu_x->ADN.getMaxIntervalle()) - individu_x->convertionVersDecimale(individu_x->ADN.getMinIntervalle())) + individu_x->convertionVersDecimale(individu_x->ADN.getMinIntervalle()));
-
+                    if (individu_x->ADN.getMinIntervalle() < 0 && individu_x->ADN.getMaxIntervalle() >0){
+                    int somme = abs(individu_x->convertionVersDecimale(individu_x->ADN.getMinIntervalle())) + individu_x->convertionVersDecimale(abs(individu_x->ADN.getMaxIntervalle()));
+                    individu_x->ADN.genes_int.at(i) = individu_x->conversionVersBinaire(rand()%somme - individu_x->convertionVersDecimale(abs(individu_x->ADN.getMinIntervalle())));
+                    }
+                    else {
+                        individu_x->ADN.genes_int.at(i) = individu_x->conversionVersBinaire(rand()%(individu_x->convertionVersDecimale(individu_x->ADN.getMaxIntervalle()) - individu_x->convertionVersDecimale(individu_x->ADN.getMinIntervalle())) + individu_x->convertionVersDecimale(individu_x->ADN.getMinIntervalle()));
+                    }
 		}
 		
 		}

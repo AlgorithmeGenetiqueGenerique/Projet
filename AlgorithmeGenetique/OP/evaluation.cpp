@@ -60,6 +60,7 @@ void evaluation::evaluer(individu* individu_x){
 		individu_x->setNoteEvaluationFlottant(depilerFlottants());
 	else if (individu_x->ADN.getTypeGenes() == 3)
 	individu_x->setNoteEvaluation(individu_x->conversionVersBinaire(depiler()));
+    std::cout<<"a = "<<individu_x->ADN.genes_int.at(0)<<"\n";
 }
 
 void evaluation::analyseSyntaxiqueTypes(individu* individu_x){

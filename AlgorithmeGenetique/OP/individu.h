@@ -3,7 +3,7 @@
 
 #include <string>
 #include <cmath>
-//#include <stdlib.h>
+#include <stdlib.h>
 #include "gene.h"
 
 class individu
@@ -16,7 +16,7 @@ class individu
     int valeurAleatoire(int min_intervalle, int max_intervalle);
     double valeurAleatoire(double min_intervalle, double max_intervalle);
     
-    int conversionVersBinaire(int decimale); 
+    int conversionVersBinaire(int decimale);
     int convertionVersDecimale(int binaire);
      
     int getNoteEvaluation();
@@ -32,10 +32,11 @@ class individu
     void setFinIntervalleFlottant(double fin_intervalle);
     void setDebutIntervalle(int debut_intervalle);
     void setFinIntervalle(int fin_intervalle);
-    
+
     gene ADN;
    
     private:
+    #define ull_ unsigned long long int
     int note_evaluation;
 	double note_evaluation_flottant;
 	int debut_intervalle;
