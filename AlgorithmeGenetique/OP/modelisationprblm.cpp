@@ -231,6 +231,23 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
            QMessageBox::warning(this, "Erreur", "min intervalle égale à max intervalle ");
         }
         else {
+            int p_o = 0;
+            int p_f = 0;
+            bool incoherance = false;
+            for (int i =0; i < ee->getChaineEvaluation().size(); i++){
+                    if (ee->getChaineEvaluation().at(i)== '(' ) p_o++;
+                    if (ee->getChaineEvaluation().at(i)== ')' ){
+                        p_f++;
+                    }
+                    if (p_f > p_o) {
+                        ui->stackedWidget->setCurrentIndex(0);
+                        QMessageBox::warning(this, "Erreur", " de lancer la simulation:\nErreur dans Les parenthèses");
+                        chaine_evaluation->setStyleSheet("background-color: red;");
+                        incoherance = true;
+                    }
+            }
+
+        if (incoherance == false){
         evaluation_test.evaluer(new individu(ee->getMinIntervalle(),ee->getMaxIntervalle(), ee->getNombreGenes(),ee->getTypeGenes()));
         if(ee->getTaillePopulation() < ee->getNmbr_indiv_a_selec())
     {
@@ -278,6 +295,7 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
         else
             thrd->start();
         }
+       }
     }else if (type==2){
         if ((ee->getMinIntervalleFlottant() == ee->getMaxIntervalleFlottant()) ) {
            ui->stackedWidget->setCurrentIndex(0);

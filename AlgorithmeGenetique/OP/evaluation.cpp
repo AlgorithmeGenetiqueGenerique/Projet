@@ -113,7 +113,11 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 		int n = 0;
 		int type_genes = individu_x->ADN.getTypeGenes();
 		while( ('a' <= caractere)&&('d' >= caractere)||('w' <= caractere)&&('z' >= caractere)){
-		n = 1;
+            if (noeud == GENE || noeud == PARENTHESE_F) {
+            erreur = 8;
+            break;
+        }
+        n = 1;
 		noeud = GENE;
 		switch(individu_x->ADN.getTypeGenes()){
 		case 1 : {
@@ -305,6 +309,8 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 		switch(caractere)
 	{
 	case '+':{//ADDITION
+                if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                    erreur = 8;
 				caractere = chaine_evaluation[indice++];			
 				noeud = ADDITION;
 				break;
@@ -376,56 +382,86 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 				break;
 			 }
 	case '*':{//MULTIPLICATION
+            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                erreur = 8;
 				caractere = chaine_evaluation[indice++];
 				noeud = MULTIPLICATION;
 				break;
 			 }
 	case '/':{//DIVISION
+            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                erreur = 8;
 				caractere = chaine_evaluation[indice++];
 				noeud = DIVISION;
 				break;
 			 }
 	case '%':{//MODULO
+            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                erreur = 8;
 				caractere = chaine_evaluation[indice++];
 				noeud = MODULO;
 				break;
 			 }
      case '&':{//ET LOGIQUE
+            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                erreur = 8;
 				caractere = chaine_evaluation[indice++];
 				noeud = AND;
 				break;
 			 }
 	 case '|':{//OU LOGIQUE
+            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                erreur = 8;
 				caractere = chaine_evaluation[indice++];
 				noeud = OR;
 				break;
 			 }
 	case '(':{//PARENTHESE OUVRANTE
+            if (noeud == GENE || noeud == PARENTHESE_F) {
+                erreur = 8;
+                break;
+            }
 				caractere = chaine_evaluation[indice++];
 				noeud = PARENTHESE_O;
 				break;
 			 }
 	case ')':{//PARENTHESE FERMANTE
+            if (noeud == PARENTHESE_O || noeud == 0) {
+                erreur = 8;
+                break;
+            }
 				caractere = chaine_evaluation[indice++];
 				noeud = PARENTHESE_F;
 				break;
 			 }	
 	case '#':{//SYMBOLE DE FIN
+            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                erreur = 8;
 			    caractere = chaine_evaluation[indice++];
 				noeud = FIN;
 				break;
 			 }
 	case '>':{// ENTIER SUPERIEUR
+            if (noeud == GENE || noeud == PARENTHESE_F) {
+                erreur = 8;
+                break;
+            }
 					caractere = chaine_evaluation[indice++];
 					noeud = CEIL;
 					break;
 				}
 	case '<':{//ENTIER INFERIEUR
+            if (noeud == GENE || noeud == PARENTHESE_F) {
+                erreur = 8;
+                break;
+            }
 					caractere = chaine_evaluation[indice++];
 					noeud = FLOOR;
 					break;
 				}
 	case '^':{//PUISSANCE
+            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                erreur = 8;
 				caractere = chaine_evaluation[indice++];
 				noeud = PUISSANCE;
 				break;
@@ -439,9 +475,17 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 						if(caractere == 'o'){
 							caractere = chaine_evaluation[indice++];
 							if(caractere == 's'){
+                                if (noeud == GENE || noeud == PARENTHESE_F) {
+                                    erreur = 8;
+                                    break;
+                                }
 								noeud = COSINUS;
-								caractere = chaine_evaluation[indice++];
+                                caractere = chaine_evaluation[indice++];
 							}	if(caractere == 'h'){
+                                if (noeud == GENE || noeud == PARENTHESE_F) {
+                                    erreur = 8;
+                                    break;
+                                }
 									noeud = COSINUSH;
 									caractere = chaine_evaluation[indice++];
 								}
@@ -457,6 +501,10 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 									caractere = chaine_evaluation[indice++];
 									if(caractere == 's'){
 										caractere = chaine_evaluation[indice++];
+                                        if (noeud == GENE || noeud == PARENTHESE_F) {
+                                            erreur = 8;
+                                            break;
+                                        }
 										noeud = ACOSINUS;
 									}
 								}
@@ -468,6 +516,10 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 									caractere = chaine_evaluation[indice++];
 									if (caractere == 'n'){
 										caractere = chaine_evaluation[indice++];
+                                        if (noeud == GENE || noeud == PARENTHESE_F) {
+                                            erreur = 8;
+                                            break;
+                                        }
 										noeud = ASINUS;		
 									}
 								}
@@ -479,6 +531,10 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 									caractere = chaine_evaluation[indice++];
 									if (caractere == 'n'){
 										caractere = chaine_evaluation[indice++];
+                                        if (noeud == GENE || noeud == PARENTHESE_F) {
+                                            erreur = 8;
+                                            break;
+                                        }
 										noeud = ATANGENTE;
 									}
 								}
@@ -493,9 +549,17 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 								caractere = chaine_evaluation[indice++];
 								if (caractere == 'n'){
 									caractere = chaine_evaluation[indice++];
+                                    if (noeud == GENE || noeud == PARENTHESE_F) {
+                                        erreur = 8;
+                                        break;
+                                    }
 									noeud = SINUS;
 									if (caractere == 'h'){
 										caractere = chaine_evaluation[indice++];
+                                        if (noeud == GENE || noeud == PARENTHESE_F) {
+                                            erreur = 8;
+                                            break;
+                                        }
 										noeud = SINUSH;
 								}
 							}
@@ -508,9 +572,17 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 							caractere = chaine_evaluation[indice++];
 							if (caractere == 'n'){
 								caractere = chaine_evaluation[indice++];
+                                if (noeud == GENE || noeud == PARENTHESE_F) {
+                                    erreur = 8;
+                                    break;
+                                }
 								noeud = TANGENTE;
 								if (caractere == 'h'){
 									caractere = chaine_evaluation[indice++];
+                                    if (noeud == GENE || noeud == PARENTHESE_F) {
+                                        erreur = 8;
+                                        break;
+                                    }
 									noeud = TANGENTEH;
 								}
 							}
@@ -522,6 +594,10 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 						switch(caractere){
 							case 'n':{//----------LN
 								caractere = chaine_evaluation[indice++];
+                                if (noeud == GENE || noeud == PARENTHESE_F) {
+                                    erreur = 8;
+                                    break;
+                                }
 								noeud = LN;
 								break;//----------FIN LN
 							}
@@ -529,9 +605,17 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 								caractere = chaine_evaluation[indice++];	
 								if(caractere == 'g'){//LOG_2
 									caractere = chaine_evaluation[indice++];
+                                    if (noeud == GENE || noeud == PARENTHESE_F) {
+                                        erreur = 8;
+                                        break;
+                                    }
 									noeud = LOG_2;
 									if(caractere == 'x'){//LOG_10
 										caractere = chaine_evaluation[indice++];
+                                        if (noeud == GENE || noeud == PARENTHESE_F) {
+                                            erreur = 8;
+                                            break;
+                                        }
 										noeud = LOG_10;
 									}
 								}
@@ -544,9 +628,17 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 						caractere = chaine_evaluation[indice++];
 						if(caractere == 'c'){//racine cubique
 							caractere = chaine_evaluation[indice++];
+                            if (noeud == GENE || noeud == PARENTHESE_F) {
+                                erreur = 8;
+                                break;
+                            }
 							noeud = RACINEC;
 						}
 						else {//racine carré
+                            if (noeud == GENE || noeud == PARENTHESE_F) {
+                                erreur = 8;
+                                break;
+                            }
 							noeud = RACINE;
 						}
 						break;//----FIN RACINE ET RACINE CUBIQUE
@@ -555,18 +647,28 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 						caractere = chaine_evaluation[indice++];
 						if(caractere == 'a'){
 							caractere = chaine_evaluation[indice++];
+                            if (noeud == GENE || noeud == PARENTHESE_F) {
+                                erreur = 8;
+                                break;
+                            }
 							noeud = V_ABSOLUE;
 						}
 						break;//FIN VALEUR ABSOLUE
 					}
 					case 'e':{//EXPONENTIELLE
 						caractere = chaine_evaluation[indice++];
+                        if (noeud == GENE || noeud == PARENTHESE_F) {
+                            erreur = 8;
+                            break;
+                        }
 						noeud = EXPONENTIELLE;
 						break;
 					}
 					case 'x':{//____________XOR
 						caractere = chaine_evaluation[indice++];
 						if (caractere == '|'){
+                            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                                erreur = 8;
 							caractere = chaine_evaluation[indice++];
 							noeud = XOR;
 						}
@@ -576,17 +678,25 @@ void evaluation::analyseSyntaxique(individu* individu_x){
 						caractere = chaine_evaluation[indice++];
 						switch(caractere){
 							case '|':{//-------------NOR
+                            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                                erreur = 8;
 								caractere = chaine_evaluation[indice++];
 								noeud = NOR;
 								break;//-------------FIN NOR
 							}
 							case '&':{//_____________NAND
+                            if ((noeud != 0)&& (noeud != GENE)&&(noeud != PARENTHESE_O)&&(noeud != PARENTHESE_F)&& (noeud != ENTIER))
+                                erreur = 8;
 								caractere = chaine_evaluation[indice++];
 								noeud = NAND;
 								break;//_____________FIN NAND
 							}
 							default :{//NOT
-								noeud = NOT;
+                            if (noeud == GENE || noeud == PARENTHESE_F) {
+                                erreur = 8;
+                                break;
+                            }
+                                noeud = NOT;
 								break;// FIN NOT
 							}
 						}
@@ -763,7 +873,7 @@ void evaluation::identification(individu* individu_x){
 				 break;
 				 }
 	case COSINUS:{
-				 analyseSyntaxiqueTypes(individu_x);
+                 analyseSyntaxiqueTypes(individu_x);
                  if (erreur == 8) break;
 				 identification(individu_x);
 				 if (individu_x->ADN.getTypeGenes() == 2){
