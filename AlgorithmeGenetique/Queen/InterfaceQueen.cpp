@@ -262,7 +262,7 @@ void InterfaceQueen::AffichageEchiquier()
     //create Button
     DessinerEchiquier();
 
-     int pxPos =875;
+    /* int pxPos =875;
     int pyPos = 27;
     playButton = new Bouton("Lancer la simulation");
     playButton->setPos(pxPos,pyPos);
@@ -295,7 +295,7 @@ void InterfaceQueen::AffichageEchiquier()
 
     AjouterSurScene(playButton);
     AjouterSurScene(aide);
-    AjouterSurScene(quitter);    AjouterSurScene(acceuil);
+    AjouterSurScene(quitter);    AjouterSurScene(acceuil);*/
 
 
 

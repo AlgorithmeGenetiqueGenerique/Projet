@@ -113,17 +113,17 @@ void GraphWidget::setSommets(int sommets){
 void GraphWidget::initialisation4sommets(int edge12_, int edge13_, int edge14_, int edge23_, int edge24_, int edge34_){
         
         graph[0][0] = 0;
-        graph[0][1] = edge12_;
-        graph[0][2] = edge13_;
-        graph[0][3] = edge14_;
+        graph[0][1] = 12;
+        graph[0][2] = 13;
+        graph[0][3] = 14;
         graph[1][0] = graph[0][1];
         graph[1][1] = 0;
-        graph[1][2] = edge23_;
-        graph[1][3] = edge24_;
+        graph[1][2] = 23;
+        graph[1][3] = 24;
         graph[2][0] = graph[0][2];
         graph[2][1] = graph[1][2];
         graph[2][2] = 0;
-        graph[2][3] = edge34_;
+        graph[2][3] = 34;
         graph[3][0] = graph[0][3];
         graph[3][1] = graph[1][3];
         graph[3][2] = graph[2][3];
@@ -1300,17 +1300,17 @@ void GraphWidget::initialisationGraph(){
    //3. recuperer les poids et initialiser la matrice :
    if (nombre_sommets == 4){
        graph[0][0] = 0;
-       graph[0][1] = rand()%100;
-       graph[0][2] = rand()%100;
-       graph[0][3] = rand()%100;
+       graph[0][1] = 12;
+       graph[0][2] = 13;
+       graph[0][3] = 14;
        graph[1][0] = graph[0][1];
        graph[1][1] = 0;
-       graph[1][2] = rand()%100;
-       graph[1][3] = rand()%100;
+       graph[1][2] = 23;
+       graph[1][3] = 24;
        graph[2][0] = graph[0][2];
        graph[2][1] = graph[1][2];
        graph[2][2] = 0;
-       graph[2][3] = rand()%100;
+       graph[2][3] = 34;
        graph[3][0] = graph[0][3];
        graph[3][1] = graph[1][3];
        graph[3][2] = graph[2][3];
@@ -1318,25 +1318,25 @@ void GraphWidget::initialisationGraph(){
    }
    else if (nombre_sommets ==5){
        graph[0][0] = 0;
-       graph[0][1] = rand()%100;
-       graph[0][2] = rand()%100;
-       graph[0][3] = rand()%100;
-       graph[0][4] = rand()%100;
+       graph[0][1] = 12;
+       graph[0][2] = 13;
+       graph[0][3] = 14;
+       graph[0][4] = 15;
        graph[1][0] = graph[0][1];
        graph[1][1] = 0;
-       graph[1][2] = rand()%100;
-       graph[1][3] = rand()%100;
-       graph[1][4] = rand()%100;
+       graph[1][2] = 23;
+       graph[1][3] = 24;
+       graph[1][4] = 25;
        graph[2][0] = graph[0][2];
        graph[2][1] = graph[1][2];
        graph[2][2] = 0;
-       graph[2][3] = rand()%100;
-       graph[2][4] = rand()%100;
+       graph[2][3] = 34;
+       graph[2][4] = 35;
        graph[3][0] = graph[0][3];
        graph[3][1] = graph[1][3];
        graph[3][2] = graph[2][3];
        graph[3][3] = 0;
-       graph[3][4] = rand()%100;
+       graph[3][4] = 45;
        graph[4][0] = graph[0][4];
        graph[4][1] = graph[1][4];
        graph[4][2] = graph[2][4];
@@ -1345,35 +1345,35 @@ void GraphWidget::initialisationGraph(){
    }
    else if (nombre_sommets ==6){
        graph[0][0] = 0;
-       graph[0][1] = rand()%100;
-       graph[0][2] = rand()%100;
-       graph[0][3] = rand()%100;
-       graph[0][4] = rand()%100;
-       graph[0][5] = rand()%100;
+       graph[0][1] = 12;
+       graph[0][2] = 13;
+       graph[0][3] = 14;
+       graph[0][4] = 15;
+       graph[0][5] = 16;
        graph[1][0] = graph[0][1];
        graph[1][1] = 0;
-       graph[1][2] = rand()%100;
-       graph[1][3] = rand()%100;
-       graph[1][4] = rand()%100;
-       graph[1][5] = rand()%100;
+       graph[1][2] = 23;
+       graph[1][3] = 24;
+       graph[1][4] = 25;
+       graph[1][5] = 26;
        graph[2][0] = graph[0][2];
        graph[2][1] = graph[1][2];
        graph[2][2] = 0;
-       graph[2][3] = rand()%100;
-       graph[2][4] = rand()%100;
-       graph[2][5] = rand()%100;
+       graph[2][3] = 34;
+       graph[2][4] = 35;
+       graph[2][5] = 36;
        graph[3][0] = graph[0][3];
        graph[3][1] = graph[1][3];
        graph[3][2] = graph[2][3];
        graph[3][3] = 0;
-       graph[3][4] = rand()%100;
-       graph[3][5] = rand()%100;
+       graph[3][4] = 45;
+       graph[3][5] = 46;
        graph[4][0] = graph[0][4];
        graph[4][1] = graph[1][4];
        graph[4][2] = graph[2][4];
        graph[4][3] = graph[3][4];
        graph[4][4] = 0;
-       graph[4][5] = rand()%100;
+       graph[4][5] = 56;
        graph[5][0] = graph[0][5];
        graph[5][1] = graph[1][5];
        graph[5][2] = graph[2][5];
@@ -1383,47 +1383,47 @@ void GraphWidget::initialisationGraph(){
    }
    else if (nombre_sommets ==7){
        graph[0][0] = 0;
-       graph[0][1] = rand()%100;
-       graph[0][2] = rand()%100;
-       graph[0][3] = rand()%100;
-       graph[0][4] = rand()%100;
-       graph[0][5] = rand()%100;
-       graph[0][6] = rand()%100;
+       graph[0][1] = 12;
+       graph[0][2] = 13;
+       graph[0][3] = 14;
+       graph[0][4] = 15;
+       graph[0][5] = 16;
+       graph[0][6] = 17;
        graph[1][0] = graph[0][1];
        graph[1][1] = 0;
-       graph[1][2] = rand()%100;
-       graph[1][3] = rand()%100;
-       graph[1][4] = rand()%100;
-       graph[1][5] = rand()%100;
-       graph[1][6] = rand()%100;
+       graph[1][2] = 23;
+       graph[1][3] = 24;
+       graph[1][4] = 25;
+       graph[1][5] = 26;
+       graph[1][6] = 27;
        graph[2][0] = graph[0][2];
        graph[2][1] = graph[1][2];
        graph[2][2] = 0;
-       graph[2][3] = rand()%100;
-       graph[2][4] = rand()%100;
-       graph[2][5] = rand()%100;
-       graph[2][6] = rand()%100;
+       graph[2][3] = 34;
+       graph[2][4] = 35;
+       graph[2][5] = 36;
+       graph[2][6] = 37;
        graph[3][0] = graph[0][3];
        graph[3][1] = graph[1][3];
        graph[3][2] = graph[2][3];
        graph[3][3] = 0;
-       graph[3][4] = rand()%100;
-       graph[3][5] = rand()%100;
-       graph[3][6] = rand()%100;
+       graph[3][4] = 45;
+       graph[3][5] = 46;
+       graph[3][6] = 47;
        graph[4][0] = graph[0][4];
        graph[4][1] = graph[1][4];
        graph[4][2] = graph[2][4];
        graph[4][3] = graph[3][4];
        graph[4][4] = 0;
-       graph[4][5] = rand()%100;
-       graph[4][6] = rand()%100;
+       graph[4][5] = 56;
+       graph[4][6] = 57;
        graph[5][0] = graph[0][5];
        graph[5][1] = graph[1][5];
        graph[5][2] = graph[2][5];
        graph[5][3] = graph[3][5];
        graph[5][4] = graph[4][5];
        graph[5][5] = 0;
-       graph[5][6] = rand()%100;
+       graph[5][6] = 67;
        graph[6][0] = graph[0][6];
        graph[6][1] = graph[1][6];
        graph[6][2] = graph[2][6];
@@ -1455,7 +1455,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str = "";
     str = QString::number(nombre);
     label12->setText(str);
-    label12->move(((400+node1->pos().rx()+400+node2->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node2->pos().ry())*1.5)/2);
+    label12->move(250,250);
     label12->show();
     //--------------------------------
 
@@ -1465,7 +1465,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str1 = "";
     str1 = QString::number(nombre1);
     label23->setText(str1);
-    label23->move(((400+node2->pos().rx()+400+node3->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node3->pos().ry())*1.5)/2);
+    label23->move(670,560);
     label23->show();
     //--------------------------------
 
@@ -1475,7 +1475,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str2 = "";
     str2 = QString::number(nombre2);
     label13->setText(str2);
-    label13->move(((400+node1->pos().rx()+400+node3->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node3->pos().ry())*1.5)/2);
+    label13->move(860,320);
     label13->show();
 
     //--------------------------------
@@ -1486,7 +1486,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str3 = "";
     str3 = QString::number(nombre3);
     label14->setText(str3);
-    label14->move(((400+node1->pos().rx()+400+node4->pos().rx())*1.5)/2,((200+200+node1->pos().ry()+node4->pos().ry())*1.5)/2);
+    label14->move(650,280);
     label14->show();
     //--------------------------------
 
@@ -1496,7 +1496,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str4 = "";
     str4 = QString::number(nombre4);
     label24->setText(str4);
-    label24->move(((400+node2->pos().rx()+400+node4->pos().rx())*1.5)/2,((200+200+node2->pos().ry()+node4->pos().ry())*1.5)/2);
+    label24->move(500,430);
     label24->show();
     //--------------------------------
 
@@ -1506,7 +1506,7 @@ void GraphWidget::dessinGraphe4Sommets(){
     QString str5 = "";
     str5 = QString::number(nombre5);
     label34->setText(str5);
-    label34->move(((400+node3->pos().rx()+400+node4->pos().rx())*1.5)/2,((200+200+node3->pos().ry()+node4->pos().ry())*1.5)/2);
+    label34->move(830,430);
     label34->show();
 }
 
