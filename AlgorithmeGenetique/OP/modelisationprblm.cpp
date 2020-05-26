@@ -214,21 +214,24 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
         chaineEval=ui->lineEdit->text();
     if(type==2)
         ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toDouble(), type, ui->doubleSpinBox_3->value(), ui->doubleSpinBox_4->value(),maxMin);
-    else
+    else if (type == 1 || type ==3)
         ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toInt(), type, ui->spinBox_5->value(),ui->spinBox_6->value(),maxMin);
     op = new operationsGenetiques(&individus,ee->getMaximisationMinimisation(), ee->getNmbr_indiv_a_selec());
     sb = ui->textBrowser->verticalScrollBar();
     score_totale=0;
     //---------------------------------------------------------------------
-
+qDebug()<<"#############################################\n";
     evaluation evaluation_test = evaluation(ee->getChaineEvaluation());
 
     if(type==1 || type==3){
+        if ((ee->getMinIntervalle() == ee->getMaxIntervalle()) ) {
+           ui->stackedWidget->setCurrentIndex(0);
+               ui->spinBox_5->setStyleSheet("background-color: red;");
+               ui->spinBox_6->setStyleSheet("background-color: red;");
+           QMessageBox::warning(this, "Erreur", "min intervalle égale à max intervalle ");
+        }
+        else {
         evaluation_test.evaluer(new individu(ee->getMinIntervalle(),ee->getMaxIntervalle(), ee->getNombreGenes(),ee->getTypeGenes()));
-
-    }else{
-        evaluation_test.evaluer(new individu(ee->getMinIntervalleFlottant(),ee->getMaxIntervalleFlottant(), ee->getNombreGenes(),ee->getTypeGenes()));
-   }
         if(ee->getTaillePopulation() < ee->getNmbr_indiv_a_selec())
     {
         nombre_individu_selectionnes->setValue((ee->getTaillePopulation()/2));
@@ -237,48 +240,92 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
         QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nNombre individu"
                                               "a selectioner inf a la population");
     }
-    else if (ee->getTauxCroisement()*ee->getNmbr_indiv_a_selec()<2) {
-       ui->stackedWidget->setCurrentIndex(0);
-       taux_croisement->setStyleSheet("background-color: red;");
-       QMessageBox::warning(this, "Erreur", "Taux de croisement insuffisant");
-    }
+        else if (ee->getTauxCroisement()*ee->getNmbr_indiv_a_selec()<2) {
+           ui->stackedWidget->setCurrentIndex(0);
+           taux_croisement->setStyleSheet("background-color: red;");
+           QMessageBox::warning(this, "Erreur", "Taux de croisement insuffisant");
+        }
         else if ((ee->getMinIntervalle() > ee->getMaxIntervalle()) ) {
            ui->stackedWidget->setCurrentIndex(0);
-           if(type==2)
-           {
-               ui->doubleSpinBox_3->setStyleSheet("background-color: red;");
-               ui->doubleSpinBox_4->setStyleSheet("background-color: red;");
-           }
-           else
-           {
                ui->spinBox_5->setStyleSheet("background-color: red;");
                ui->spinBox_6->setStyleSheet("background-color: red;");
-           }
            QMessageBox::warning(this, "Erreur", "min intervalle superieur à max intervalle ");
         }
-    else if(evaluation_test.getErreur())
-    {
-        ui->stackedWidget->setCurrentIndex(0);
-        if (evaluation_test.getErreur() == 1){
-        QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nSymbole indisponiblepour le nombre de genes choisi");
-        chaine_evaluation->setStyleSheet("background-color: red;");
+        else if(evaluation_test.getErreur())
+        {
+            ui->stackedWidget->setCurrentIndex(0);
+            if (evaluation_test.getErreur() == 1){
+            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nSymbole indisponiblepour le nombre de genes choisi");
+            chaine_evaluation->setStyleSheet("background-color: red;");
+            }
+            else if (evaluation_test.getErreur() == 2){
+                QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nPrenthèse fermante manquante");
+             chaine_evaluation->setStyleSheet("background-color: red;");}
+                else if (evaluation_test.getErreur() == 3){
+                QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type binaire");
+                chaine_evaluation->setStyleSheet("background-color: red;");}
+            else if (evaluation_test.getErreur() == 4){
+                QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type entier");
+                chaine_evaluation->setStyleSheet("background-color: red;");}
+            else if (evaluation_test.getErreur() == 5){
+                QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type flottant");
+                chaine_evaluation->setStyleSheet("background-color: red;");}
+          }
+        else
+            thrd->start();
         }
-        else if (evaluation_test.getErreur() == 2){
-            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nPrenthèse fermante manquante");
-         chaine_evaluation->setStyleSheet("background-color: red;");}
-            else if (evaluation_test.getErreur() == 3){
-            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type binaire");
-            chaine_evaluation->setStyleSheet("background-color: red;");}
-        else if (evaluation_test.getErreur() == 4){
-            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type entier");
-            chaine_evaluation->setStyleSheet("background-color: red;");}
-        else if (evaluation_test.getErreur() == 5){
-            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type flottant");
-            chaine_evaluation->setStyleSheet("background-color: red;");}
-      }
-    else
-        thrd->start();
-
+    }else if (type==2){
+        if ((ee->getMinIntervalleFlottant() == ee->getMaxIntervalleFlottant()) ) {
+           ui->stackedWidget->setCurrentIndex(0);
+               ui->doubleSpinBox_3->setStyleSheet("background-color: red;");
+               ui->doubleSpinBox_4->setStyleSheet("background-color: red;");
+           QMessageBox::warning(this, "Erreur", "min intervalle égale à max intervalle ");
+        }
+        else {
+        evaluation_test.evaluer(new individu(ee->getMinIntervalleFlottant(),ee->getMaxIntervalleFlottant(), ee->getNombreGenes(),ee->getTypeGenes()));
+        if(ee->getTaillePopulation() < ee->getNmbr_indiv_a_selec())
+    {
+        nombre_individu_selectionnes->setValue((ee->getTaillePopulation()/2));
+        nombre_individu_selectionnes->setStyleSheet("background-color: red;");
+        ui->stackedWidget->setCurrentIndex(0);
+        QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nNombre individu"
+                                              "a selectioner inf a la population");
+    }
+        else if (ee->getTauxCroisement()*ee->getNmbr_indiv_a_selec()<2) {
+           ui->stackedWidget->setCurrentIndex(0);
+           taux_croisement->setStyleSheet("background-color: red;");
+           QMessageBox::warning(this, "Erreur", "Taux de croisement insuffisant");
+        }
+        else if ((ee->getMinIntervalleFlottant() > ee->getMaxIntervalleFlottant()) ) {
+           ui->stackedWidget->setCurrentIndex(0);
+               ui->doubleSpinBox_3->setStyleSheet("background-color: red;");
+               ui->doubleSpinBox_4->setStyleSheet("background-color: red;");
+           QMessageBox::warning(this, "Erreur", "min intervalle superieur à max intervalle ");
+        }
+        else if(evaluation_test.getErreur())
+        {
+            ui->stackedWidget->setCurrentIndex(0);
+            if (evaluation_test.getErreur() == 1){
+            QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nSymbole indisponiblepour le nombre de genes choisi");
+            chaine_evaluation->setStyleSheet("background-color: red;");
+            }
+            else if (evaluation_test.getErreur() == 2){
+                QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nPrenthèse fermante manquante");
+             chaine_evaluation->setStyleSheet("background-color: red;");}
+                else if (evaluation_test.getErreur() == 3){
+                QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type binaire");
+                chaine_evaluation->setStyleSheet("background-color: red;");}
+            else if (evaluation_test.getErreur() == 4){
+                QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type entier");
+                chaine_evaluation->setStyleSheet("background-color: red;");}
+            else if (evaluation_test.getErreur() == 5){
+                QMessageBox::warning(this, "Erreur", "Impossible de lancer la simulation:\nFonction non valable pour type flottant");
+                chaine_evaluation->setStyleSheet("background-color: red;");}
+          }
+        else
+            thrd->start();
+    }
+    }
 }
 
 void ModelisationPrblm::on_pushButton_2_clicked()//----
@@ -545,7 +592,7 @@ void ModelisationPrblm::on_pushButton_10_clicked()
         chaineEval=ui->lineEdit->text();
     if(type==2)
         ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toDouble(), type, ui->doubleSpinBox_3->value(), ui->doubleSpinBox_4->value(),maxMin);
-    else
+    else if (type == 1 || type ==3)
         ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toInt(), type, ui->spinBox_5->value(),ui->spinBox_6->value(),maxMin);
     ee->sauvegarde(ui->lineEdit_5->text().toStdString());
     ui->stackedWidget->setCurrentIndex(0);
