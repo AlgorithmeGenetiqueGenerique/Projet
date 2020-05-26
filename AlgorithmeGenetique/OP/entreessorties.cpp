@@ -76,8 +76,10 @@ EntreesSorties::EntreesSorties(std::string chaine_evaluation, int taille_populat
 void EntreesSorties::sauvegarde(std::string nom_fichier){
 	std::ofstream monFlux(nom_fichier.c_str());
 	if (monFlux) {
-    //	monFlux <<individus->size()<< std::endl;
+        //monFlux <<individus->size()<< std::endl;
         //monFlux <<(individus)->at(0).ADN.getTypeGenes()<< std::endl;
+        monFlux <<taille_population<< std::endl;
+           monFlux <<type_genes<< std::endl;
         monFlux <<nombre_genes<< std::endl;
         monFlux <<chaine_evaluation<< std::endl;
         if (type_genes == 1 || type_genes == 3){
