@@ -13,7 +13,7 @@ void myThread::run()
     {
         if(!Stop)
         {
-            for(int i=count;i<=iteration+1;i++)
+            for(int i=count;i<iteration;i++)
             {
                 QMutex mutex;
                 mutex.lock();

@@ -15,6 +15,8 @@ ModelisationPrblm::ModelisationPrblm(QWidget *parent) :
 {
     srand(unsigned(time(NULL)));
     ui->setupUi(this);
+    ui->doubleSpinBox_3->setEnabled(false);
+    ui->doubleSpinBox_4->setEnabled(false);
     timer=new QTimer();
     nombre_genes = ui->spinBox;
     taille_population=ui->spinBox_2;
@@ -175,10 +177,11 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     nombre_individu_selectionnes->setStyleSheet("background-color: white;");
     chaine_evaluation->setStyleSheet("background-color: white;");
     taux_croisement->setStyleSheet("background-color: white;");
-     min_intervalle->setStyleSheet("background-color: white;");
-      max_intervalle->setStyleSheet("background-color: white;");
-      ui->lineEdit_4->setStyleSheet("background-color: white;");
-
+    ui->lineEdit_4->setStyleSheet("background-color: white;");
+    ui->doubleSpinBox_3->setStyleSheet("background-color: white;");
+    ui->doubleSpinBox_4->setStyleSheet("background-color: white;");
+    ui->spinBox_5->setStyleSheet("background-color: white;");
+    ui->spinBox_6->setStyleSheet("background-color: white;");
     ui->pushButton_4->setEnabled(false);
     thrd->Stop=false;
     thrd->count=0;
@@ -199,7 +202,7 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     else
         maxMin=2;
 
-    thrd->iteration=nombre_iterations->value();
+    thrd->iteration=nombre_iterations->value()-1;
     compteur_generation = 0;
     chaine_evaluation_ = chaine_evaluation->text().toUtf8().constData();
     generation_satisfaisante_ = generation_satisfaisante->text().toDouble();
@@ -210,51 +213,15 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     else
         chaineEval=ui->lineEdit->text();
     if(type==2)
-        ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toDouble(), type, min_intervalle->text().toDouble(), max_intervalle->text().toDouble(),maxMin);
+        ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toDouble(), type, ui->doubleSpinBox_3->value(), ui->doubleSpinBox_4->value(),maxMin);
     else
-        ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toInt(), type, min_intervalle->text().toInt(), max_intervalle->text().toInt(),maxMin);
+        ee = new EntreesSorties( chaineEval.toStdString(), taille_population->value(), nombre_iterations->value(), nombre_individu_selectionnes->value(), ui->comboBox->currentIndex()+1,nombre_genes->value(),taux_croisement->value(),taux_mutation->value(),ui->lineEdit_4->text().toInt(), type, ui->spinBox_5->value(),ui->spinBox_6->value(),maxMin);
     op = new operationsGenetiques(&individus,ee->getMaximisationMinimisation(), ee->getNmbr_indiv_a_selec());
     sb = ui->textBrowser->verticalScrollBar();
     score_totale=0;
-    std::cout<<"max : "<<ee->getMaxIntervalle()<<"\n";
-    std::cout<<"min : "<<ee->getMinIntervalle()<<"\n";
     //---------------------------------------------------------------------
-            int n =0;
-            if (type == 1 || type ==3){
-            for(std::string::size_type i = 0; i < min_intervalle->text().toStdString().length(); ++i)
-            {
-                if((((min_intervalle->text().toStdString()[i]-'0')>9)||((min_intervalle->text().toStdString()[i]-'0')<0))&&(min_intervalle->text().toStdString()[i] != '-')) n = 1;
-            }
-            if (n){
-                ui->stackedWidget->setCurrentIndex(0);
-                min_intervalle->setStyleSheet("background-color: red;");
-                QMessageBox::warning(this, "Erreur", "Les gènes sont de type entier");
-            }
-            if (!n){
-            for(std::string::size_type i = 0; i < max_intervalle->text().toStdString().length(); ++i)
-            {
-                if((((max_intervalle->text().toStdString()[i]-'0')>9)||((max_intervalle->text().toStdString()[i]-'0')<0))&&(max_intervalle->text().toStdString()[i] != '-')) n = 1;
-            }
-            if (n){
-                ui->stackedWidget->setCurrentIndex(0);
-                max_intervalle->setStyleSheet("background-color: red;");
-                QMessageBox::warning(this, "Erreur", "Les gènes sont de type entier");
-            }
-            }
-            if (!n){
-                for(std::string::size_type i = 0; i < ui->lineEdit_4->text().toStdString().length(); ++i)
-                {
-                    if((((ui->lineEdit_4->text().toStdString()[i]-'0')>9)||((ui->lineEdit_4->text().toStdString()[i]-'0')<0))&&ui->lineEdit_4->text().toStdString()[i]!='-')  n = 1;
-                }
-                if (n){
-                                ui->stackedWidget->setCurrentIndex(0);
-                                ui->lineEdit_4->setStyleSheet("background-color: red;");
-                                QMessageBox::warning(this, "Erreur", "Les gènes sont de type entier");
-                            }
-            }
-        }
 
-    if(!n) {        evaluation evaluation_test = evaluation(ee->getChaineEvaluation());
+    evaluation evaluation_test = evaluation(ee->getChaineEvaluation());
 
     if(type==1 || type==3){
         evaluation_test.evaluer(new individu(ee->getMinIntervalle(),ee->getMaxIntervalle(), ee->getNombreGenes(),ee->getTypeGenes()));
@@ -277,8 +244,16 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     }
         else if ((ee->getMinIntervalle() > ee->getMaxIntervalle()) ) {
            ui->stackedWidget->setCurrentIndex(0);
-           min_intervalle->setStyleSheet("background-color: red;");
-           max_intervalle->setStyleSheet("background-color: red;");
+           if(type==2)
+           {
+               ui->doubleSpinBox_3->setStyleSheet("background-color: red;");
+               ui->doubleSpinBox_4->setStyleSheet("background-color: red;");
+           }
+           else
+           {
+               ui->spinBox_5->setStyleSheet("background-color: red;");
+               ui->spinBox_6->setStyleSheet("background-color: red;");
+           }
            QMessageBox::warning(this, "Erreur", "min intervalle superieur à max intervalle ");
         }
     else if(evaluation_test.getErreur())
@@ -303,7 +278,7 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
       }
     else
         thrd->start();
-    }
+
 }
 
 void ModelisationPrblm::on_pushButton_2_clicked()//----
@@ -704,4 +679,29 @@ void ModelisationPrblm::on_pushButton_5_clicked()
     QFile HelpFile("qrc:/Manuel.pdf");;
     HelpFile.copy(qApp->applicationDirPath().append("/Manuel.pdf"));
     QDesktopServices::openUrl(QUrl::fromLocalFile(qApp->applicationDirPath().append("/Manuel.pdf")));
+}
+
+void ModelisationPrblm::on_radioButton_clicked()//entier
+{
+    ui->doubleSpinBox_3->setEnabled(false);
+    ui->doubleSpinBox_4->setEnabled(false);
+    ui->spinBox_5->setEnabled(true);
+    ui->spinBox_6->setEnabled(true);
+}
+
+void ModelisationPrblm::on_radioButton_3_clicked()
+{
+
+    ui->doubleSpinBox_3->setEnabled(false);
+    ui->doubleSpinBox_4->setEnabled(false);
+    ui->spinBox_5->setEnabled(true);
+    ui->spinBox_6->setEnabled(true);
+}
+
+void ModelisationPrblm::on_radioButton_2_clicked()
+{
+    ui->doubleSpinBox_3->setEnabled(true);
+    ui->doubleSpinBox_4->setEnabled(true);
+    ui->spinBox_5->setEnabled(false);
+    ui->spinBox_6->setEnabled(false);
 }

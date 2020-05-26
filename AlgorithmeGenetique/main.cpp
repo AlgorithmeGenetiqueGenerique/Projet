@@ -16,19 +16,16 @@ int main(int argc, char *argv[])
 
 
 
-        //QString locale = QLocale::system().name();
+        QString locale = QLocale::system().name();
+        QTranslator translator;
 
-
-
-        //QTranslator translator;
-
-        //translator.load(QString("Accueil") + locale);
-        //app.installTranslator(&translator);
+        translator.load(QString("Accueil") + locale);
+        app.installTranslator(&translator);
 
         ModelisationPrblm rambele;
-       // MainWindow1 mainWindow1;
-        //mainWindow1.show();
-         rambele.show();
+        MainWindow1 mainWindow1;
+        mainWindow1.show();
+         //rambele.show();
 
 
         return app.exec();
