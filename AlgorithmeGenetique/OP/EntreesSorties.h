@@ -15,7 +15,7 @@ class EntreesSorties
     
     EntreesSorties(std::string chaine_evaluation, int taille_population, int nombre_iterations, int nmbr_indiv_a_selec, int choix_selection , int nombre_genes, float taux_croisement, float taux_mutation, double generation_satisfaisante, int type_genes, double min_intervalle, double max_intervalle, int maximisation_minimisation);
     
-	void sauvegarde(std::string nom_fichier, std::vector<individu>* individus);
+    void sauvegarde(std::string nom_fichier);
     
     void genererLatex(std::vector<individu>* individus, std::string nom_fichier);
 	
