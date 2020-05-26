@@ -144,7 +144,7 @@ public:
     {
         if (ModelisationPrblm->objectName().isEmpty())
             ModelisationPrblm->setObjectName(QStringLiteral("ModelisationPrblm"));
-        ModelisationPrblm->resize(707, 461);
+        ModelisationPrblm->resize(707, 487);
         centralwidget = new QWidget(ModelisationPrblm);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         centralwidget->setStyleSheet(QStringLiteral(""));
@@ -427,21 +427,29 @@ public:
 
         spinBox_5 = new QSpinBox(page);
         spinBox_5->setObjectName(QStringLiteral("spinBox_5"));
+        spinBox_5->setMinimum(-1000000);
+        spinBox_5->setMaximum(1000000);
 
         formLayout_8->setWidget(10, QFormLayout::FieldRole, spinBox_5);
 
         spinBox_6 = new QSpinBox(page);
         spinBox_6->setObjectName(QStringLiteral("spinBox_6"));
+        spinBox_6->setMinimum(-1000000);
+        spinBox_6->setValue(100);
 
         formLayout_8->setWidget(11, QFormLayout::FieldRole, spinBox_6);
 
         doubleSpinBox_3 = new QDoubleSpinBox(page);
         doubleSpinBox_3->setObjectName(QStringLiteral("doubleSpinBox_3"));
+        doubleSpinBox_3->setMinimum(-1e+6);
+        doubleSpinBox_3->setValue(0);
 
         formLayout_8->setWidget(14, QFormLayout::FieldRole, doubleSpinBox_3);
 
         doubleSpinBox_4 = new QDoubleSpinBox(page);
         doubleSpinBox_4->setObjectName(QStringLiteral("doubleSpinBox_4"));
+        doubleSpinBox_4->setMinimum(-1e+6);
+        doubleSpinBox_4->setValue(100);
 
         formLayout_8->setWidget(15, QFormLayout::FieldRole, doubleSpinBox_4);
 
@@ -614,7 +622,7 @@ public:
         ModelisationPrblm->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ModelisationPrblm);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 707, 21));
+        menubar->setGeometry(QRect(0, 0, 707, 26));
         ModelisationPrblm->setMenuBar(menubar);
         statusbar = new QStatusBar(ModelisationPrblm);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -646,9 +654,9 @@ public:
         label_typeS->setText(QApplication::translate("ModelisationPrblm", "Type de selection", Q_NULLPTR));
         comboBox->clear();
         comboBox->insertItems(0, QStringList()
-         << QApplication::translate("ModelisationPrblm", "Selection 1", Q_NULLPTR)
-         << QApplication::translate("ModelisationPrblm", "Selection 2", Q_NULLPTR)
-         << QApplication::translate("ModelisationPrblm", "Selection 3", Q_NULLPTR)
+         << QApplication::translate("ModelisationPrblm", "Selection par rang", Q_NULLPTR)
+         << QApplication::translate("ModelisationPrblm", "Selection par tournoi", Q_NULLPTR)
+         << QApplication::translate("ModelisationPrblm", "Selection par roulette", Q_NULLPTR)
         );
         label_typeG->setText(QApplication::translate("ModelisationPrblm", "Type_genes", Q_NULLPTR));
         label_senseE->setText(QApplication::translate("ModelisationPrblm", "Le sense de l'evaluation", Q_NULLPTR));
