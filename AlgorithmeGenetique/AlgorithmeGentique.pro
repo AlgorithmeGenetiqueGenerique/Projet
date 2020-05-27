@@ -76,8 +76,6 @@ HEADERS += \
     VoyageurDeCommerce/interfaceVoyageur.h
 
 FORMS += \
-    OP/mainwindow.ui \
-    OP/modelisation.ui \
     OP/modelisationprblm.ui \
     OP/notepad.ui
 
