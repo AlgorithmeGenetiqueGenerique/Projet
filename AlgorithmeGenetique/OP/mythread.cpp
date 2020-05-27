@@ -17,12 +17,14 @@ void myThread::run()
             {
                 QMutex mutex;
                 mutex.lock();
+                qDebug()<<"thread on marche"<<Stop;
+                qDebug()<<"-------->"<<iteration;
                 if(Stop)
                     break;
 
                 emit txtEdt(i);
                 mutex.unlock();
-                this->msleep(30);
+                this->msleep(50);
             }
         }
 
@@ -35,6 +37,8 @@ void myThread::run()
         {
             QMutex mutex;
             mutex.lock();
+            qDebug()<<"thread on marche"<<Stop;
+            qDebug()<<"-------->"<<iteration;
             if(Stop)
                 break;
 
