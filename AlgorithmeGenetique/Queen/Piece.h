@@ -11,7 +11,7 @@ class BoxEchiquier;
 class Piece:public QGraphicsPixmapItem
 {
 public:
-    Piece(QString Jeu="",QGraphicsItem *parent = 0);
+    Piece(QString Jeu="");
 
     void setBoxActuel(BoxEchiquier *box);
     BoxEchiquier *getBoxActuel() ;

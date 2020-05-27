@@ -1,7 +1,9 @@
 ﻿#include "InterfaceQueen.h"
 #include "bouton.h"
 #include "./../mainwindow1.h"
+
 #include <QDebug>
+
 #include <QTextEdit>
 #include <QCheckBox>
 #include <QLineEdit>
@@ -11,27 +13,34 @@
 #include <QtCore>
 
 using namespace std;
-InterfaceQueen::InterfaceQueen(QWidget *parent ):QGraphicsView(parent)
+InterfaceQueen::InterfaceQueen():QGraphicsView()
 {
+
+    //Making the Scene
     Scene_du_jeu = new QGraphicsScene();
     Scene_du_jeu->setSceneRect(530,200,500,500);
-    Scene = new QGraphicsScene();
-    Scene->setSceneRect(200,200,500,500);
+    Scene = new QGraphicsScene();                qDebug()<<"-------->";
 
+    Scene->setSceneRect(200,200,500,500);
+    //Making the view
     setFixedSize(1200,850);
    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
    setScene(Scene_du_jeu);
 
    op = operationsGenetiques(&individus, ee.getMaximisationMinimisation(), ee.getNmbr_indiv_a_selec());
-
+    //setScene(Scene);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::lightGray);
     setBackgroundBrush(brush);
+   //display Check
     check = new QGraphicsTextItem();
     check->setPos(width()/2-100,860);
+
     enCours = 0;
+
+
 }
 
 
@@ -68,7 +77,11 @@ void InterfaceQueen::DessinerEchiquier()
             echiquier1[4][1]=1;echiquier1[4][3]=1;echiquier1[4][5]=1;echiquier1[4][7]=1;echiquier1[4][0]=1;
             echiquier1[4][4]=1;echiquier1[4][2]=1;
             echiquier1[4][6]=1;
-            Echiquiers->AjouterPiece(0,echiquier1);
+            Echiquiers->AjouterPiece(echiquier1);
+
+
+
+
 }
 void InterfaceQueen::AjouterSurScene(QGraphicsItem *item)
 {
@@ -77,8 +90,10 @@ void InterfaceQueen::AjouterSurScene(QGraphicsItem *item)
 
 void InterfaceQueen::start()
 {
-
+    if(thrd->Stop==true)
+    {
         enCours=1;
+ thrd->count=0;
         QGraphicsTextItem *Piece = new QGraphicsTextItem();
         thrd->test=2;
         Piece->setPos(1200,10);
@@ -89,18 +104,17 @@ void InterfaceQueen::start()
 
 
         srand(unsigned(time(NULL)));  vector<int> score_total;
-        vector<int> meillleur_individu;
+
         thrd->Stop=false;
-        thrd->count=0;
+
         compteur_generation=0;
         sb = text->verticalScrollBar();
         thrd->iteration=2500;
-        sb =text->verticalScrollBar();
+        sb =text->verticalScrollBar();text->insertPlainText("Debut de la simulation");
         thrd->start();
         text->insertPlainText("\n");
         enCours=0;
-        individus.clear();
-        dames.clear();
+    }
     
 }
 
@@ -109,9 +123,10 @@ void InterfaceQueen::onTxtEdt(int j)//Thread
  vector<ProblemeDesHuitDames> dames1;
     if(j!=0)
     {
-    Echiquiers->reset(Scene_du_jeu);
+    Echiquiers->reset();
     }
     if(!j){
+        individus.clear();dames.clear();
         for (int i = 0; i< ee.getTaillePopulation(); i++){
             individu individu_x;
             do{
@@ -129,6 +144,8 @@ void InterfaceQueen::onTxtEdt(int j)//Thread
         evaluation e = evaluation (ee.getChaineEvaluation());
 
     }
+
+    //if (arret) break;
     int alpha=0;
     int beta=individus[0].getNoteEvaluation();
 
@@ -150,7 +167,7 @@ dames1.push_back(dames[i]);
 dames1[alpha].generation_echiquier();
 int x = individus[alpha].getNoteEvaluation();
 
- Echiquiers->AjouterPiece(j,dames1[alpha].getech());
+ Echiquiers->AjouterPiece(dames1[alpha].getech());
  if(x!=0)
  {
 text->insertPlainText("generation : "+QString::number(compteur_generation));
@@ -160,10 +177,10 @@ text->insertPlainText("\n");
  {
 
      text->insertPlainText("generation : "+QString::number(compteur_generation));
-    text->insertPlainText("\nFin de la simulation");
+    text->insertPlainText("\nFin de la simulation \n");
      dames[alpha].generation_echiquier();
      dames[alpha].printSolution();
-      Echiquiers->AjouterPiece(j,dames[alpha].getech());
+      Echiquiers->AjouterPiece(dames[alpha].getech());
      thrd->Stop=true;
 
 
@@ -220,11 +237,11 @@ if(thrd->Stop==false)
 {
 MainWindow1 *mainWindow = new  MainWindow1();
    mainWindow->show();
-   Echiquiers->reset(Scene_du_jeu);close();    thrd->Stop=false;text->deleteLater(); text = new QTextBrowser();
+   Echiquiers->reset();   thrd->Stop=false;text->deleteLater(); text = new QTextBrowser();
    individus.clear();
    dames.clear();
      thrd->test=0;
-   layout->addWidget(text);
+   layout->addWidget(text);close();
     }
 }
 void InterfaceQueen::fin()
@@ -245,9 +262,10 @@ void InterfaceQueen::AffichageEchiquier()
     thrd->Stop=true;
     thrd->test=2;
      QObject::connect(thrd,SIGNAL(txtEdt(int)),this,SLOT(onTxtEdt(int)));
+    //create Button
     DessinerEchiquier();
 
-    /* int pxPos =875;
+     int pxPos =875;
     int pyPos = 27;
     playButton = new Bouton("Lancer la simulation");
     playButton->setPos(pxPos,pyPos);
@@ -271,16 +289,19 @@ void InterfaceQueen::AffichageEchiquier()
     layout->addWidget(text);
        a->setLayout(layout);
             Scene_du_jeu->addWidget(a);
-            if(enCours==0){
-                connect(playButton,SIGNAL(clicked()) , this , SLOT(start()));
-            }
+               connect(playButton,SIGNAL(clicked()) , this , SLOT(start()));
             connect(quitter,SIGNAL(clicked()) , this , SLOT(fin()));
             connect(aide,SIGNAL(clicked()) , this , SLOT(connectAide()));
             connect(acceuil,SIGNAL(clicked()) , this , SLOT(connectAcceuil()));
 
     AjouterSurScene(playButton);
     AjouterSurScene(aide);
-    AjouterSurScene(quitter);    AjouterSurScene(acceuil);*/
+    AjouterSurScene(quitter);    AjouterSurScene(acceuil);
+
+
+
+
+
 }
 
 

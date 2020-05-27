@@ -13,7 +13,7 @@ void myThread::run()
     {
         if(!Stop)
         {
-            for(int i=count;i<iteration;i++)
+            for(int i=count;i<=iteration+1;i++)
             {
                 QMutex mutex;
                 mutex.lock();
@@ -22,7 +22,7 @@ void myThread::run()
 
                 emit txtEdt(i);
                 mutex.unlock();
-                this->msleep(30);
+                this->msleep(100);
             }
         }
 
@@ -40,7 +40,7 @@ void myThread::run()
 
             emit txtEdt(i);
             mutex.unlock();
-            this->msleep(600);
+            this->msleep(100);
         }
     }
     }

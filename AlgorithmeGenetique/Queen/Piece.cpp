@@ -3,7 +3,7 @@
 #include <QDebug>
 
 extern InterfaceQueen *Queen;
-Piece::Piece(QString Jeu,QGraphicsItem *parent):QGraphicsPixmapItem(parent)
+Piece::Piece(QString Jeu):QGraphicsPixmapItem()
 {
     Jeu="Reine";
  setImagePiece();
@@ -23,3 +23,7 @@ BoxEchiquier *Piece::getBoxActuel()
 {
     return Box;
 }
+
+
+
+

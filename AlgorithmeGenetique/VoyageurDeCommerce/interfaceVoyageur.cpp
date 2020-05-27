@@ -143,7 +143,9 @@ void voyageurDeCommerceInterface::lancer(){
 }
 void voyageurDeCommerceInterface::afficherAide(){
     
-    QDesktopServices::openUrl(QUrl::fromLocalFile(qApp->applicationDirPath().append("./../../Manuel.pdf")));
+    QFile HelpFile("qrc:/Manuel.pdf");;
+    HelpFile.copy(qApp->applicationDirPath().append("/Manuel.pdf"));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(qApp->applicationDirPath().append("/Manuel.pdf")));
 }
 
 void voyageurDeCommerceInterface::creerMenu(){

@@ -3,8 +3,9 @@
 #include <QDebug>
 
 extern InterfaceQueen *game;
-BoxEchiquier::BoxEchiquier(QGraphicsItem *parent):QGraphicsRectItem(parent)
+BoxEchiquier::BoxEchiquier():QGraphicsRectItem()
 {
+    //making the Square CHess Box
     setRect(0,0,100,100);
     brush.setStyle(Qt::SolidPattern);
     setZValue(-1);
@@ -32,3 +33,5 @@ void BoxEchiquier::placePiece(Piece *piece)
     PieceActuel = piece;
 
 }
+
+

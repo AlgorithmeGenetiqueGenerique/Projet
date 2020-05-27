@@ -10,7 +10,7 @@ class Bouton:public QObject, public QGraphicsRectItem
      Q_OBJECT
 public:
 
-    Bouton(QString name, QGraphicsItem * parent = NULL);
+    Bouton(QString name);
 
     //public methods
     void mousePressEvent(QGraphicsSceneMouseEvent *event);

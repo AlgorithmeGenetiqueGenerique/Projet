@@ -10,8 +10,8 @@ public:
     //drawing public function
     void Dessiner_box(int x, int y);
     void setPiece();QList <Piece *> Pieces;
-    void AjouterPiece(int i,int **echiquier);
-    void reset(QGraphicsScene *scene_du_jeu);
+    void AjouterPiece(int **echiquier);
+    void reset();
 private:
 
 

@@ -461,6 +461,12 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
 
     sb->setValue(sb->maximum());
     thrd->count=j;
+    if (arret) thrd->Stop=true;
+    if(thrd->count<=ee->getNombreiterations() && arret)
+    {
+        ui->textBrowser->insertPlainText("generation : "+QString::number(compteur_generation)+" Score :"+QString::number(score_total[compteur_generation]));
+        ui->textBrowser->insertPlainText("\n");
+    }
 }
 
 void ModelisationPrblm::on_pushButton_9_clicked()//pause
@@ -608,7 +614,9 @@ void ModelisationPrblm::on_pushButton_14_clicked()
 
 void ModelisationPrblm::on_pushButton_5_clicked()
 {
-    QDesktopServices::openUrl(QUrl::fromLocalFile(qApp->applicationDirPath().append("./../../Manuel.pdf")));
+    QFile HelpFile("qrc:../Manuel.pdf");;
+    HelpFile.copy(qApp->applicationDirPath().append("../Manuel.pdf"));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(qApp->applicationDirPath().append("../Manuel.pdf")));
 }
 
 void ModelisationPrblm::on_radioButton_clicked()//entier

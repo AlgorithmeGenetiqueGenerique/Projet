@@ -32,14 +32,14 @@ void Echiquier::Dessiner_box(int x,int y)
     }
 
 }
-void Echiquier::reset(QGraphicsScene * scene_du_jeu)
+void Echiquier::reset()
 {
        for(int i = 0; i < 8; i++) {
            game->removeFromScene(Pieces[i]);
               }
 }
 
-void Echiquier::AjouterPiece(int i,int **echiquier)
+void Echiquier::AjouterPiece(int **echiquier)
 {
 
 int f=0;
@@ -47,7 +47,7 @@ int f=0;
         for(int x = 0; x < 8; x++)
         {
 
-            static int k;
+
 
         for(int j=0;j<8;j++)
         {
@@ -64,11 +64,17 @@ int f=0;
 
 }
 
+
+
 void Echiquier::setPiece()
 {
+
+
+
     for(int i = 0; i < 8; i++) {
         piece[i] = new Piece();
         Pieces.append(piece[i]);
     }
+
 }
 

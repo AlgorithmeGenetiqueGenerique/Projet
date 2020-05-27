@@ -90,3 +90,4 @@ RESOURCES += \
     Queen/Ressource1.qrc \
     OP/Ressources.qrc \
     resource.qrc
+RC_FILE = myapp.rc

@@ -33,7 +33,7 @@ class InterfaceQueen:public QGraphicsView
     Q_OBJECT
 public:
     //Constructors
-    InterfaceQueen(QWidget *parent = 0);
+    InterfaceQueen();
     //public Methods
     void DessinerEchiquier();
     void removeFromScene(QGraphicsItem *item);

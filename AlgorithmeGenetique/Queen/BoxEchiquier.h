@@ -12,7 +12,7 @@ class BoxEchiquier:public QGraphicsRectItem
 public:
 
 
-    BoxEchiquier(QGraphicsItem *parent=0);
+    BoxEchiquier();
     ~BoxEchiquier();
 
 
