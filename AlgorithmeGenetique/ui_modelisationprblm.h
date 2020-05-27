@@ -139,8 +139,7 @@ public:
     void setupUi(QMainWindow *ModelisationPrblm)
     {
         if (ModelisationPrblm->objectName().isEmpty())
-            ModelisationPrblm->setObjectName(QString::fromUtf8("ModelisationPrblm"));
-
+            ModelisationPrblm->setObjectName(QStringLiteral("ModelisationPrblm"));
         ModelisationPrblm->resize(737, 539);
         centralwidget = new QWidget(ModelisationPrblm);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
@@ -603,7 +602,7 @@ public:
 
         ModelisationPrblm->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ModelisationPrblm);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setObjectName(QStringLiteral("menubar"));
         menubar->setGeometry(QRect(0, 0, 737, 26));
         ModelisationPrblm->setMenuBar(menubar);
         statusbar = new QStatusBar(ModelisationPrblm);
@@ -620,27 +619,27 @@ public:
 
     void retranslateUi(QMainWindow *ModelisationPrblm)
     {
-
-        ModelisationPrblm->setWindowTitle(QApplication::translate("ModelisationPrblm", "MainWindow", nullptr));
-        pushButton_6->setText(QApplication::translate("ModelisationPrblm", "Acceuil", nullptr));
-        pushButton_13->setText(QApplication::translate("ModelisationPrblm", "Notepad", nullptr));
-        pushButton_5->setText(QApplication::translate("ModelisationPrblm", "Aide", nullptr));
-        pushButton_4->setText(QApplication::translate("ModelisationPrblm", "Quitter", nullptr));
-        pushButton_2->setText(QApplication::translate("ModelisationPrblm", "Sauvgarder", nullptr));
-        pushButton->setText(QApplication::translate("ModelisationPrblm", "Charger", nullptr));
-        label_nombreG->setText(QApplication::translate("ModelisationPrblm", "Nombre de g\303\250nes", nullptr));
-        label_tailleP->setText(QApplication::translate("ModelisationPrblm", "Taille de la population", nullptr));
-        label_nombreI->setText(QApplication::translate("ModelisationPrblm", "Nombre d'it\303\251rations", nullptr));
-        label_nombreIS->setText(QApplication::translate("ModelisationPrblm", "Nombre d'individus \303\240 s\303\251lection\303\251s", nullptr));
-        label_tauxC->setText(QApplication::translate("ModelisationPrblm", "Taux de croisement", nullptr));
-        label_typeS->setText(QApplication::translate("ModelisationPrblm", "Type de s\303\251lection", nullptr));
-        comboBox->setItemText(0, QApplication::translate("ModelisationPrblm", "Selection par rang", nullptr));
-        comboBox->setItemText(1, QApplication::translate("ModelisationPrblm", "Selection par tournoi", nullptr));
-        comboBox->setItemText(2, QApplication::translate("ModelisationPrblm", "Selection par roulette", nullptr));
-
-        label_typeG->setText(QApplication::translate("ModelisationPrblm", "Type de g\303\250nes", nullptr));
-        label_senseE->setText(QApplication::translate("ModelisationPrblm", "Le sense de l'evaluation", nullptr));
-
+        ModelisationPrblm->setWindowTitle(QApplication::translate("ModelisationPrblm", "MainWindow", Q_NULLPTR));
+        pushButton_6->setText(QApplication::translate("ModelisationPrblm", "Acceuil", Q_NULLPTR));
+        pushButton_13->setText(QApplication::translate("ModelisationPrblm", "Notepad", Q_NULLPTR));
+        pushButton_5->setText(QApplication::translate("ModelisationPrblm", "Aide", Q_NULLPTR));
+        pushButton_4->setText(QApplication::translate("ModelisationPrblm", "Quitter", Q_NULLPTR));
+        pushButton_2->setText(QApplication::translate("ModelisationPrblm", "Sauvgarder", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("ModelisationPrblm", "Charger", Q_NULLPTR));
+        label_nombreG->setText(QApplication::translate("ModelisationPrblm", "Nombre de g\303\250nes", Q_NULLPTR));
+        label_tailleP->setText(QApplication::translate("ModelisationPrblm", "Taille de la population", Q_NULLPTR));
+        label_nombreI->setText(QApplication::translate("ModelisationPrblm", "Nombre d'it\303\251rations", Q_NULLPTR));
+        label_nombreIS->setText(QApplication::translate("ModelisationPrblm", "Nombre d'individus \303\240 s\303\251lection\303\251s", Q_NULLPTR));
+        label_tauxC->setText(QApplication::translate("ModelisationPrblm", "Taux de croisement", Q_NULLPTR));
+        label_typeS->setText(QApplication::translate("ModelisationPrblm", "Type de s\303\251lection", Q_NULLPTR));
+        comboBox->clear();
+        comboBox->insertItems(0, QStringList()
+         << QApplication::translate("ModelisationPrblm", "Selection par rang", Q_NULLPTR)
+         << QApplication::translate("ModelisationPrblm", "Selection par tournoi", Q_NULLPTR)
+         << QApplication::translate("ModelisationPrblm", "Selection par roulette", Q_NULLPTR)
+        );
+        label_typeG->setText(QApplication::translate("ModelisationPrblm", "Type de g\303\250nes", Q_NULLPTR));
+        label_senseE->setText(QApplication::translate("ModelisationPrblm", "Le sense de l'evaluation", Q_NULLPTR));
         groupBox_4->setTitle(QString());
         radioButton_2->setText(QApplication::translate("ModelisationPrblm", "RadioButton", Q_NULLPTR));
         radioButton_3->setText(QApplication::translate("ModelisationPrblm", "RadioButton", Q_NULLPTR));
