@@ -1,0 +1,43 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[frenchb]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\begin{document}
+\\Récapitulatif de la configuration choisie : 
+\\Taille de la population :  2048
+\\Type des gène :  Entier\\Nombre de gènes :  2
+\\Chaine évaluer :  a+b
+\\Intervalle :  [0 , 100 ]
+\\La génération satisfaisante :  150
+\\Nombre d'itérations maximum fixé :  50
+\\Type de séléction :  Séléction par rang\\Le taux de croisement :  0.05
+\\Le taux de mutation :  0.1
+\\Nombre d'individus à séléctionné :  1500
+\\Convergence : Maximisation
+\\\begin{figure}[h]
+\\\\\begin{tikzpicture}2048
+\begin{axis}[xlabel=Numéro génération ,ylabel=Moyenne scores,axis x line=bottom ,axis y line=left]
+\addplot coordinates {
+(0,99) (1,120) (2,122) (3,128) (4,127) (5,137) (6,130) (7,138) (8,137) (9,130) (10,137) (11,139) (12,146) (13,140) (14,137) (15,132) (16,146) (17,141) (18,146) (19,154) };
+\end{axis}
+\end{tikzpicture}
+\caption{Graphe représentant l'évolution de la moyenne des scores des individus}
+\end{figure}
+\begin{figure}[h]
+\\\\\begin{tikzpicture}
+\begin{axis}[xlabel=Numéro génération ,ylabel=Meilleur individu,axis x line=bottom ,axis y line=left]
+\addplot coordinates {
+(0,124) (1,197) (2,197) (3,197) (4,197) (5,197) (6,197) (7,197) (8,197) (9,197) (10,197) (11,197) (12,197) (13,197) (14,197) (15,197) (16,197) (17,197) (18,197) (19,198) };
+\end{axis}
+\end{tikzpicture}
+\caption{Graphe représentant l'évolution des meilleur individus}
+\end{figure}
+\end{document}
