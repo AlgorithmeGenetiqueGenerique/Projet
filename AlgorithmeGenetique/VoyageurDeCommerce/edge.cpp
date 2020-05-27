@@ -1,8 +1,6 @@
 #include "edge.h"
 #include "node.h"
-
 #include <math.h>
-
 #include <QPainter>
 
 static const double Pi = 3.14159265358979323846264338327950288419717;
@@ -71,12 +69,8 @@ void Edge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
     QLineF line(sourcePoint, destPoint);
     if (qFuzzyCompare(line.length(), qreal(0.)))
         return;
-
-    // Draw the line itself
     painter->setPen(QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     painter->drawLine(line);
-
-    // Draw the arrows
     double angle = ::acos(line.dx() / line.length());
     if (line.dy() >= 0)
         angle = TwoPi - angle;

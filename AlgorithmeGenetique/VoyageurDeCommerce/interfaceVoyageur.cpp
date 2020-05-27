@@ -36,12 +36,12 @@ voyageurDeCommerceInterface::voyageurDeCommerceInterface(QWidget *parent){
     poids_arrete5 = new QSpinBox();
     poids_arrete6 = new QSpinBox();
     configurationLayout->addRow("Nombre de sommets", nombre_sommets);
-    configurationLayout->addRow("Poids arrête n°1: ", poids_arrete1);
-    configurationLayout->addRow("Poids arrête n°2", poids_arrete2);
-    configurationLayout->addRow("Poids arrête n°3", poids_arrete3);
-    configurationLayout->addRow("Poids arrête n°4", poids_arrete4);
-    configurationLayout->addRow("Poids arrête n°5", poids_arrete5);
-    configurationLayout->addRow("Poids arrête n°6", poids_arrete6);
+    configurationLayout->addRow("Poids arrête 1 <-> 2 : ", poids_arrete1);
+    configurationLayout->addRow("Poids arrête 1 <-> 3 : ", poids_arrete2);
+    configurationLayout->addRow("Poids arrête 1 <-> 4 : ", poids_arrete3);
+    configurationLayout->addRow("Poids arrête 2 <-> 3 : ", poids_arrete4);
+    configurationLayout->addRow("Poids arrête 2 <-> 4 : ", poids_arrete5);
+    configurationLayout->addRow("Poids arrête 3 <-> 4 : ", poids_arrete6);
     configurationLayout->addWidget(valeurChoisies);
     configurationLayout->setFieldGrowthPolicy(QFormLayout::FieldsStayAtSizeHint);
     
