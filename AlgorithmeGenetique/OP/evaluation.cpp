@@ -1,5 +1,4 @@
 #include "evaluation.h"
-#include <iostream>
 
 const int evaluation::GENE = 1;
 const int evaluation::ADDITION = 2;
@@ -737,7 +736,7 @@ void evaluation::identification(individu* individu_x){
                     if (erreur == 8) break;
 					break;
 				  }
-    case DOUBLE :{std::cout<<"#############\n";
+    case DOUBLE :{
 					empilerFlottants(flottant);
 					analyseSyntaxiqueTypes(individu_x);
                     if (erreur == 8) break;

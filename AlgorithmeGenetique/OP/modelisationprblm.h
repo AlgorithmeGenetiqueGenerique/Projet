@@ -24,8 +24,8 @@
 #include "EntreesSorties.h"
 #include "operationsgenetiques.h"
 #include <QScrollBar>
-#include "notebad.h"
-#include "calculator.h"
+#include "notepad.h"
+#include "claviervertuel.h"
 
 
 
@@ -43,56 +43,27 @@ public:
      myThread *thrd;
 
 public slots:
-    void connectConfiguration();
-    void connectReConfiguration();
-    void connectSauvegarde();
-    void connectChargement();
-    void connectLancement();
-    void connectPause();
-    void connectReprendre();
-    void connectAcceuil();
-    void connectAide();
-    void connectQuitter();
-    void connectConsulter();
+
     void onTxtEdt(int a);
 
 private slots:
     void on_pushButton_3_clicked();
-
     void on_pushButton_2_clicked();
-
     void on_pushButton_6_clicked();
-
-
-
     void on_pushButton_9_clicked();
-
     void on_pushButton_8_clicked();
-
     void on_pushButton_7_clicked();
-
     void on_checkBox_stateChanged(int arg1);
-
     void on_pushButton_10_clicked();
-
     void on_pushButton_clicked();
-
     void on_pushButton_11_clicked();
-
     void on_pushButton_12_clicked();
-
     void on_pushButton_13_clicked();
-
     void on_pushButton_4_clicked();
-
     void on_pushButton_14_clicked();
-
     void on_pushButton_5_clicked();
-
     void on_radioButton_clicked();
-
     void on_radioButton_3_clicked();
-
     void on_radioButton_2_clicked();
 
 signals:
@@ -100,7 +71,7 @@ signals:
 
 private:
     Ui::ModelisationPrblm *ui;
-    QComboBox* choix_selection;//
+    QComboBox* choix_selection;
     QSpinBox *nombre_genes;
     QSpinBox *taille_population;
     QSpinBox *nombre_iterations;
@@ -192,7 +163,6 @@ private:
     //--------------------------
     EntreesSorties *ee;
     operationsGenetiques *op;
-
     int score_totale = 0;
     double score_totale_d = 0;
     int meilleur_premier;
@@ -211,7 +181,6 @@ private:
     QScrollBar *sb;
     notepad *ntb;
     Calculator *calculat;
-
 };
 
 #endif // MODELISATIONPRBLM_H

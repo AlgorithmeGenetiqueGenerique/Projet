@@ -1,5 +1,5 @@
 #include "individu.h"
-#include <iostream>
+
 individu::individu(){
 	ADN = gene();
 }

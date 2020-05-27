@@ -41,8 +41,6 @@ void Node::calculateForces()
         newPos = pos();
         return;
     }
-
-    // Sum up all forces pushing this item away
     qreal xvel = 0;
     qreal yvel = 0;
     foreach (QGraphicsItem *item, scene()->items()) {
@@ -59,8 +57,6 @@ void Node::calculateForces()
             yvel += (dy * 150.0) / l;
         }
     }
-
-    // Now subtract all forces pulling items together
     double weight = (edgeList.size() + 1) * 10;
     foreach (Edge *edge, edgeList) {
         QPointF vec;
@@ -134,7 +130,6 @@ QVariant Node::itemChange(GraphicsItemChange change, const QVariant &value)
     case ItemPositionHasChanged:
         foreach (Edge *edge, edgeList)
             edge->adjust();
-        //graph->itemMoved();
         break;
     default:
         break;

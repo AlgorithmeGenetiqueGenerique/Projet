@@ -36,8 +36,8 @@ ModelisationPrblm::ModelisationPrblm(QWidget *parent) :
     taux_mutation=ui->doubleSpinBox_2;
     choix_selection=ui->comboBox;
     chaine_evaluation=ui->lineEdit;
-   // min_intervalle=ui->lineEdit_2;
-   // max_intervalle=ui->lineEdit_3;
+    min_intervalle=nullptr;
+    max_intervalle=nullptr;
     generation_satisfaisante=ui->lineEdit_4;
     sauvegarder=ui->pushButton_2;
     charger=ui->pushButton;
@@ -52,42 +52,8 @@ ModelisationPrblm::ModelisationPrblm(QWidget *parent) :
     nom_fichier_latex=ui->lineEdit_6;
     nom_fichier_chargement=ui->lineEdit_5;
     configurer=ui->pushButton_7;
-    consulter=nullptr;
+
     //---------------------------------------------------------
-   // layout_nombre_genes= ui->verticalLayout;
-    //layout_taille_population= ui->verticalLayout;
-    //layout_nombre_iterations= ui->verticalLayout;
-    //layout_nombre_individu_selectionnes= ui->verticalLayout;
-    //layout_type_genes= ui->verticalLayout;
-    //layout_type_genes_principale= ui->verticalLayout;
-    //layout_choix_selection= ui->verticalLayout;
-    //layout_taux_croisement= ui->verticalLayout;
-    //layout_taux_mutation= ui->verticalLayout;
-    //layout_maximisation_minimisation= ui->verticalLayout;
-    //layout_maximisation_minimisation_principale=ui->verticalLayout;
-    //layout_chaine_evaluation= ui->verticalLayout;
-    //layout_min_intervalle= ui->verticalLayout;
-    //layout_max_intervalle= ui->verticalLayout;
-    //layout_generation_satisfaisante= ui->verticalLayout;
-    //layout_nom_fichier_sauvegarde= ui->verticalLayout;
-    //layout_nom_fichier_latex= ui->verticalLayout;
-    //layout_nom_fichier_chargement= ui->verticalLayout;
-    /*//-----------------------------------------------------------------------
-    layout_configurer= new QHBoxLayout;
-    layout_sauvegarder= new QHBoxLayout;
-    layout_charger= new QHBoxLayout;
-    layout_demarrer_simulation= new QHBoxLayout;
-    layout_pause= new QHBoxLayout;
-    layout_reprendre= new QHBoxLayout;
-    layout_reconfigurer= new QHBoxLayout;
-    layout_acceuil= new QHBoxLayout;
-    layout_aide= new QHBoxLayout;
-    layout_quitter= new QHBoxLayout;
-    layout_consulter= new QHBoxLayout;
-    //----------------------------------------------------------------------
-    Layout_conteneur= new QGridLayout;
-    //---------------------------------------------------------------------
-    */
     label_nombre_genes=ui->label_nombreG;
     label_nombre_genes->setText("nombre_genes");
     label_taille_population=ui->label_tailleP;
@@ -103,63 +69,12 @@ ModelisationPrblm::ModelisationPrblm(QWidget *parent) :
     label_taux_croisement=ui->label_tauxC;
     label_taux_mutation=ui->label_tauxM ;
     label_chaine_evaluation=ui->label_chaineE;
-    //label_min_intervalle=ui->label_intervalleMI;
-    //label_max_intervalle=ui->label_intervalleMA;
     label_generation_satisfaisante=ui->label_generationS;
-    /*label_nom_fichier_sauvegarde=;
-    label_nom_fichier_latex=;
-    label_nom_fichier_chargement=;
-    label_sauvegarder=;
-    label_charger=;
-    label_demarrer_simulation=;
-    label_pause=;
-    label_reprendre=;
-    label_reconfigurer=;
-    label_acceuil=;
-    label_aide=;
-    label_quitter=;
-    label_consulter=;*/
     ntb=new notepad(this);
     thrd=new myThread(this);
     calculat=new Calculator(nullptr);
     calculat->close();
     QObject::connect(thrd,SIGNAL(txtEdt(int)),this,SLOT(onTxtEdt(int)));
-
-
-
-}
-
-void ModelisationPrblm::connectConfiguration(){
-
-}
-void ModelisationPrblm::connectReConfiguration(){
-
-}
-void ModelisationPrblm::connectSauvegarde(){
-
-}
-void ModelisationPrblm::connectChargement(){
-
-}
-void ModelisationPrblm::connectLancement(){
-
-}
-void ModelisationPrblm::connectPause(){
-
-}
-void ModelisationPrblm::connectReprendre(){
-
-}
-void ModelisationPrblm::connectAcceuil(){
-
-}
-void ModelisationPrblm::connectAide(){
-
-}
-void ModelisationPrblm::connectQuitter(){
-
-}
-void ModelisationPrblm::connectConsulter(){
 
 }
 
@@ -170,10 +85,6 @@ ModelisationPrblm::~ModelisationPrblm()
 
 void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
 {
-    qDebug()<<"=======================================================";
-    qDebug()<<taille_population->value();
-    qDebug()<<nombre_individu_selectionnes->value();
-
     nombre_individu_selectionnes->setStyleSheet("background-color: white;");
     chaine_evaluation->setStyleSheet("background-color: white;");
     taux_croisement->setStyleSheet("background-color: white;");
@@ -231,10 +142,7 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     op = new operationsGenetiques(&individus,ee->getMaximisationMinimisation(), ee->getNmbr_indiv_a_selec());
     sb = ui->textBrowser->verticalScrollBar();
     score_totale=0;
-    //---------------------------------------------------------------------
-
     evaluation evaluation_test = evaluation(ee->getChaineEvaluation());
-
     if(type==1 || type==3){
         if ((ee->getMinIntervalle() == ee->getMaxIntervalle()) ) {
            ui->stackedWidget->setCurrentIndex(0);
@@ -371,7 +279,7 @@ void ModelisationPrblm::on_pushButton_2_clicked()//----
     ui->stackedWidget->setCurrentIndex(2);
 }
 
-void ModelisationPrblm::on_pushButton_6_clicked()//----
+void ModelisationPrblm::on_pushButton_6_clicked()//Acceuil
 {   
     thrd->Stop = true;
     ui->stackedWidget->setCurrentIndex(0);
@@ -463,14 +371,12 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
         }
         if (arret) thrd->Stop=true;
     //-------------------------Sélection---------------
-        qDebug()<<"Je suis a la selection";
     if (ee->getChoixSelection() == 1)
             op->selectionParRang();
     else if (ee->getChoixSelection() == 2)// modifier reel-------
             op->selectionParTournoi();
     else if (ee->getChoixSelection() == 3)//modifier reel--------
             op->selectionParRoulette();
-    qDebug()<<"Fin a la selection";
     //-------------------------Croisement---------------
 
     if ((ee->getTypeGenes() == 1) || (ee->getTypeGenes() == 3))
@@ -553,12 +459,6 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
         }
             compteur_generation++;
 
-
-
-
-
-
- //--------------------------------------------------------------------------------------------
     sb->setValue(sb->maximum());
     thrd->count=j;
 }
@@ -608,7 +508,7 @@ void ModelisationPrblm::on_checkBox_stateChanged(int arg1)
 
 }
 
-void ModelisationPrblm::on_pushButton_10_clicked()
+void ModelisationPrblm::on_pushButton_10_clicked()//Clavier
 {
     int type;
     int maxMin;
@@ -646,7 +546,7 @@ void ModelisationPrblm::on_pushButton_clicked()
     ui->stackedWidget->setCurrentIndex(3);
 }
 
-void ModelisationPrblm::on_pushButton_11_clicked()
+void ModelisationPrblm::on_pushButton_11_clicked()//sauvgarde
 {
     qDebug()<<ui->lineEdit_7->text();
     ee=new EntreesSorties(ui->lineEdit_7->text().toStdString());

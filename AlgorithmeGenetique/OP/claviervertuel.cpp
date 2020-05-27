@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <string>
 #include "button.h"
-#include "calculator.h"
+#include "claviervertuel.h"
 #include <vector>
 #include <stdexcept>
 
@@ -17,10 +17,6 @@ QString evaluate;
 Calculator::Calculator(QWidget *parent)
     : QWidget(parent)
 {
-    /*!
-     * \brief Intialisaation
-     */
-
 
     display = new QLineEdit("");
     display->setReadOnly(true);
@@ -49,48 +45,23 @@ Calculator::Calculator(QWidget *parent)
     {
         digitButtons[i] = createButton(QString::number(i), SLOT(digitClicked()));
     }
-    /*!
-     * \brief buttons for decimal
-     */
+
     Button *pointButton = createButton(tr("."), SLOT(pointClicked()));
 
 
-    /*!
-     * \brief buttons for backspace, clear and clear all
-     */
     Button *backspaceButton = createButton(tr("⌫"), SLOT(backspaceClicked()));
     Button *clearAllButton = createButton(tr("Tout effacer"), SLOT(clearAll()));
 
-    /*!
-     * \brief simple functions
-     * 1) division
-     * 2) times
-     * 3) minus
-     * 4) plus
-     * 5) remainder
-     */
     Button *divisionButton = createButton(tr("/"), SLOT(unaryOperatorClicked()));
     Button *timesButton = createButton(tr("*"), SLOT(unaryOperatorClicked()));
     Button *minusButton = createButton(tr("-"), SLOT(unaryOperatorClicked()));
     Button *plusButton = createButton(tr("+"), SLOT(unaryOperatorClicked()));
     Button *remainderButton = createButton(tr("%"), SLOT(unaryOperatorClicked()));
 
-    /*!
-     * \brief advance functions
-     * 1) sqaureroot
-     * 2) power
-
-     */
     Button *squareRootButton = createButton(tr("√x"), SLOT(unaryOperatorClicked()));
     Button *powerButton = createButton(tr("x^y"), SLOT(unaryOperatorClicked()));
 
 
-    /*!
-     * \brief trignometric functions
-     * 1) sin
-     * 2) cos
-     * 3) tan
-     */
     Button *sinButton = createButton(tr("sin"), SLOT(unaryOperatorClicked()));
     Button *tanButton = createButton(tr("tan"), SLOT(unaryOperatorClicked()));
     Button *cosButton = createButton(tr("cos"), SLOT(unaryOperatorClicked()));
@@ -110,43 +81,22 @@ Calculator::Calculator(QWidget *parent)
     Button *nandButton = createButton(tr("NAND"), SLOT(unaryOperatorClicked()));
     Button *vabButton = createButton(tr("|-x|"), SLOT(unaryOperatorClicked()));
 
-    /*!
-     * \brief logrithmic
-     * 1) log to the base 10
-     * 2) log to base e
-     */
     Button *logButton = createButton(tr("log2"), SLOT(unaryOperatorClicked()));
     Button *logpButton = createButton(tr("log10"), SLOT(unaryOperatorClicked()));
 
     Button *lnButton = createButton(tr("ln"), SLOT(unaryOperatorClicked()));
 
-    /*!
-     * \brief brackets
-     */
     Button *rightbracketButton = createButton(tr(")"), SLOT(unaryOperatorClicked()));
     Button *leftbracketButton = createButton(tr("("), SLOT(unaryOperatorClicked()));
 
-    /*!
-     * \brief random functions
-     */
     Button *exponentialButton = createButton(tr("e^x"), SLOT(unaryOperatorClicked()));
     Button *supButton = createButton(tr("<"), SLOT(unaryOperatorClicked()));
     Button *infButton = createButton(tr(">"), SLOT(unaryOperatorClicked()));
 
-    /*!
-     * \brief exit
-     */
     QPushButton *quitButton = new QPushButton(tr("Valider"));
 
-    /*!
-     * \brief writeButton
-     * convert digits to words
-     */
 
 
-    /*!
-     * \brief geneBoutton
-     */
     Button *a_Button = createButton(tr("Ga"), SLOT(unaryOperatorClicked()));
     Button *b_Button = createButton(tr("Gb"), SLOT(unaryOperatorClicked()));
     Button *c_Button = createButton(tr("Gc"), SLOT(unaryOperatorClicked()));
@@ -170,9 +120,6 @@ Calculator::Calculator(QWidget *parent)
     mainLayout->addWidget(quitButton, 1, 11, 1, 1);
     QObject::connect(quitButton, SIGNAL(clicked()), this, SLOT(valide()));
 
-    /*!
-     * Display the numbers
-     */
     for (int i = 1; i < NumDigitButtons; ++i)
     {
         int row = ((9 - i) / 3) + 2;
@@ -180,9 +127,6 @@ Calculator::Calculator(QWidget *parent)
         mainLayout->addWidget(digitButtons[i], row, column);
     }
 
-    /*!
-     * Display of all the funtions on calculator gui
-     */
 
     mainLayout->addWidget(squareRootButton, 2, 0);
     mainLayout->addWidget(powerButton, 3, 0);
@@ -257,9 +201,7 @@ Calculator::Calculator(QWidget *parent)
 
 }
 
-/*
- * impression
- */
+
 void Calculator::digitClicked()
 {
     Button *clickedButton = qobject_cast<Button *>(sender());
@@ -270,9 +212,7 @@ void Calculator::digitClicked()
     evaluate=evaluate+QString::number(digitValue);
 }
 
-/*
- * contiens toutes les operations
- */
+
 void Calculator::unaryOperatorClicked()
 {
     Button *clickedButton = qobject_cast<Button *>(sender());
@@ -544,11 +484,6 @@ void Calculator::unaryOperatorClicked()
 
 
 
-
-/*!
- * \brief Calculator::pointClicked
- * include a decimal
- */
 void Calculator::pointClicked()
 {
     display->setText(display->text() + tr("."));
@@ -556,10 +491,7 @@ void Calculator::pointClicked()
 
 }
 
-/*!
- * \brief Calculator::backspaceClicked
- * delete a digit or operation that is printed on screen ( similar to backspace )
- */
+
 void Calculator::backspaceClicked()
 {
     QString text = display->text();
@@ -573,10 +505,7 @@ void Calculator::backspaceClicked()
     evaluate.chop(1);
 }
 
-/*!
- * \brief Calculator::clearAll
- * clear everything and every data
- */
+
 void Calculator::clearAll()
 {
     display->setText("");
@@ -587,12 +516,7 @@ void Calculator::clearAll()
     evaluate ="";
 }
 
-/*!
- * \brief Calculator::createButton
- * \param text
- * \param member
- * create the button
- */
+
 Button *Calculator::createButton(const QString &text, const char *member)
 {
     Button *button = new Button(text);
@@ -600,20 +524,14 @@ Button *Calculator::createButton(const QString &text, const char *member)
     return button;
 }
 
-/*!
- * \brief Calculator::abortOperation
- * abort operation
- */
+
 void Calculator::abortOperation()
 {
     clearAll();
     display->setText(tr("####"));
 }
 
-/*!
- * \brief Calculator::quit
- * quit button in calculator
- */
+
 void Calculator::valide()
 {
     QMessageBox messageBox;

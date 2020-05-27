@@ -113,17 +113,17 @@ void GraphWidget::setSommets(int sommets){
 void GraphWidget::initialisation4sommets(int edge12_, int edge13_, int edge14_, int edge23_, int edge24_, int edge34_){
         
         graph[0][0] = 0;
-        graph[0][1] = 12;
-        graph[0][2] = 13;
-        graph[0][3] = 14;
+        graph[0][1] = edge12_;
+        graph[0][2] = edge13_;
+        graph[0][3] = edge14_;
         graph[1][0] = graph[0][1];
         graph[1][1] = 0;
-        graph[1][2] = 23;
-        graph[1][3] = 24;
+        graph[1][2] = edge23_;
+        graph[1][3] = edge24_;
         graph[2][0] = graph[0][2];
         graph[2][1] = graph[1][2];
         graph[2][2] = 0;
-        graph[2][3] = 34;
+        graph[2][3] = edge34_;
         graph[3][0] = graph[0][3];
         graph[3][1] = graph[1][3];
         graph[3][2] = graph[2][3];
@@ -156,12 +156,6 @@ void GraphWidget::initialisation4sommets(int edge12_, int edge13_, int edge14_, 
 
 void GraphWidget::afficherSolution()
 {
-    /* switch (event->key()) {
-    case Qt::Key_Up:
-
-        break;
-    case Qt::Key_Down:
-    { */
             int score_totale = 0;
             double score_totale_d = 0;
             int meilleur_premier;
@@ -1233,15 +1227,11 @@ int g1,g2,g3,g4,g5,g6,g7,poid =10000000;
                 }
                     compteur_generation++;
                     if (arret) break;
-
-
-
             }
             if ((ee.getTypeGenes() == 1) || (ee.getTypeGenes() == 3)){
 
                 ee.setNoteMoyenne(score_total);
                 ee.setMeilleurIndividu(meillleur_individu);
-                ee.genererLatex(&individus, "Statistiques.txt");
             }
 
             if (nombre_sommets ==4)
@@ -1253,20 +1243,10 @@ int g1,g2,g3,g4,g5,g6,g7,poid =10000000;
             if (nombre_sommets == 7)
                 afficherSolution7Sommets(g1,g2,g3,g4,g5,g6,g7);
 }
-       /*  break;
-    case Qt::Key_Left:
-
-        break;
-    case Qt::Key_Right:
-
-        break;
-    default:
-        QGraphicsView::keyPressEvent(event);
-    } */
 
 
 void GraphWidget::initialisationGraph(){
-    //2.créer la matrice :--------------------------------
+   //création de la matrice :
    if (nombre_sommets == 4){
        graph = (int**) malloc(4*sizeof(int*));
        for (int i=0; i<4; i++){
@@ -1297,20 +1277,20 @@ void GraphWidget::initialisationGraph(){
            graph[i] = (int*) malloc(8*sizeof(int));
        }
    }
-   //3. recuperer les poids et initialiser la matrice :
+   //3. initialiser la matrice :
    if (nombre_sommets == 4){
        graph[0][0] = 0;
-       graph[0][1] = 12;
-       graph[0][2] = 13;
-       graph[0][3] = 14;
+       graph[0][1] = rand()%100;
+       graph[0][2] = rand()%100;
+       graph[0][3] = rand()%100;
        graph[1][0] = graph[0][1];
        graph[1][1] = 0;
-       graph[1][2] = 23;
-       graph[1][3] = 24;
+       graph[1][2] = rand()%100;
+       graph[1][3] = rand()%100;
        graph[2][0] = graph[0][2];
        graph[2][1] = graph[1][2];
-       graph[2][2] = 0;
-       graph[2][3] = 34;
+       graph[2][2] = rand()%100;
+       graph[2][3] = rand()%100;
        graph[3][0] = graph[0][3];
        graph[3][1] = graph[1][3];
        graph[3][2] = graph[2][3];
@@ -1318,25 +1298,25 @@ void GraphWidget::initialisationGraph(){
    }
    else if (nombre_sommets ==5){
        graph[0][0] = 0;
-       graph[0][1] = 12;
-       graph[0][2] = 13;
-       graph[0][3] = 14;
-       graph[0][4] = 15;
+       graph[0][1] = rand()%100;
+       graph[0][2] = rand()%100;
+       graph[0][3] = rand()%100;
+       graph[0][4] = rand()%100;
        graph[1][0] = graph[0][1];
        graph[1][1] = 0;
-       graph[1][2] = 23;
-       graph[1][3] = 24;
-       graph[1][4] = 25;
+       graph[1][2] = rand()%100;
+       graph[1][3] = rand()%100;
+       graph[1][4] = rand()%100;
        graph[2][0] = graph[0][2];
        graph[2][1] = graph[1][2];
        graph[2][2] = 0;
-       graph[2][3] = 34;
-       graph[2][4] = 35;
+       graph[2][3] = rand()%100;
+       graph[2][4] = rand()%100;
        graph[3][0] = graph[0][3];
        graph[3][1] = graph[1][3];
        graph[3][2] = graph[2][3];
        graph[3][3] = 0;
-       graph[3][4] = 45;
+       graph[3][4] = rand()%100;
        graph[4][0] = graph[0][4];
        graph[4][1] = graph[1][4];
        graph[4][2] = graph[2][4];
@@ -1345,35 +1325,35 @@ void GraphWidget::initialisationGraph(){
    }
    else if (nombre_sommets ==6){
        graph[0][0] = 0;
-       graph[0][1] = 12;
-       graph[0][2] = 13;
-       graph[0][3] = 14;
-       graph[0][4] = 15;
-       graph[0][5] = 16;
+       graph[0][1] = rand()%100;
+       graph[0][2] = rand()%100;
+       graph[0][3] = rand()%100;
+       graph[0][4] = rand()%100;
+       graph[0][5] = rand()%100;
        graph[1][0] = graph[0][1];
        graph[1][1] = 0;
-       graph[1][2] = 23;
-       graph[1][3] = 24;
-       graph[1][4] = 25;
-       graph[1][5] = 26;
+       graph[1][2] = rand()%100;
+       graph[1][3] = rand()%100;
+       graph[1][4] = rand()%100;
+       graph[1][5] = rand()%100;
        graph[2][0] = graph[0][2];
        graph[2][1] = graph[1][2];
        graph[2][2] = 0;
-       graph[2][3] = 34;
-       graph[2][4] = 35;
-       graph[2][5] = 36;
+       graph[2][3] = rand()%100;
+       graph[2][4] = rand()%100;
+       graph[2][5] = rand()%100;
        graph[3][0] = graph[0][3];
        graph[3][1] = graph[1][3];
        graph[3][2] = graph[2][3];
        graph[3][3] = 0;
-       graph[3][4] = 45;
-       graph[3][5] = 46;
+       graph[3][4] = rand()%100;
+       graph[3][5] = rand()%100;
        graph[4][0] = graph[0][4];
        graph[4][1] = graph[1][4];
        graph[4][2] = graph[2][4];
        graph[4][3] = graph[3][4];
        graph[4][4] = 0;
-       graph[4][5] = 56;
+       graph[4][5] = rand()%100;
        graph[5][0] = graph[0][5];
        graph[5][1] = graph[1][5];
        graph[5][2] = graph[2][5];
@@ -1383,47 +1363,47 @@ void GraphWidget::initialisationGraph(){
    }
    else if (nombre_sommets ==7){
        graph[0][0] = 0;
-       graph[0][1] = 12;
-       graph[0][2] = 13;
-       graph[0][3] = 14;
-       graph[0][4] = 15;
-       graph[0][5] = 16;
-       graph[0][6] = 17;
+       graph[0][1] = rand()%100;
+       graph[0][2] = rand()%100;
+       graph[0][3] = rand()%100;
+       graph[0][4] = rand()%100;
+       graph[0][5] = rand()%100;
+       graph[0][6] = rand()%100;
        graph[1][0] = graph[0][1];
        graph[1][1] = 0;
-       graph[1][2] = 23;
-       graph[1][3] = 24;
-       graph[1][4] = 25;
-       graph[1][5] = 26;
-       graph[1][6] = 27;
+       graph[1][2] = rand()%100;
+       graph[1][3] = rand()%100;
+       graph[1][4] = rand()%100;
+       graph[1][5] = rand()%100;
+       graph[1][6] = rand()%100;
        graph[2][0] = graph[0][2];
        graph[2][1] = graph[1][2];
        graph[2][2] = 0;
-       graph[2][3] = 34;
-       graph[2][4] = 35;
-       graph[2][5] = 36;
-       graph[2][6] = 37;
+       graph[2][3] = rand()%100;
+       graph[2][4] = rand()%100;
+       graph[2][5] = rand()%100;
+       graph[2][6] = rand()%100;
        graph[3][0] = graph[0][3];
        graph[3][1] = graph[1][3];
        graph[3][2] = graph[2][3];
        graph[3][3] = 0;
-       graph[3][4] = 45;
-       graph[3][5] = 46;
-       graph[3][6] = 47;
+       graph[3][4] = rand()%100;
+       graph[3][5] = rand()%100;
+       graph[3][6] = rand()%100;
        graph[4][0] = graph[0][4];
        graph[4][1] = graph[1][4];
        graph[4][2] = graph[2][4];
        graph[4][3] = graph[3][4];
        graph[4][4] = 0;
-       graph[4][5] = 56;
-       graph[4][6] = 57;
+       graph[4][5] = rand()%100;
+       graph[4][6] = rand()%100;
        graph[5][0] = graph[0][5];
        graph[5][1] = graph[1][5];
        graph[5][2] = graph[2][5];
        graph[5][3] = graph[3][5];
        graph[5][4] = graph[4][5];
        graph[5][5] = 0;
-       graph[5][6] = 67;
+       graph[5][6] = rand()%100;
        graph[6][0] = graph[0][6];
        graph[6][1] = graph[1][6];
        graph[6][2] = graph[2][6];
