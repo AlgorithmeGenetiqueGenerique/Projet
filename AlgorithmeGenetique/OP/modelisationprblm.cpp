@@ -192,11 +192,23 @@ void ModelisationPrblm::on_pushButton_3_clicked()//Lancer la simulation
     int type;
     int maxMin;
     if(ui->radioButton->isChecked())
+    {
         type=1;
+        thrd->test=2;
+    }
+
     else if(ui->radioButton_2->isChecked())
+    {
         type=2;
+        thrd->test=0;
+    }
+
     else
+    {
         type=3;
+        thrd->test=2;
+    }
+
     if(ui->radioButton_4->isChecked())
         maxMin=1;
     else
@@ -451,13 +463,14 @@ void ModelisationPrblm::onTxtEdt(int j)//Thread
         }
         if (arret) thrd->Stop=true;
     //-------------------------Sélection---------------
+        qDebug()<<"Je suis a la selection";
     if (ee->getChoixSelection() == 1)
             op->selectionParRang();
     else if (ee->getChoixSelection() == 2)// modifier reel-------
             op->selectionParTournoi();
     else if (ee->getChoixSelection() == 3)//modifier reel--------
             op->selectionParRoulette();
-
+    qDebug()<<"Fin a la selection";
     //-------------------------Croisement---------------
 
     if ((ee->getTypeGenes() == 1) || (ee->getTypeGenes() == 3))
