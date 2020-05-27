@@ -1,4 +1,4 @@
-#include "notebad.h"
+#include "notepad.h"
 #include <QFontDialog>
 #include "ui_notepad.h"
 

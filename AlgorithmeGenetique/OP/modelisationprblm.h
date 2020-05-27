@@ -24,8 +24,8 @@
 #include "EntreesSorties.h"
 #include "operationsgenetiques.h"
 #include <QScrollBar>
-#include "notebad.h"
-#include "calculator.h"
+#include "notepad.h"
+#include "claviervertuel.h"
 
 
 

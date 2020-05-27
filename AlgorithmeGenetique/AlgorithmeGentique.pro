@@ -24,14 +24,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 SOURCES += \
+    OP/claviervertuel.cpp \
+    OP/notepad.cpp \
         main.cpp \
         OP/mainwindow.cpp \
     OP/modelisationprblm.cpp \
     OP/gene.cpp \
     OP/individu.cpp \
-    OP/calculator.cpp \
     OP/button.cpp \
-    OP/notebad.cpp \
     OP/EntreesSorties.cpp \
     OP/evaluation.cpp \
     OP/operationsgenetiques.cpp \
@@ -51,15 +51,15 @@ SOURCES += \
     
 
 HEADERS += \
+    OP/claviervertuel.h \
         OP/mainwindow.h \
     OP/modelisationprblm.h \
     OP/gene.h \
     OP/individu.h \
-    OP/calculator.h \
     OP/button.h \
-    OP/notebad.h \
     OP/EntreesSorties.h \
     OP/evaluation.h \
+    OP/notepad.h \
     OP/operationsgenetiques.h \
     OP/mythread.h \
     Queen/BoxEchiquier.h \
