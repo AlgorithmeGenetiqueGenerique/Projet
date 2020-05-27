@@ -139,11 +139,8 @@ public:
     void setupUi(QMainWindow *ModelisationPrblm)
     {
         if (ModelisationPrblm->objectName().isEmpty())
-<<<<<<< HEAD
             ModelisationPrblm->setObjectName(QString::fromUtf8("ModelisationPrblm"));
-=======
-            ModelisationPrblm->setObjectName(QStringLiteral("ModelisationPrblm"));
->>>>>>> 38b258cbe41c516b7af0e5a35905f2332c8d6ea7
+
         ModelisationPrblm->resize(737, 539);
         centralwidget = new QWidget(ModelisationPrblm);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
@@ -606,13 +603,8 @@ public:
 
         ModelisationPrblm->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ModelisationPrblm);
-<<<<<<< HEAD
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 737, 26));
-=======
-        menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 737, 21));
->>>>>>> 38b258cbe41c516b7af0e5a35905f2332c8d6ea7
         ModelisationPrblm->setMenuBar(menubar);
         statusbar = new QStatusBar(ModelisationPrblm);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -628,7 +620,7 @@ public:
 
     void retranslateUi(QMainWindow *ModelisationPrblm)
     {
-<<<<<<< HEAD
+
         ModelisationPrblm->setWindowTitle(QApplication::translate("ModelisationPrblm", "MainWindow", nullptr));
         pushButton_6->setText(QApplication::translate("ModelisationPrblm", "Acceuil", nullptr));
         pushButton_13->setText(QApplication::translate("ModelisationPrblm", "Notepad", nullptr));
@@ -648,29 +640,7 @@ public:
 
         label_typeG->setText(QApplication::translate("ModelisationPrblm", "Type de g\303\250nes", nullptr));
         label_senseE->setText(QApplication::translate("ModelisationPrblm", "Le sense de l'evaluation", nullptr));
-=======
-        ModelisationPrblm->setWindowTitle(QApplication::translate("ModelisationPrblm", "MainWindow", Q_NULLPTR));
-        pushButton_6->setText(QApplication::translate("ModelisationPrblm", "Acceuil", Q_NULLPTR));
-        pushButton_13->setText(QApplication::translate("ModelisationPrblm", "Notepad", Q_NULLPTR));
-        pushButton_5->setText(QApplication::translate("ModelisationPrblm", "Aide", Q_NULLPTR));
-        pushButton_4->setText(QApplication::translate("ModelisationPrblm", "Quitter", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("ModelisationPrblm", "Sauvgarder", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("ModelisationPrblm", "Charger", Q_NULLPTR));
-        label_nombreG->setText(QApplication::translate("ModelisationPrblm", "Nombre de g\303\250nes", Q_NULLPTR));
-        label_tailleP->setText(QApplication::translate("ModelisationPrblm", "Taille de la population", Q_NULLPTR));
-        label_nombreI->setText(QApplication::translate("ModelisationPrblm", "Nombre d'it\303\251rations", Q_NULLPTR));
-        label_nombreIS->setText(QApplication::translate("ModelisationPrblm", "Nombre d'individu \303\240 s\303\251lection\303\251s", Q_NULLPTR));
-        label_tauxC->setText(QApplication::translate("ModelisationPrblm", "Taux de croisement", Q_NULLPTR));
-        label_typeS->setText(QApplication::translate("ModelisationPrblm", "Type de s\303\251lection", Q_NULLPTR));
-        comboBox->clear();
-        comboBox->insertItems(0, QStringList()
-         << QApplication::translate("ModelisationPrblm", "Selection par rang", Q_NULLPTR)
-         << QApplication::translate("ModelisationPrblm", "Selection par tournoi", Q_NULLPTR)
-         << QApplication::translate("ModelisationPrblm", "Selection par roulette", Q_NULLPTR)
-        );
-        label_typeG->setText(QApplication::translate("ModelisationPrblm", "Type de g\303\250nes", Q_NULLPTR));
-        label_senseE->setText(QApplication::translate("ModelisationPrblm", "Le sense de l'evaluation", Q_NULLPTR));
->>>>>>> 38b258cbe41c516b7af0e5a35905f2332c8d6ea7
+
         groupBox_4->setTitle(QString());
         radioButton_2->setText(QApplication::translate("ModelisationPrblm", "RadioButton", Q_NULLPTR));
         radioButton_3->setText(QApplication::translate("ModelisationPrblm", "RadioButton", Q_NULLPTR));
