@@ -64,17 +64,11 @@ int f=0;
 
 }
 
-
-
 void Echiquier::setPiece()
 {
-
-
-
     for(int i = 0; i < 8; i++) {
         piece[i] = new Piece();
         Pieces.append(piece[i]);
     }
-
 }
 

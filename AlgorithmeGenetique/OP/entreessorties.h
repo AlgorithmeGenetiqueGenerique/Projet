@@ -8,15 +8,15 @@
 class EntreesSorties
 {
     public:
-    
+    //Constructeur utilisé pour le chargement
     EntreesSorties(std::string nom_fichier);
-    
+    //Constructeur utilisé pour le type de gènes entiers et binaires
     EntreesSorties(std::string chaine_evaluation, int taille_population, int nombre_iterations, int nmbr_indiv_a_selec, int choix_selection , int nombre_genes, float taux_croisement, float taux_mutation, int generation_satisfaisante, int type_genes, int min_intervalle, int max_intervalle, int maximisation_minimisation);
-    
+    //Constructeur utilisé pour le type de gènes flottants
     EntreesSorties(std::string chaine_evaluation, int taille_population, int nombre_iterations, int nmbr_indiv_a_selec, int choix_selection , int nombre_genes, float taux_croisement, float taux_mutation, double generation_satisfaisante, int type_genes, double min_intervalle, double max_intervalle, int maximisation_minimisation);
-    
+    //Méthode appelée pour éfféctuer la sauvegarde
     void sauvegarde(std::string nom_fichier);
-    
+    //Méthode appelée pour généré le fichier latex
     void genererLatex(std::vector<individu>* individus, std::string nom_fichier);
 	
 	std::string getChaineEvaluation();
@@ -67,7 +67,7 @@ class EntreesSorties
 	int nombre_iterations;
 	int nmbr_indiv_a_selec;
 	int choix_selection;
-int nombre_genes;
+    int nombre_genes;
 	float taux_croisement;
 	float taux_mutation;
 	int generation_satisfaisante;

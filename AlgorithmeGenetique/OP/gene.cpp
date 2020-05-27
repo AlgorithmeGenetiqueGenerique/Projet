@@ -1,5 +1,4 @@
 #include "gene.h"
-#include <iostream>
 gene::gene(){
 	genes_int.clear();
 	genes_double.clear();
@@ -71,4 +70,6 @@ void gene::setMaxIntervalle(int max_intervalle){
 	this->max_intervalle = max_intervalle;
 }
 gene::~gene(){
+    genes_int.clear();
+    genes_double.clear();
 }

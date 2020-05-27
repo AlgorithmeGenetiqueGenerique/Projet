@@ -23,7 +23,3 @@ BoxEchiquier *Piece::getBoxActuel()
 {
     return Box;
 }
-
-
-
-

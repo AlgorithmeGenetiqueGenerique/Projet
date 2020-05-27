@@ -6,10 +6,14 @@
 class gene
 {
     public:
+    //Constructeur par défaut
     gene();
+    //Constructeur utiliser pour les gènes de type entier ou binaire
     gene(int type_genes, int min_intervalle, int max_intervalle, int nombre_genes);
+    //Constructeur  utiliser pour les gènes de type flottant
     gene(int type_genes, double min_intervalle, double max_intervalle, int nombre_genes);
-     ~gene();
+    //déstructeur
+    ~gene();
 	int getTypeGenes();
 	void setTypeGenes(int type_genes);
 	
@@ -29,7 +33,9 @@ class gene
 	int getNombreGenes();
 	void setNombreGenes(int nombre_genes);
 
+    //contenant des gènes du type entier ou du type binaire
 	std::vector<int> genes_int;
+    //contenant des gènes du type ﬂottant
 	std::vector<double> genes_double;
 	
     private:

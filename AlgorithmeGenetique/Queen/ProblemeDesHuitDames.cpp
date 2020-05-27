@@ -4,23 +4,17 @@
 #include <QString>
 
 ProblemeDesHuitDames::ProblemeDesHuitDames(individu* individu_x_att){
-
 	individu_x = individu_x_att;
-	
 }
 
 void ProblemeDesHuitDames::verification_solution(){
 
     int i,j,x,note_individu=0;
     int note=0;
-    for(i=0; i<8; i++){
-
-        
-		
+    for(i=0; i<8; i++){		
         //Check vertical et horizontal
         for(j=0;j<8;j++)
         {     
-
             if(j!=i)
             {
             if(gene[i][0] == gene[j][0] || gene[i][1]== gene[j][1])

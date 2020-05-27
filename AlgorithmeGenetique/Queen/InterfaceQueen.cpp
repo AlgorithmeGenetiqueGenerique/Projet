@@ -1,9 +1,7 @@
 ﻿#include "InterfaceQueen.h"
 #include "bouton.h"
 #include "./../mainwindow1.h"
-
 #include <QDebug>
-
 #include <QTextEdit>
 #include <QCheckBox>
 #include <QLineEdit>
@@ -15,31 +13,25 @@
 using namespace std;
 InterfaceQueen::InterfaceQueen(QWidget *parent ):QGraphicsView(parent)
 {
-
-    //Making the Scene
     Scene_du_jeu = new QGraphicsScene();
     Scene_du_jeu->setSceneRect(530,200,500,500);
     Scene = new QGraphicsScene();
     Scene->setSceneRect(200,200,500,500);
-    //Making the view
+
     setFixedSize(1200,850);
    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
    setScene(Scene_du_jeu);
 
    op = operationsGenetiques(&individus, ee.getMaximisationMinimisation(), ee.getNmbr_indiv_a_selec());
-    //setScene(Scene);
+
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::lightGray);
     setBackgroundBrush(brush);
-   //display Check
     check = new QGraphicsTextItem();
     check->setPos(width()/2-100,860);
-
     enCours = 0;
-
-
 }
 
 
@@ -77,10 +69,6 @@ void InterfaceQueen::DessinerEchiquier()
             echiquier1[4][4]=1;echiquier1[4][2]=1;
             echiquier1[4][6]=1;
             Echiquiers->AjouterPiece(0,echiquier1);
-
-
-
-
 }
 void InterfaceQueen::AjouterSurScene(QGraphicsItem *item)
 {
@@ -141,8 +129,6 @@ void InterfaceQueen::onTxtEdt(int j)//Thread
         evaluation e = evaluation (ee.getChaineEvaluation());
 
     }
-
-    //if (arret) break;
     int alpha=0;
     int beta=individus[0].getNoteEvaluation();
 
@@ -259,7 +245,6 @@ void InterfaceQueen::AffichageEchiquier()
     thrd->Stop=true;
     thrd->test=2;
      QObject::connect(thrd,SIGNAL(txtEdt(int)),this,SLOT(onTxtEdt(int)));
-    //create Button
     DessinerEchiquier();
 
     /* int pxPos =875;
@@ -296,11 +281,6 @@ void InterfaceQueen::AffichageEchiquier()
     AjouterSurScene(playButton);
     AjouterSurScene(aide);
     AjouterSurScene(quitter);    AjouterSurScene(acceuil);*/
-
-
-
-
-
 }
 
 
